@@ -1,0 +1,216 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AUDIO_FRAME_SIZE	vs3_videoenc.h	16;"	d
+AUDIO_POOL_SIZE_MASTER	vs3_videoenc.h	19;"	d
+AUDIO_POOL_SIZE_SLAVE	vs3_videoenc.h	20;"	d
+AencFd	ip_device_system.c	/^int AencFd[MAX_ONVIF_DEVICE]={-1,-1,-1,-1};$/;"	v
+CC	Makefile	/^	CC = gcc$/;"	m
+CC	Makefile	/^	CC=arm-hisiv100nptl-linux-gcc$/;"	m
+COPY_STR2MAC	onvif_system.c	/^void COPY_STR2MAC(char *mac,char *str)  $/;"	f	signature:(char *mac,char *str)
+EMBED	Makefile	/^EMBED = 1 $/;"	m
+EXEC	Makefile	/^EXEC = onvifbox $/;"	m
+FRAME_BUFFER_SIZE	vs3_videoenc.h	15;"	d
+GT_FAIL	onvif_system.h	7;"	d
+GT_SUCCESS	onvif_system.h	6;"	d
+IP_AUDIO_FRAME_SIZE	vs3_videoenc.h	21;"	d
+MAC_LEN_IN_BYTE	onvif_system.c	11;"	d	file:
+MAX_ONVIF_DEVICE	onvif_system.h	5;"	d
+OBJS	Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
+PARA_FILE	vs3_videoenc.h	13;"	d
+PROCESS_GATECMD_H	process_modcmd.h	2;"	d
+SECOND	onvif_system.h	8;"	d
+SRC	Makefile	/^SRC  = main.c videoencoder.c watch_process.c onvif_system.c$/;"	m
+STATUS_INIT	onvif_system.h	/^	STATUS_INIT=0,$/;"	e	enum:__anon2
+STATUS_LOGIN	onvif_system.h	/^	STATUS_LOGIN,$/;"	e	enum:__anon2
+STATUS_MEDIA_CONNECED	onvif_system.h	/^	STATUS_MEDIA_CONNECED,$/;"	e	enum:__anon2
+STATUS_MEDIA_CONNECTING	onvif_system.h	/^	STATUS_MEDIA_CONNECTING,$/;"	e	enum:__anon2
+STATUS_MEDIA_DISCON	onvif_system.h	/^	STATUS_MEDIA_DISCON,$/;"	e	enum:__anon2
+STREAM_POOL_SIZE_MASTER	vs3_videoenc.h	17;"	d
+STREAM_POOL_SIZE_SLAVE	vs3_videoenc.h	18;"	d
+THE_ONE	onvif_system.c	10;"	d	file:
+TOP_DIR	Makefile	/^TOP_DIR  = $(shell pwd)$/;"	m
+VERSION	vs3_videoenc.h	12;"	d
+VIDEO_ENCODER	videoencoder.h	2;"	d
+VS3_VIDEOENC_H	vs3_videoenc.h	2;"	d
+WATCH_PROCESS_H	watch_process.h	2;"	d
+__anon1::a_info	onvif_system.h	/^	audio_mediainfo_t a_info;$/;"	m	struct:__anon1	access:public
+__anon1::v_info	onvif_system.h	/^	video_mediainfo_t v_info;$/;"	m	struct:__anon1	access:public
+__anon3::channel	onvif_system.h	/^	int channel;$/;"	m	struct:__anon3	access:public
+__anon3::type	onvif_system.h	/^	stream_type_t type; \/\/stream type$/;"	m	struct:__anon3	access:public
+__anon4::audio_down_port	onvif_system.h	/^	short audio_down_port; \/\/ipdevÊé•Âèó‰∏ãË°åÊï∞ÊçÆÁöÑÁ´ØÂè£ $/;"	m	struct:__anon4	access:public
+__anon4::bits	onvif_system.h	/^	int  bits;      \/\/ÈááÊ†∑Á≤æÂ∫¶$/;"	m	struct:__anon4	access:public
+__anon4::channel	onvif_system.h	/^	int  channel;   \/\/ÈÄöÈÅìÊï∞$/;"	m	struct:__anon4	access:public
+__anon4::cmd_port	onvif_system.h	/^	short cmd_port;   \/\/ipdev ÂëΩ‰ª§Á´ØÂè£$/;"	m	struct:__anon4	access:public
+__anon4::enc_no	onvif_system.h	/^	int  enc_no;    \/\/ÂÜÖ\/Â§ñÈÉ®ÁºñÁ†ÅÂô®:-1 ÂÜÖ(onvif)$/;"	m	struct:__anon4	access:public
+__anon4::enc_type	onvif_system.h	/^	int enc_type;   $/;"	m	struct:__anon4	access:public
+__anon4::guid	onvif_system.h	/^	char guid[16];$/;"	m	struct:__anon4	access:public
+__anon4::ip_addr	onvif_system.h	/^	in_addr_t  ip_addr;$/;"	m	struct:__anon4	access:public
+__anon4::is_down	onvif_system.h	/^	int  is_down;    \/\/Ê≠£Âú®ÂØπËÆ≤$/;"	m	struct:__anon4	access:public
+__anon4::is_up	onvif_system.h	/^	int  is_up;      \/\/Ê≠£Âú®‰∏äË°å$/;"	m	struct:__anon4	access:public
+__anon4::mac	onvif_system.h	/^	char mac[6];  $/;"	m	struct:__anon4	access:public
+__anon4::mask	onvif_system.h	/^	in_addr_t  mask;$/;"	m	struct:__anon4	access:public
+__anon4::mutex	onvif_system.h	/^	pthread_mutex_t mutex;$/;"	m	struct:__anon4	access:public
+__anon4::sampling	onvif_system.h	/^	int  sampling;  \/\/ÈááÊ†∑Áéá$/;"	m	struct:__anon4	access:public
+__anon4::status	onvif_system.h	/^	int status;$/;"	m	struct:__anon4	access:public
+__anon4::thread_id	onvif_system.h	/^	pthread_t thread_id;$/;"	m	struct:__anon4	access:public
+__anon4::up_port	onvif_system.h	/^	short up_port;    \/\/serverÁ´ØÊé•Âèó‰∏äË°åÊï∞ÊçÆÁ´ØÂè£ $/;"	m	struct:__anon4	access:public
+__anon5::audio	onvif_system.h	/^	audio_server_t audio;$/;"	m	struct:__anon5	access:public
+__anon5::channel	onvif_system.h	/^	int channel;$/;"	m	struct:__anon5	access:public
+__anon5::ip	onvif_system.h	/^	char ip[24];$/;"	m	struct:__anon5	access:public
+__anon5::is_media_init	onvif_system.h	/^	int is_media_init;$/;"	m	struct:__anon5	access:public
+__anon5::is_running	onvif_system.h	/^	int is_running;           \/\/flag of star stream $/;"	m	struct:__anon5	access:public
+__anon5::main_stream	onvif_system.h	/^	onvif_stream_t main_stream;$/;"	m	struct:__anon5	access:public
+__anon5::mutex	onvif_system.h	/^	pthread_mutex_t   mutex;$/;"	m	struct:__anon5	access:public
+__anon5::password	onvif_system.h	/^	char password[20];$/;"	m	struct:__anon5	access:public
+__anon5::ready_status	onvif_system.h	/^	status_e  ready_status;					\/\/flag of on\/offline$/;"	m	struct:__anon5	access:public
+__anon5::sec_stream	onvif_system.h	/^	onvif_stream_t sec_stream;$/;"	m	struct:__anon5	access:public
+__anon5::thread_id	onvif_system.h	/^	pthread_t         thread_id;$/;"	m	struct:__anon5	access:public
+__anon5::token	onvif_system.h	/^	dev_handler_t  token;                \/\/already inited by onvif sdk ,initial -1$/;"	m	struct:__anon5	access:public
+__anon5::username	onvif_system.h	/^	char username[20];$/;"	m	struct:__anon5	access:public
+__anon6::media	videoencoder.h	/^	media_source_t			media;			\/\/√ΩÃÂ‘¥Ω·ππ$/;"	m	struct:__anon6	access:public
+__anon6::venc_cnt	videoencoder.h	/^	int						venc_cnt;		\/\/”√”⁄º‡ ”±‡¬Î∆˜µƒº∆ ˝∆˜$/;"	m	struct:__anon6	access:public
+__anon6::venc_err_cnt	videoencoder.h	/^	int						venc_err_cnt;	\/\/ ”∆µ±‡¬Î∆˜≥ˆ¥Ìµƒ¥Œ ˝$/;"	m	struct:__anon6	access:public
+__anon6::venc_first_start	videoencoder.h	/^	int						venc_first_start;	\/\/≥Ã–Ú∏’∆Ù∂Ø±Í÷æ$/;"	m	struct:__anon6	access:public
+__anon7::enc_first_start	videoencoder.h	/^	int						enc_first_start;	\/\/≥Ã–Ú∏’∆Ù∂Ø±Í÷æ$/;"	m	struct:__anon7	access:public
+__anon7::media	videoencoder.h	/^	media_source_t			media;			\/\/√ΩÃÂ‘¥Ω·ππ$/;"	m	struct:__anon7	access:public
+a2x	onvif_system.c	/^unsigned char a2x(const char c)  $/;"	f	signature:(const char c)
+a_info	onvif_system.h	/^	audio_mediainfo_t a_info;$/;"	m	struct:__anon1	access:public
+audio	onvif_system.h	/^	audio_server_t audio;$/;"	m	struct:__anon5	access:public
+audio_down_port	onvif_system.h	/^	short audio_down_port; \/\/ipdevÊé•Âèó‰∏ãË°åÊï∞ÊçÆÁöÑÁ´ØÂè£ $/;"	m	struct:__anon4	access:public
+audio_enc	videoencoder.c	/^audio_enc_t audio_enc[MAX_ONVIF_DEVICE*2];$/;"	v
+audio_enc_t	videoencoder.h	/^}audio_enc_t;$/;"	t	typeref:struct:__anon7
+audio_server_t	onvif_system.h	/^}audio_server_t;$/;"	t	typeref:struct:__anon4
+bits	onvif_system.h	/^	int  bits;      \/\/ÈááÊ†∑Á≤æÂ∫¶$/;"	m	struct:__anon4	access:public
+callback_parm_t	onvif_system.h	/^}callback_parm_t;$/;"	t	typeref:struct:__anon3
+channel	onvif_system.h	/^	int  channel;   \/\/ÈÄöÈÅìÊï∞$/;"	m	struct:__anon4	access:public
+channel	onvif_system.h	/^	int channel;$/;"	m	struct:__anon3	access:public
+channel	onvif_system.h	/^	int channel;$/;"	m	struct:__anon5	access:public
+check_aenc_status	process_modcmd.c	/^void check_aenc_status(int no)$/;"	f	signature:(int no)
+cmd_port	onvif_system.h	/^	short cmd_port;   \/\/ipdev ÂëΩ‰ª§Á´ØÂè£$/;"	m	struct:__anon4	access:public
+com_fd	process_modcmd.c	/^static int	com_fd= -1; \/\/∑¢ÀÕ∫ÕΩ” ’√¸¡Óµƒudp socket$/;"	v	file:
+creat_modcmdproc_thread	process_modcmd.c	/^int	creat_modcmdproc_thread(void)$/;"	f	signature:(void)
+creat_modcmdproc_thread	process_modcmd.h	/^int	creat_modcmdproc_thread(void);$/;"	p	signature:(void)
+create_ip_device_thread	ip_device_system.c	/^void create_ip_device_thread(void)$/;"	f	signature:(void)
+create_ip_device_thread	onvif_system.h	/^void create_ip_device_thread(void);$/;"	p	signature:(void)
+create_media_pool	videoencoder.c	/^static int	create_media_pool(void)$/;"	f	file:	signature:(void)
+create_onvif_device_thread	onvif_system.c	/^void create_onvif_device_thread(void)$/;"	f	signature:(void)
+create_onvif_device_thread	onvif_system.h	/^void create_onvif_device_thread(void);$/;"	p	signature:(void)
+echo_str	process_modcmd.c	/^int  echo_str(unsigned char * dst,char * src)$/;"	f	signature:(unsigned char * dst,char * src)
+enc_first_start	videoencoder.h	/^	int						enc_first_start;	\/\/≥Ã–Ú∏’∆Ù∂Ø±Í÷æ$/;"	m	struct:__anon7	access:public
+enc_no	onvif_system.h	/^	int  enc_no;    \/\/ÂÜÖ\/Â§ñÈÉ®ÁºñÁ†ÅÂô®:-1 ÂÜÖ(onvif)$/;"	m	struct:__anon4	access:public
+enc_type	onvif_system.h	/^	int enc_type;   $/;"	m	struct:__anon4	access:public
+exchange_cmd	process_modcmd.c	/^int exchange_cmd(ipcall_pkt_t *pkt,int no,short cmd)$/;"	f	signature:(ipcall_pkt_t *pkt,int no,short cmd)
+exit_log	main.c	/^static void exit_log(int signo)$/;"	f	file:	signature:(int signo)
+get_aenc_status	process_modcmd.c	/^int  get_aenc_status(int no)$/;"	f	signature:(int no)
+get_media_pool	onvif_system.c	/^int get_media_pool(stream_type_t  type)$/;"	f	signature:(stream_type_t type)
+get_onvif_device_num	videoencoder.c	/^int get_onvif_device_num(void)$/;"	f	signature:(void)
+get_onvif_device_num	videoencoder.h	/^int get_onvif_device_num(void);$/;"	p	signature:(void)
+get_onvif_para	onvif_system.c	/^onvif_device_t * get_onvif_para(int no)$/;"	f	signature:(int no)
+get_onvif_para	onvif_system.h	/^onvif_device_t * get_onvif_para(int no);$/;"	p	signature:(int no)
+get_video_info	onvif_system.c	/^void get_video_info(video_mediainfo_t * v_info,int *width,int * height,int *format)$/;"	f	signature:(video_mediainfo_t * v_info,int *width,int * height,int *format)
+get_videoenc_state	videoencoder.c	/^struct videoenc_state_struct *get_videoenc_state(void)$/;"	f	signature:(void)
+get_videoencstatint	videoencoder.c	/^DWORD get_videoencstatint(void)$/;"	f	signature:(void)
+get_videoencstatint	videoencoder.h	/^DWORD get_videoencstatint(void);$/;"	p	signature:(void)
+guid	onvif_system.h	/^	char guid[16];$/;"	m	struct:__anon4	access:public
+init_audio_system	onvif_system.c	/^void  init_audio_system(onvif_device_t * device)$/;"	f	signature:(onvif_device_t * device)
+init_com_channel	process_modcmd.c	/^int init_com_channel(void)$/;"	f	signature:(void)
+init_com_channel	process_modcmd.h	/^int init_com_channel(void);$/;"	p	signature:(void)
+init_ip_audio_attrib	ip_device_system.c	/^void  init_ip_audio_attrib(onvif_device_t * device)$/;"	f	signature:(onvif_device_t * device)
+init_ip_device_server	ip_device_system.c	/^void init_ip_device_server(void * parm)$/;"	f	signature:(void * parm)
+init_media_source	videoencoder.c	/^static int init_media_source(void)$/;"	f	file:	signature:(void)
+init_media_system	onvif_system.h	/^int init_media_system(void);$/;"	p	signature:(void)
+init_media_system	videoencoder.c	/^int init_media_system(void)$/;"	f	signature:(void)
+init_onvif_devices	onvif_system.c	/^int init_onvif_devices(void)$/;"	f	signature:(void)
+init_onvif_devices_list	onvif_system.c	/^int init_onvif_devices_list()$/;"	f
+init_onvif_system	onvif_system.c	/^int init_onvif_system(void)$/;"	f	signature:(void)
+init_onvif_system	onvif_system.h	/^int init_onvif_system(void);$/;"	p	signature:(void)
+init_video_system	onvif_system.c	/^void  init_video_system(onvif_device_t * device)$/;"	f	signature:(onvif_device_t * device)
+ip	onvif_system.h	/^	char ip[24];$/;"	m	struct:__anon5	access:public
+ip_addr	onvif_system.h	/^	in_addr_t  ip_addr;$/;"	m	struct:__anon4	access:public
+ip_dev_check_thread	ip_device_system.c	/^void *ip_dev_check_thread(void * no)$/;"	f	signature:(void * no)
+ip_play_frame_thread	ip_device_system.c	/^void * ip_play_frame_thread(void * parm)$/;"	f	signature:(void * parm)
+ip_read_frame_thread	ip_device_system.c	/^void *ip_read_frame_thread(void  *parm)$/;"	f	signature:(void *parm)
+is_down	onvif_system.h	/^	int  is_down;    \/\/Ê≠£Âú®ÂØπËÆ≤$/;"	m	struct:__anon4	access:public
+is_media_init	onvif_system.h	/^	int is_media_init;$/;"	m	struct:__anon5	access:public
+is_running	onvif_system.h	/^	int is_running;           \/\/flag of star stream $/;"	m	struct:__anon5	access:public
+is_up	onvif_system.h	/^	int  is_up;      \/\/Ê≠£Âú®‰∏äË°å$/;"	m	struct:__anon4	access:public
+mac	onvif_system.h	/^	char mac[6];  $/;"	m	struct:__anon4	access:public
+main	main.c	/^int main(int argc,char *argv[])$/;"	f	signature:(int argc,char *argv[])
+main_stream	onvif_system.h	/^	onvif_stream_t main_stream;$/;"	m	struct:__anon5	access:public
+mask	onvif_system.h	/^	in_addr_t  mask;$/;"	m	struct:__anon4	access:public
+media	videoencoder.h	/^	media_source_t			media;			\/\/√ΩÃÂ‘¥Ω·ππ$/;"	m	struct:__anon6	access:public
+media	videoencoder.h	/^	media_source_t			media;			\/\/√ΩÃÂ‘¥Ω·ππ$/;"	m	struct:__anon7	access:public
+mod_probe_cb	onvif_system.c	/^void  mod_probe_cb(dev_handler_t token,device_info_t * pinfo)$/;"	f	signature:(dev_handler_t token,device_info_t * pinfo)
+mod_probe_cb	onvif_system.h	/^void mod_probe_cb(dev_handler_t token,device_info_t * pinfo);$/;"	p	signature:(dev_handler_t token,device_info_t * pinfo)
+modsocket_thread_id	process_modcmd.c	/^static pthread_t modsocket_thread_id=-1;$/;"	v	file:
+mutex	onvif_system.h	/^	pthread_mutex_t   mutex;$/;"	m	struct:__anon5	access:public
+mutex	onvif_system.h	/^	pthread_mutex_t mutex;$/;"	m	struct:__anon4	access:public
+notify_cb	onvif_system.c	/^notify_Callback notify_cb(int event, void * usr_data)$/;"	f	signature:(int event, void * usr_data)
+onvif_audio_cb	onvif_system.c	/^audio_Callback onvif_audio_cb(unsigned char * frame_data,int len,void * usr_data)$/;"	f	signature:(unsigned char * frame_data,int len,void * usr_data)
+onvif_device	onvif_system.c	/^onvif_device_t onvif_device[MAX_ONVIF_DEVICE];$/;"	v
+onvif_device_t	onvif_system.h	/^}onvif_device_t;$/;"	t	typeref:struct:__anon5
+onvif_device_thread	onvif_system.c	/^void  * onvif_device_thread(void * arg)$/;"	f	signature:(void * arg)
+onvif_probe_device_thread	onvif_system.c	/^void  * onvif_probe_device_thread(void * arg)$/;"	f	signature:(void * arg)
+onvif_stream_t	onvif_system.h	/^}onvif_stream_t;$/;"	t	typeref:struct:__anon1
+onvif_video_cb	onvif_system.c	/^video_Callback onvif_video_cb(unsigned char * frame_data,int len,unsigned int ts, unsigned short seq,void * usr_data)$/;"	f	signature:(unsigned char * frame_data,int len,unsigned int ts, unsigned short seq,void * usr_data)
+password	onvif_system.h	/^	char password[20];$/;"	m	struct:__anon5	access:public
+patch_audio_attrib	onvif_system.c	/^void patch_audio_attrib(audio_enc_t *enc,int frate)$/;"	f	signature:(audio_enc_t *enc,int frate)
+patch_video_attrib	onvif_system.c	/^void patch_video_attrib(video_enc_t *enc,int frate)$/;"	f	signature:(video_enc_t *enc,int frate)
+pfd_main	onvif_system.c	/^FILE * pfd_main,*pfd_slave;$/;"	v
+pfd_slave	onvif_system.c	/^FILE * pfd_main,*pfd_slave;$/;"	v
+playback_flag	videoencoder.c	/^int playback_flag=0;$/;"	v
+process_cmd	process_modcmd.c	/^void process_cmd(char * data,int size,short cmd,probe_dev_ack_t *device)$/;"	f	signature:(char * data,int size,short cmd,probe_dev_ack_t *device)
+process_gate_cmd	process_modcmd.c	/^static int process_gate_cmd(struct gt_usr_cmd_struct *cmd,gateinfo *gate)$/;"	f	file:	signature:(struct gt_usr_cmd_struct *cmd,gateinfo *gate)
+process_modsocket_cmd	process_modcmd.c	/^static int process_modsocket_cmd(int sourceid,mod_socket_cmd_type *modsocket)$/;"	f	file:	signature:(int sourceid,mod_socket_cmd_type *modsocket)
+process_net_index	process_modcmd.h	/^int process_net_index(char *index,struct query_index_struct *query);$/;"	p	signature:(char *index,struct query_index_struct *query)
+process_pkt	process_modcmd.c	/^int  process_pkt(int fd,char * data,int * size,short * cmd,struct sockaddr_in * addr)$/;"	f	signature:(int fd,char * data,int * size,short * cmd,struct sockaddr_in * addr)
+process_probe_device	process_modcmd.c	/^int process_probe_device(void)$/;"	f	signature:(void)
+process_probe_onvif_device	process_modcmd.c	/^int process_probe_onvif_device(void)$/;"	f	signature:(void)
+process_request_aplay	process_modcmd.c	/^void  process_request_aplay(int no)$/;"	f	signature:(int no)
+read_config_file	onvif_system.c	/^int read_config_file(char * filename)$/;"	f	signature:(char * filename)
+ready_status	onvif_system.h	/^	status_e  ready_status;					\/\/flag of on\/offline$/;"	m	struct:__anon5	access:public
+regist_signals	main.c	/^void regist_signals(void)$/;"	f	signature:(void)
+request_busy	process_modcmd.c	/^void request_busy(int no)$/;"	f	signature:(int no)
+request_notice	process_modcmd.c	/^void request_notice(int no)$/;"	f	signature:(int no)
+request_notice	process_modcmd.c	/^void request_notice(int no);$/;"	p	file:	signature:(int no)
+require_up_audio	process_modcmd.c	/^int require_up_audio(int no)$/;"	f	signature:(int no)
+require_up_audio	process_modcmd.h	/^int require_up_audio(int no);$/;"	p	signature:(int no)
+sampling	onvif_system.h	/^	int  sampling;  \/\/ÈááÊ†∑Áéá$/;"	m	struct:__anon4	access:public
+sec_stream	onvif_system.h	/^	onvif_stream_t sec_stream;$/;"	m	struct:__anon5	access:public
+second_proc	watch_process.c	/^void second_proc(void)$/;"	f	signature:(void)
+second_proc	watch_process.h	/^void second_proc(void);$/;"	p	signature:(void)
+self_probe_cb	onvif_system.c	/^int  self_probe_cb(dev_handler_t token,device_info_t * pinfo)$/;"	f	signature:(dev_handler_t token,device_info_t * pinfo)
+send_down_audio	process_modcmd.c	/^int send_down_audio(char no,char mode)$/;"	f	signature:(char no,char mode)
+send_down_audio_ack	process_modcmd.c	/^int send_down_audio_ack(char no,char status)$/;"	f	signature:(char no,char status)
+send_state2main	process_modcmd.c	/^int send_state2main(void)$/;"	f	signature:(void)
+send_state2main	process_modcmd.h	/^int send_state2main(void);$/;"	p	signature:(void)
+set_aenc_status	process_modcmd.c	/^void set_aenc_status(int no,int status)$/;"	f	signature:(int no,int status)
+set_enc_error	process_modcmd.h	/^int set_enc_error(int encno,int flag);$/;"	p	signature:(int encno,int flag)
+set_video_loss	process_modcmd.h	/^int set_video_loss(int ch,int flag);$/;"	p	signature:(int ch,int flag)
+set_video_motion_blind	process_modcmd.h	/^int set_video_motion_blind(int ch,int motion, int blind);$/;"	p	signature:(int ch,int motion, int blind)
+status	onvif_system.h	/^	int status;$/;"	m	struct:__anon4	access:public
+status_e	onvif_system.h	/^}status_e;$/;"	t	typeref:enum:__anon2
+stop_down_audio	process_modcmd.c	/^int stop_down_audio(int no)$/;"	f	signature:(int no)
+stop_up_audio	process_modcmd.c	/^int stop_up_audio(int no)$/;"	f	signature:(int no)
+temp_onvif_count	onvif_system.c	/^int temp_onvif_count=0;$/;"	v
+temp_onvif_device	onvif_system.c	/^onvif_device_t temp_onvif_device[MAX_ONVIF_DEVICE*2];$/;"	v
+thread_id	onvif_system.h	/^	pthread_t         thread_id;$/;"	m	struct:__anon5	access:public
+thread_id	onvif_system.h	/^	pthread_t thread_id;$/;"	m	struct:__anon4	access:public
+tmp_device	process_modcmd.c	/^static probe_dev_ack_t tmp_device[MAX_IP_DEVICE];$/;"	v	file:
+token	onvif_system.h	/^	dev_handler_t  token;                \/\/already inited by onvif sdk ,initial -1$/;"	m	struct:__anon5	access:public
+type	onvif_system.h	/^	stream_type_t type; \/\/stream type$/;"	m	struct:__anon3	access:public
+up_port	onvif_system.h	/^	short up_port;    \/\/serverÁ´ØÊé•Âèó‰∏äË°åÊï∞ÊçÆÁ´ØÂè£ $/;"	m	struct:__anon4	access:public
+username	onvif_system.h	/^	char username[20];$/;"	m	struct:__anon5	access:public
+v_info	onvif_system.h	/^	video_mediainfo_t v_info;$/;"	m	struct:__anon1	access:public
+venc_cnt	videoencoder.h	/^	int						venc_cnt;		\/\/”√”⁄º‡ ”±‡¬Î∆˜µƒº∆ ˝∆˜$/;"	m	struct:__anon6	access:public
+venc_err_cnt	videoencoder.h	/^	int						venc_err_cnt;	\/\/ ”∆µ±‡¬Î∆˜≥ˆ¥Ìµƒ¥Œ ˝$/;"	m	struct:__anon6	access:public
+venc_first_start	videoencoder.h	/^	int						venc_first_start;	\/\/≥Ã–Ú∏’∆Ù∂Ø±Í÷æ$/;"	m	struct:__anon6	access:public
+video_enc	videoencoder.c	/^video_enc_t	video_enc[MAX_ONVIF_DEVICE*2]; \/\/∞¸∫¨÷˜\/∏±¬Î¡˜$/;"	v
+video_enc_t	videoencoder.h	/^}video_enc_t;$/;"	t	typeref:struct:__anon6
+video_encoder_thread_cleanup	videoencoder.c	/^void video_encoder_thread_cleanup(void *v_enc)$/;"	f	signature:(void *v_enc)
+videoenc_state	videoencoder.c	/^static struct videoenc_state_struct videoenc_state={0,0,0,0,0,0,0,0,0,0};$/;"	v	typeref:struct:videoenc_state_struct	file:
+write_video_frame	videoencoder.c	/^static __inline__ int write_video_frame(video_enc_t *venc, enc_frame_t *frame)$/;"	f	file:	signature:(video_enc_t *venc, enc_frame_t *frame)

@@ -1,0 +1,10 @@
+1.configure:
+change the variables below in configure file
+ac_default_prefix=/home/tfirst/work/tmpwork/upnp/install/bfin (the path to make install)
+cross_compiling=yes
+ac_tool_prefix=arm-hisiv200-linux-
+
+2.do ./configure
+3.cp ./ixml/.libs/libixml.a  ./threadutil/.libs/libthreadutil.a  ./upnp/.libs/libupnp.a  ../../../lib/ -frv
+
+

@@ -1,0 +1,33 @@
+
+sqlite3工具的使用说明
+
+0) 数据库的基本结构： 	数据库文件(如/log/alarm.db) 二进制文件，不能直观察看
+		      	一个数据库里有多个表，如表"alarm". 
+			每个表里有多条纪录
+
+1) 用sqlite3打开一个数据库:  输入sqlite3 /log/alarm.db 即可，若没有该数据库会自动创建
+
+2) 打开后界面如下
+
+SQLite version 3.5.5
+Enter ".help" for instructions
+sqlite>
+
+可以在sqlite>后面输入各种sql命令，包括
+
+	.quit  退出这个界面
+	.help  显示帮助命令
+	
+我们常用的查询命令包括(以下表格名是数据库中你要查的表格名称，对于报警数据库是 alarm )
+	
+	select * from 表格名 ; (一定要分号)          	显示整张表格
+
+	select count(*) from 表格名;			显示一共有多少条记录
+
+	select * from 表格名 order by starttime ;       按起始时间排列
+
+
+更多信息可以参考：  
+
+1> 官网的sqlite3使用教学  http://www.sqlite.com.cn/MySqlite/4/378.Html
+

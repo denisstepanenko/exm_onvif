@@ -1,0 +1,82 @@
+
+<!-- saved from url=(0036)http://192.168.100.1/frames/logo.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+
+<script language="JavaScript"><!-- 
+var newWin;
+var url="http://www.gtalarm.com.cn";
+if(window.parent == window)
+	window.location.href=url;
+function Click(){ window.event.returnValue=false;}
+document.oncontextmenu=Click;
+function NewW(){
+  if(newWin) newWin.close();   
+  newWin=window.open(url,"","");	
+  return true;
+}
+function ShowUrl(){
+  status=url;
+  return true;
+}
+function EraseUrl(){
+	status="";
+	return true;
+}
+var address;
+var errorFlag;
+function LoadPage(){
+	if(true == errorFlag)
+		parent.location.href = 'http://' + address;	
+}
+function LoadNewIp(){
+	errorFlag = true;
+	setTimeout("LoadPage()",3000);
+}
+function stopLoad(){
+	errorFlag = false;
+}
+//zsk add
+function setXMLDoc()
+{
+        //var ip = document.getElementsByName("dev_ip");
+        //var url = "dev_ip="+ip[0].value;
+        //两种方式都可以
+        //var ip = document.getElementById("lanip").value;
+        var url= "dev_ip="+address;  
+        var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+        xmlhttp.open("POST","/cgi-bin/cgi_test",true);
+        xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xmlhttp.send(url);
+}
+//--></script>
+</head>
+<body bgcolor="#0052A4" leftmargin="0" topmargin="0">
+<table width="185" height="94" cellpadding="0" cellspacing="0">
+<tbody><tr><td width="180" height="74" align="left" valign="top" bgcolor="#0052A4"><a href="http://192.168.9.14/frames/logo.htm#" onclick="return NewW();" onmouseover="return ShowUrl();" onmouseout="return EraseUrl();">
+<table cellpadding="0" cellspacing="0" width="180">
+<tbody><tr><td width="6" height="74"></td>
+<td><table cellpadding="0" cellspacing="0" width="29">
+<tbody><tr><td width="29" height="10"></td></tr>
+<tr><td><img src="logo_1.jpg" border="0"></td></tr>
+<tr><td height="30"></td></tr>
+</tbody></table></td>
+<td><table cellpadding="0" cellspacing="0" width="134">
+<tbody><tr><td width="134" height="38"></td></tr>
+<tr><td><img src="logo_2.jpg" border="0"></td></tr>
+<tr><td height="16"></td></tr>
+</tbody></table></td>
+<td width="11"></td></tr>
+</tbody></table></a></td>
+<td width="5" bgcolor="#FFFFFF">&nbsp;</td></tr>
+<tr><td height="5" colspan="2" bgcolor="#FFFFFF"></td></tr>
+<tr><td height="15" colspan="2"><form name="form1"><input name="poped" type="hidden" value="0"></form></td></tr>
+</tbody></table>
+</body></html>

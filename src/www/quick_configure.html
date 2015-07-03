@@ -1,0 +1,578 @@
+<html>
+<head >
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+
+
+//此处定义相关数组,需要和cgi程序返回相一致
+var myArray = new Array();
+myArray.push("eth0:ipaddr");
+myArray.push("eth0:netmask");
+myArray.push("net_config:route_default");
+myArray.push("net_config:adsl_user");
+myArray.push("net_config:adsl_passwd");
+myArray.push("port:cmd_port");
+myArray.push("port:image_port");
+myArray.push("port:audio_port");
+myArray.push("port:ftp_port");
+myArray.push("port:web_port");
+myArray.push("port:pasv_min_port");
+myArray.push("port:pasv_max_port");
+myArray.push("port:telnet_port");
+myArray.push("port:com0_port");
+myArray.push("port:com1_port");
+myArray.push("serial:serial_interval");
+//myArray.push("net_config:internet_mode")
+
+myArray.push("alarm0:alarmtype");
+myArray.push("alarm1:alarmtype");
+myArray.push("alarm2:alarmtype");
+myArray.push("alarm3:alarmtype");
+myArray.push("alarm4:alarmtype");
+myArray.push("alarm5:alarmtype");
+myArray.push("alarm6:alarmtype");
+myArray.push("alarm7:alarmtype");
+myArray.push("alarm8:alarmtype");
+myArray.push("alarm9:alarmtype");
+myArray.push("alarm10:alarmtype");
+myArray.push("alarm11:alarmtype");
+
+
+myArray.push("remote_gate:rmt_gate1");
+myArray.push("remote_gate:rmt_gate2");
+myArray.push("remote_gate:rmt_gate3");
+myArray.push("remote_gate:rmt_gate4");
+myArray.push("remote_gate:alarm_gate");
+myArray.push("install:inst_place");
+myArray.push("install:inst_place_prov");
+myArray.push("install:inst_place_city");
+myArray.push("install:inst_place_dist");
+myArray.push("install:inst_place_vill");
+
+
+var Alarm_enble = new Array();
+Alarm_enble.push("alarm0:enable");
+Alarm_enble.push("alarm1:enable");
+Alarm_enble.push("alarm2:enable");
+Alarm_enble.push("alarm3:enable");
+Alarm_enble.push("alarm4:enable");
+Alarm_enble.push("alarm5:enable");
+Alarm_enble.push("alarm6:enable");
+Alarm_enble.push("alarm7:enable");
+Alarm_enble.push("alarm8:enable");
+Alarm_enble.push("alarm9:enable");
+Alarm_enble.push("alarm10:enable");
+Alarm_enble.push("alarm11:enable");
+    
+    /*
+var Alarm_attrib = new Array();
+Alarm_attrib.push("alarm0:attrib");
+Alarm_attrib.push("alarm1:attrib");
+Alarm_attrib.push("alarm2:attrib");
+Alarm_attrib.push("alarm3:attrib");
+Alarm_attrib.push("alarm4:attrib");
+Alarm_attrib.push("alarm5:attrib");
+Alarm_attrib.push("alarm6:attrib");
+Alarm_attrib.push("alarm7:attrib");
+*/
+var Serial_attrib = new Array();
+Serial_attrib.push("serial:serial_mode");
+Serial_attrib.push("serial:serial_interval");
+
+var Multichannel_attrib = new Array();
+Multichannel_attrib.push("multichannel:enable");
+
+var Buzalarm_attrib = new Array();
+Buzalarm_attrib.push("buzalarm:enable");
+
+var Powermon_attrib = new Array();
+Powermon_attrib.push("power_mon:enable");
+    
+function loadXMLDoc()
+{
+	var xmlhttp;
+	var json;
+	if (window.XMLHttpRequest)
+  	{// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+  	}
+	else
+  	{// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+	xmlhttp.onreadystatechange=function()
+  	{	
+  		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    		{
+	
+			//从cgi程序获取json
+			
+			json = eval ("("+xmlhttp.responseText+")");
+			SaveJson(json);
+
+    		}
+  	}
+	xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.send("method=GET_PARA&page=0");
+}
+
+function setXMLDoc()
+{
+	//两种方式都可以
+	var url=MakeURL();	
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+  	{// code for IE7+, Firefox, Chrome, Opera, Safari
+  		xmlhttp=new XMLHttpRequest();
+  	}
+	else
+  	{// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+	xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.send(url);
+	var cfm =window.confirm("配置已保存，是否重启");
+	if(cfm==true)
+	{
+		xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send("method=REBOOT");
+		return;
+		
+	}
+
+}
+function Save_sel(act_type,action,option)
+{
+	
+	
+	document.getElementById(act_type+action).options[option].selected=true;
+	
+}
+
+function SaveJson(json)
+{
+	var i;
+	var val;
+	//获取所有文本数据
+	for(i=0;i<myArray.length;i++)
+	{
+		document.getElementById(myArray[i]).value=json[myArray[i]];
+		
+	}
+	//获取报警使能数据
+	for(i=0;i<Alarm_enble.length;i++)
+	{
+		
+		if(json[Alarm_enble[i]]=="1")
+		{
+			document.getElementById(Alarm_enble[i]).checked=1;
+		}
+			
+	}
+	//获取报警属性数据
+    /*
+	for(i=0;i<Alarm_attrib.length;i++)
+	{
+		document.getElementById(Alarm_attrib[i]).options[json[Alarm_attrib[i]]].selected=true;
+		
+	}
+	*/
+	if(json[Serial_attrib[0]]=="1")
+	{
+		document.getElementById(Serial_attrib[0]).checked=1;
+	}
+	if(json[Multichannel_attrib[0]]=="1")
+	{
+		document.getElementById(Multichannel_attrib[0]).checked=1;
+	}
+	if(json[Buzalarm_attrib[0]]=="1")
+	{
+		document.getElementById(Buzalarm_attrib[0]).checked=1;
+	}
+    
+    if(json[Powermon_attrib[0]]=="1")
+	{
+		document.getElementById(Powermon_attrib[0]).checked=1;
+	}
+	//模式选择
+	val = parseInt(json["net_config:internet_mode"]);
+	if(isNaN(val))
+		val=1;
+	document.getElementsByName("internet_mode").item(val).checked=true;
+	val = parseInt(json["netencoder:playback_enable"]);
+	if(isNaN(val))
+		val=1;
+	document.getElementsByName("playback_enable").item(val).checked=true;
+
+}
+function MakeURL()
+{
+	var i;
+	var attrib_id;
+	var attrib_val;
+	var internet_mode=1;
+	var  playback_mode=1;
+	var url="method=SAVE_PARA&page=0";
+	for(i=0;i<myArray.length;)
+	{
+		url=url+"&"+myArray[i]+"="+document.getElementById(myArray[i]).value;
+		i++;
+	}
+	for(i=0;i<Alarm_enble.length;)
+	{
+		url=url+"&"+Alarm_enble[i]+"="+(document.getElementById(Alarm_enble[i]).checked?1:0);
+		i++;
+	}
+    /*
+	for(i=0;i<Alarm_attrib.length;)
+	{
+		attrib_id = document.getElementById(Alarm_attrib[i]);
+		attrib_val = attrib_id.options[attrib_id.selectedIndex].value ;
+		url=url+"&"+Alarm_attrib[i]+"="+attrib_val;
+		i++;
+	}
+    */
+	url=url+"&"+Serial_attrib[0]+"="+(document.getElementById(Serial_attrib[0]).checked?1:0);
+	url=url+"&"+Multichannel_attrib[0]+"="+(document.getElementById(Multichannel_attrib[0]).checked?1:0);
+	url=url+"&"+Buzalarm_attrib[0]+"="+(document.getElementById(Buzalarm_attrib[0]).checked?1:0);
+    url=url+"&"+Powermon_attrib[0]+"="+(document.getElementById(Powermon_attrib[0]).checked?1:0);
+	//模式选择
+	
+	if(document.getElementsByName("internet_mode").item(0).checked==true)
+	{
+			internet_mode=0;
+	}
+
+	url=url+"&"+"net_config:internet_mode"+"="+internet_mode;
+	if(document.getElementsByName("playback_enable").item(0).checked==true)
+	{
+			playback_mode=0;
+	}
+
+	url=url+"&"+"netencoder:playback_enable"+"="+playback_mode;
+	return url;
+
+}
+function check_valid_port(type,id)
+{
+	var type_val=eval(type);
+	var val= document.getElementById(id).value;
+
+	switch(type_val)
+	{
+		case 0://音频配置
+			if(val>65535||val<0||isNaN(val)||val=="")
+			{
+				alert("请输入一个有效值[0~65535]");
+				document.getElementById(id).value=8095;
+			}
+			break;
+		case 1: //视频配置
+			if(val>65535||val<0||isNaN(val)||val=="")
+			{
+				alert("请输入一个有效值[0~65535]");
+				document.getElementById(id).value=8096;
+			}
+			break;
+		case 2: //码流配置
+			if(val>65535||val<0||isNaN(val)||val=="")
+			{
+				alert("请输入一个有效值[0~65535]");
+				document.getElementById(id).value=8097;
+			}
+			break;
+		case 3: //时间配置
+			if(val>65535||val<0||isNaN(val)||val=="")
+			{
+				alert("请输入一个有效值[0~65535]");
+				document.getElementById(id).value=23;
+			}
+			break;
+		case 4: //时间配置
+			if(val>65535||val<0||isNaN(val)||val=="")
+			{
+				alert("请输入一个有效值[0~65535]");
+				document.getElementById(id).value=21;
+			}
+			break;
+		case 5: //时间配置
+			if(val>65535||val<0||isNaN(val)||val=="")
+			{
+				alert("请输入一个有效值[0~65535]");
+				document.getElementById(id).value=9093;
+			}
+			break;
+		case 6: //时间配置
+			if(val>65535||val<0||isNaN(val)||val=="")
+			{
+				alert("请输入一个有效值[0~65535]");
+				document.getElementById(id).value=9095;
+			}
+			break;
+		case 7: //时间配置
+			if(val>65535||val<0||isNaN(val)||val=="")
+			{
+				alert("请输入一个有效值[0~65535]");
+				document.getElementById(id).value=8094;
+			}
+			break;
+		case 8: //时间配置
+			if(val>65535||val<0||isNaN(val)||val=="")
+			{
+				alert("请输入一个有效值[0~65535]");
+				document.getElementById(id).value=8098;
+			}
+			break;
+		case 9: //时间配置
+			if(val>65535||val<0||isNaN(val)||val=="")
+			{
+				alert("请输入一个有效值[0~65535]");
+				document.getElementById(id).value=8099;
+			}
+			break;
+		 default:
+		 	break;
+	}
+}
+function getCookie(c_name)
+{
+if (document.cookie.length>0)
+  {
+  c_start=document.cookie.indexOf(c_name + "=")
+  if (c_start!=-1)
+    { 
+    c_start=c_start + c_name.length+1 
+    c_end=document.cookie.indexOf(";",c_start)
+    if (c_end==-1) c_end=document.cookie.length
+    return unescape(document.cookie.substring(c_start,c_end))
+    } 
+  }
+return ""
+}
+function checkCookie()
+{
+	var status=getCookie('login_status')
+	if (status!=null && status=="0")
+  		{
+			//alert('成功登陆 '+status+'!')
+		}
+	else 
+    {
+		{alert('请先登陆设备!')}
+  }
+}
+</script>
+</head>
+
+
+<body onLoad="loadXMLDoc();checkCookie()">
+<table border="1">
+        <tr>
+            <th rowspan="8">内部端子</th>    
+            <td >端子0<input type="checkbox" id="alarm0:enable" value="1" >
+             名称<input type="text" id="alarm0:alarmtype" />
+            </td>
+        </tr>
+        
+        <tr>
+            <td >端子1<input type="checkbox" id="alarm1:enable" value="1" >
+                名称<input type="text" id="alarm1:alarmtype" />
+            </td>
+        </tr>
+            
+        <tr>
+            <td >端子2<input type="checkbox" id="alarm2:enable" value="1" >
+             名称<input type="text" id="alarm2:alarmtype" />
+            </td>
+        </tr>
+            
+        <tr>
+            <td >端子3<input type="checkbox" id="alarm3:enable" value="1" >
+             名称<input type="text" id="alarm3:alarmtype" />
+            </td>
+        </tr>
+            
+        <tr>
+            <td >端子4<input type="checkbox" id="alarm4:enable" value="1" >
+             名称<input type="text" id="alarm4:alarmtype" />
+            </td>
+        </tr>
+            
+        <tr>
+            <td >端子5<input type="checkbox" id="alarm5:enable" value="1" >
+             名称<input type="text" id="alarm5:alarmtype" />
+            </td>
+        </tr>
+            
+        <tr>
+            <td >端子6<input type="checkbox" id="alarm6:enable" value="1" >
+             名称<input type="text" id="alarm6:alarmtype" />
+            </td>
+        </tr>
+            
+        <tr>
+            <td >端子7<input type="checkbox" id="alarm7:enable" value="1" >
+             名称<input type="text" id="alarm7:alarmtype" />
+            </td>
+        </tr>
+       
+    
+    
+        <tr>
+            <th rowspan="4">虚拟端子</th>
+
+            <td >端子8<input type="checkbox" id="alarm8:enable" value="1" >
+                 监听端口<input type="text" value="5655" disabled=true/>
+                 名称<input type="text" id="alarm8:alarmtype" />
+            
+            </td>
+        </tr>
+        <tr>
+            <td >端子9<input type="checkbox" id="alarm9:enable" value="1" >
+                <t>监听端口<input type="text" value="5656" disabled=true/></t>
+                 名称<input type="text" id="alarm9:alarmtype" />
+            </td>
+        </tr>
+        <tr>
+            <td >端子10<input type="checkbox" id="alarm10:enable" value="1" >
+                 监听端口<input type="text" value="5657" disabled=true />
+                 名称<input type="text" id="alarm10:alarmtype" />
+            </td>
+        </tr>
+        <tr>
+            <td >端子11<input type="checkbox" id="alarm11:enable" value="1" >
+                 监听端口<input type="text" value="5658" disabled=true />
+                 名称<input type="text" id="alarm11:alarmtype" />
+            </td>
+        </tr>
+    
+
+</table>
+
+<table border="1">
+<tr>
+<th rowspan="2">ADSL模式
+<input type="radio"  name="internet_mode"   />
+</th>
+
+<td >用户名<input type="text" id="net_config:adsl_user" /></td>
+</tr>
+<tr>
+<td>密码<input type="text" id="net_config:adsl_passwd" /></td>
+</tr>
+<tr>
+<th rowspan="3">局域网模式
+<input type="radio"  name="internet_mode"   />
+</th>
+<td>设备IP<input type="text" id="eth0:ipaddr" /></td>
+</tr>
+<tr>
+<td>子网掩码<input type="text" id="eth0:netmask"/ ></td>
+</tr>
+<tr>
+<td>默认网关<input type="text" id="net_config:route_default"/ ></td>
+</tr>
+
+</table>
+
+<br>
+
+
+<table height="433" border="1">
+<th rowspan="5">安装地点设置</th>
+<td>安装位置<input type="text" id="install:inst_place" maxlength="8"/></td>
+<tr>
+<td>辖区(省级)<input type="text" id="install:inst_place_prov" maxlength="5" /></td>
+</tr>
+<tr>
+<td>辖区(地市)<input type="text" id="install:inst_place_city" maxlength="5" /></td>
+</tr>
+<tr>
+<td>辖区(县市)<input type="text" id="install:inst_place_dist" maxlength="5" /></td>
+</tr>
+<tr>
+<td>辖区(乡镇)<input type="text" id="install:inst_place_vill" maxlength="5"/></td>
+</tr>
+<th rowspan="5">注册设置</th>
+<td>第一网关服务器地址<input type="text" id="remote_gate:rmt_gate1" /></td>
+<tr>
+<td>第二网关服务器地址<input type="text" id="remote_gate:rmt_gate2" /></td>
+</tr>
+<tr>
+<td>第三网关服务器地址<input type="text" id="remote_gate:rmt_gate3" /></td>
+</tr>
+<tr>
+<td>第四网关服务器地址<input type="text" id="remote_gate:rmt_gate4" /></td>
+</tr>
+<tr>
+<td>紧急网关服务器地址<input type="text" id="remote_gate:alarm_gate" /></td>
+</tr>
+<tr>
+<th rowspan="10">服务端口设置</th>
+<td>命令端口<input type="text" id="port:cmd_port" onChange="check_valid_port(0,'port:cmd_port')"/></td>
+</tr>
+<tr>
+<td>视频端口<input type="text" id="port:image_port" onChange="check_valid_port(1,'port:image_port')"/></td>
+</tr>
+<tr>
+<td>音频端口<input type="text" id="port:audio_port" onChange="check_valid_port(2,'port:audio_port')"/></td>
+</tr>
+<tr>
+<td>TELNET端口<input type="text" id="port:telnet_port"onChange="check_valid_port(3,'port:telnet_port')" /></td>
+</tr>
+<tr>
+<td>FTP端口<input type="text" id="port:ftp_port" onChange="check_valid_port(4,'port:ftp_port')"/></td>
+</tr>
+<tr>
+<td>PASV小端<input type="text" id="port:pasv_min_port" onChange="check_valid_port(5,'port:pasv_min_port')"/></td>
+</tr>
+<td>PASV大端<input type="text" id="port:pasv_max_port"onChange="check_valid_port(6,'port:pasv_max_port')" /></td>
+</tr>
+<tr>
+<td>WEB端口<input type="text" id="port:web_port"onChange="check_valid_port(7,'port:web_port')" /></td>
+</tr>
+<tr>
+<td>透明串口0<input type="text" id="port:com0_port" onChange="check_valid_port(8,'port:com0_port')"/></td>
+</tr>
+<tr>
+<td>透明串口1<input type="text" id="port:com1_port"onChange="check_valid_port(9,'port:com1_port')" /></td>
+</tr>
+<tr>
+<th rowspan="2">网关通信设置</th>
+<td>是否使能通信<input type="checkbox" id="serial:serial_mode" value="0" ></td>
+</tr>
+<tr>
+<td>通信间隔（分钟）<input type="text" id="serial:serial_interval" /></td>
+</tr>
+<tr>
+  <th rowspan="1">多通道设置</th>
+<td>启用
+  <input type="checkbox" id="multichannel:enable" value="0" ></td>
+</tr>
+<tr>
+  <th rowspan="1">录像回放设置</th>
+<td>硬盘回放
+  <input type="radio"  name="playback_enable"   />
+  内存回放
+  <input type="radio"  name="playback_enable"   />
+</tr>
+<tr>
+  <th rowspan="1">报警蜂鸣器</th>
+<td>启用
+  <input type="checkbox" id="buzalarm:enable" value="0" ></td>
+</tr>
+<tr>
+  <th rowspan="1">掉电检测</th>
+<td>启用
+  <input type="checkbox" id="power_mon:enable" value="0" ></td>
+</tr>
+</table>
+
+<input type="button" onClick="setXMLDoc();checkCookie()" value="提交数据" />
+  <br>
+</p>
+</body>
+</html>

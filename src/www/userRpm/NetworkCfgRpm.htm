@@ -1,0 +1,63 @@
+
+<!-- saved from url=(0046)http://192.168.100.1/userRpm/NetworkCfgRpm.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=gb2312"><title>netcfg</title>
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="wed, 26 Feb 1997 08:21:57 GMT">
+<link rel="stylesheet" type="text/css" href="/dynaform/r410.css">
+<script language="JavaScript" src="/dynaform/commonfuncs1.js" type="text/JavaScript"><!--
+//--></script>
+<script language="JavaScript"><!-- 
+if(window.parent == window){window.location.href="http://192.168.9.14";}
+function Click(){ window.event.returnValue=false;}
+document.oncontextmenu=Click;
+//--></script>
+<script language="JavaScript"><!-- 
+var oldIp;var oldMsk;
+
+function doLoad(){oldIp = document.forms[0].lanip.value; oldMsk=document.forms[0].lanmask.value}
+function doSubmit(){
+if(document.forms[0].lanip.value!=oldIp || document.forms[0].lanmask.value!=oldMsk){if(!confirm("LAN口IP地址的更改将导致路由器的重新启动，确定？")){return false;}}
+if(!is_ipaddr(document.forms[0].lanip.value)){
+var element =document.forms[0].lanip;
+if(element){element.focus();element.select();}
+return false;}
+if(!is_maskaddr(document.forms[0].lanmask.value)){
+var element =document.forms[0].lanmask;
+if(element){element.focus();element.select();}
+return false;}
+if(document.forms[0].lanip.value!=oldIp){parent.topLeftFrame.address = document.forms[0].lanip.value;
+//parent.topLeftFrame.LoadNewIp();}return true;}
+parent.topLeftFrame.setXMLDoc();}return true;}
+//--></script>
+</head>
+<body onload="doLoad();"><center><form enctype="multipart/form-data" method="get" onsubmit="return doSubmit();" action="NetworkCfgRpm.htm">
+<table width="502" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr><td width="7" class="title"><img src="arc.gif" width="7" height="24"></td>
+<td width="495" align="left" valign="middle" class="title">LAN口设置</td></tr>
+<tr><td colspan="2"><table width="502" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr><td rowspan="15" class="vline"><br></td><td width="500"><table width="400" border="0" align="center" cellpadding="0" cellspacing="0" class="space">
+<tbody><tr><td>本页设置路由器LAN口的基本网络参数。</td></tr></tbody></table>
+<table width="400" border="0" align="center" class="space">
+<tbody><tr><td width="70">MAC地址：</td><td width="230">00-14-78-61-56-E6</td></tr>
+<tr><td>IP地址：</td>
+<td><input name="lanip" type="text" class="text" id="lanip" value="192.168.9.14" size="15" maxlength="15"></td>
+</tr><tr><td valign="bottom">子网掩码：</td>
+<td> <select name="lanmask" class="list" id="lanmask"> 
+<option value="255.255.255.0" selected="">255.255.255.0</option>
+<option value="255.255.0.0">255.255.0.0</option>
+</select>
+</td></tr>
+</tbody></table>
+<table width="400" border="0" align="center" cellpadding="0" cellspacing="0" class="space">
+<tbody><tr><td>注意：当LAN口IP参数（包括IP地址、子网掩码）发生变更时，为确保DHCP server能够正常工作，应保证DHCP server中设置的地址池、静态地址与新的LAN口IP是处于同一网段的，并请重启路由器。</td></tr></tbody></table>
+<br>
+</td><td class="vline" rowspan="15"><br></td></tr>
+<tr><td class="hline"><img src="empty.gif" width="1" height="1"></td></tr>
+<tr><td height="30" class="tail">   
+<div align="left">&nbsp;&nbsp;<input name="Save" type="submit" class="button" id="保 存" value="保 存">
+
+&nbsp;&nbsp;&nbsp;</div></td></tr>
+<tr><td class="hline"><img src="empty.gif" width="1" height="1"></td></tr>
+</tbody></table></td></tr></tbody></table></form></center><meta http-equiv="pragma" content="no-cache">
+</body></html>

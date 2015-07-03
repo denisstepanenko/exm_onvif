@@ -1,0 +1,299 @@
+
+<html>
+<head>
+<script src="SpryAssets/SpryAccordion.js" type="text/javascript"></script>
+<script src="SpryAssets/SpryTabbedPanels.js" type="text/javascript"></script>
+<script src="SpryAssets/SpryCollapsiblePanel.js" type="text/javascript"></script>
+<script type="text/javascript">
+//此处定义相关数组,需要和cgi程序返回相一致
+var myArray = new Array();
+myArray.push("video0:name");
+myArray.push("video1:name");
+myArray.push("video2:name");
+myArray.push("video3:name");
+myArray.push("actiondefine:1");
+myArray.push("actiondefine:2");
+myArray.push("actiondefine:3");
+myArray.push("actiondefine:4");
+myArray.push("actiondefine:5");
+myArray.push("actiondefine:6");
+myArray.push("actiondefine:7");
+myArray.push("actiondefine:8");
+myArray.push("video0:starthour");
+myArray.push("video0:startmin");
+myArray.push("video0:endhour");
+myArray.push("video0:endmin");
+myArray.push("video1:starthour");
+myArray.push("video1:startmin");
+myArray.push("video1:endhour");
+myArray.push("video1:endmin");
+myArray.push("video2:starthour");
+myArray.push("video2:startmin");
+myArray.push("video2:endhour");
+myArray.push("video2:endmin");
+myArray.push("video3:starthour");
+myArray.push("video3:startmin");
+myArray.push("video3:endhour");
+myArray.push("video3:endmin");
+
+
+var ActArray = new Array();
+
+ActArray.push("playback_config:video0");  
+ActArray.push("playback_config:video1");	
+ActArray.push("playback_config:video2");  
+ActArray.push("playback_config:video3");
+ActArray.push("playback_config:video4");
+
+
+
+
+
+function loadXMLDoc()
+{
+	var xmlhttp;
+	var json;
+	if (window.XMLHttpRequest)
+  	{// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+  	}
+	else
+  	{// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+	xmlhttp.onreadystatechange=function()
+  	{	
+  		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    		{
+	
+			//从cgi程序获取json
+			
+
+
+
+			json = eval ("("+xmlhttp.responseText+")");
+			//SaveJson(json);
+			GetValue(json);
+
+    		}
+  	}
+	xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.send("method=GET_PARA&page=5");
+}
+
+function setXMLDoc()
+{
+	//两种方式都可以
+	var url=MakeURL();	
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+  	{// code for IE7+, Firefox, Chrome, Opera, Safari
+  		xmlhttp=new XMLHttpRequest();
+  	}
+	else
+  	{// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+
+	xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.send(url);
+	var cfm =window.confirm("配置已保存，是否重启");
+	if(cfm==true)
+	{
+		xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send("method=REBOOT");
+		return;
+		
+	}
+}
+function SaveJson(json)
+{
+	var i;
+	for(i=0;i<myArray.length;)
+	{
+		document.getElementById(myArray[i]).value=json[myArray[i]];
+		i++;
+	}
+
+
+}
+function Set_sel(act_type,action,option)
+{
+	
+	
+	document.getElementById(act_type+action).options[option].selected=true;
+	
+}
+function Set_check(type,alarm_no)
+{
+	var ele=new Array();
+	ele=document.getElementById(type).getElementsByTagName("input");
+	ele[alarm_no].checked=1;
+
+	
+	
+}
+function GetValue(json)
+{
+	var act;
+	var name;
+	var strs= new Array(); //定义一数组
+
+	for(i=0;i<ActArray.length;i++)
+	{
+		act=json[ActArray[i]];
+		if(act!="")
+		{
+			strs=act.split(","); //字符分割  
+		
+			for (j=0;j< strs.length; j++)    //最多10个动作
+			{    
+				Set_check(ActArray[i],strs[j])
+
+			}
+		}
+	}
+	
+}
+function MakeURL()
+{
+	var url="method=SAVE_PARA&page=5";
+	
+	var playback_val;
+	
+
+	for(i=0;i<ActArray.length;i++)
+	{
+		var aa = document.getElementById(ActArray[i]).getElementsByTagName('input');	
+		var value_str="";
+		var flag=1;
+		var val=[];
+		for(j=0;j<aa.length;j++)
+		{
+
+			if(aa[j].checked&&flag==1)
+			{
+				
+				value_str =value_str+aa[j].value;
+				flag=0;
+			}
+			else if(aa[j].checked)
+			{
+				value_str+=","+aa[j].value;
+			}
+		}
+		
+		
+		url=url+"&"+ ActArray[i]+"="+ value_str;
+		
+	}
+	
+	return url;
+
+}
+function check_valid_hour(id)
+{
+	var val= document.getElementById(id).value ;
+	if(val>23||val<0)
+	{
+		alert("请输入一个有效值");
+		document.getElementById(id).value=0;
+	}
+	
+}
+function check_valid_min(id)
+{
+	var val= document.getElementById(id).value ;
+	if(val>59||val<0)
+	{
+		alert("请输入一个有效值");
+		document.getElementById(id).value=0;
+	}
+	
+}
+function CC()
+{
+	
+	var aa = document.getElementById(name).getElementsByTagName('input');	
+	var val=[];
+	for(i=0;i<aa.length;i++)
+	{
+		if(aa[i].checked)
+		{
+			val[i] = aa[i].value;
+			alert(val[i]);
+		}
+	}
+	//return alert(val);
+	
+	
+}
+</script>
+
+</head>
+
+
+
+<body  onLoad="loadXMLDoc()">
+
+
+　		<form id="playback_config:video0">视频回放0
+			<input type="checkbox" value="0" name="lang"> 端子0
+			<input type="checkbox" value="1" name="lang"> 端子1
+			<input type="checkbox" value="2" name="lang"> 端子2
+			<input type="checkbox" value="3" name="lang"> 端子3
+			<input type="checkbox" value="4" name="lang"> 端子4
+			<input type="checkbox" value="5" name="lang"> 端子5
+			<input type="checkbox" value="6" name="lang"> 端子6
+			<input type="checkbox" value="7" name="lang"> 端子7
+
+		</form>
+        <form id="playback_config:video1">视频回放1
+			<input type="checkbox" value="0" name="lang"> 端子0
+			<input type="checkbox" value="1" name="lang"> 端子1
+			<input type="checkbox" value="2" name="lang"> 端子2
+			<input type="checkbox" value="3" name="lang"> 端子3
+			<input type="checkbox" value="4" name="lang"> 端子4
+			<input type="checkbox" value="5" name="lang"> 端子5
+			<input type="checkbox" value="6" name="lang"> 端子6
+			<input type="checkbox" value="7" name="lang"> 端子7
+		</form>
+　		<form id="playback_config:video2">视频回放2
+			<input type="checkbox" value="0" name="lang"> 端子0
+			<input type="checkbox" value="1" name="lang"> 端子1
+			<input type="checkbox" value="2" name="lang"> 端子2
+			<input type="checkbox" value="3" name="lang"> 端子3
+			<input type="checkbox" value="4" name="lang"> 端子4
+			<input type="checkbox" value="5" name="lang"> 端子5
+			<input type="checkbox" value="6" name="lang"> 端子6
+			<input type="checkbox" value="7" name="lang"> 端子7
+
+		</form>
+　		<form id="playback_config:video3">视频回放3
+			<input type="checkbox" value="0" name="lang"> 端子0
+			<input type="checkbox" value="1" name="lang"> 端子1
+			<input type="checkbox" value="2" name="lang"> 端子2
+			<input type="checkbox" value="3" name="lang"> 端子3
+			<input type="checkbox" value="4" name="lang"> 端子4
+			<input type="checkbox" value="5" name="lang"> 端子5
+			<input type="checkbox" value="6" name="lang"> 端子6
+			<input type="checkbox" value="7" name="lang"> 端子7
+		</form>
+　		<form id="playback_config:video4">视频回放4
+			<input type="checkbox" value="0" name="lang"> 端子0
+			<input type="checkbox" value="1" name="lang"> 端子1
+			<input type="checkbox" value="2" name="lang"> 端子2
+			<input type="checkbox" value="3" name="lang"> 端子3
+			<input type="checkbox" value="4" name="lang"> 端子4
+			<input type="checkbox" value="5" name="lang"> 端子5
+			<input type="checkbox" value="6" name="lang"> 端子6
+			<input type="checkbox" value="7" name="lang"> 端子7
+
+		</form>
+
+<input type="button" onClick="setXMLDoc()" value="提交数据" />
+</body>
+</html>

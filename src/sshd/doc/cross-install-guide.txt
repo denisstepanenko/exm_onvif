@@ -1,0 +1,76 @@
+转载地址： http://blog.csdn.net/do2jiang/archive/2009/12/05/4947821.aspx
+原文：
+绿色文字为我所加的注释
+做这一步之前，首先确定已经
+你的本机上建立好了arm-linux交叉编译环境 #arm-linux-gcc -v
+开发板已与路由器相连，并进行了必要的网络配置，可以ping通本机
+1. 下载需要的源码，直接google最新的版本吧
+mkdir -p ~/arm/fs ;mkdir -p ~/arm/source
+下载zlib: zlib-1.2.3.tar.gz
+下载ssl: openssl-0.9.8d.tar.gz
+下载ssh: openssh-4.6p1.tar.gz
+
+
+2. 编译:
+cd ~/arm/source
+注：以下相应目录位置需改为开发机相关目录
+
+(1) 编译zlib:
+tar zxvf zlib-1.2.3.tar.gz -C .
+cd zlib-1.2.3/
+./configure –prefix=/home/itlanger/arm/fs/zlib-1.2.3
+修改Makefile:
+CC=gcc 改为: 
+CROSS=/usr/local/arm/3.4.1/bin/arm-linux-
+CC=$(CROSS)gcc
+LDSHARED=gcc 改为: LDSHARED=$(CROSS)gcc
+CPP=gcc -E   改为: CPP=$(CROSS)gcc -E
+AR=ar rc     改为: AR=$(CROSS)ar rc
+开始编译: make;
+make install
+(2) 编译openssl:
+tar zxvf openssl-0.9.8d.tar.gz
+./configure --prefix=/home/itlanger/arm/fs/openssl-0.9.8d
+os/compiler:/usr/local/arm/3.4.1/bin/arm-linux-gcc
+make
+make install
+(3) 编译openssh:
+tar zxvf openssh-4.6p1.tar.gz
+cd openssh-4.6p1/
+./configure –host=arm-linux –with-libs –with-zlib=/home/itlanger/arm/fs/zlib-1.2.3
+–with-ssl-dir=/home/itlanger/arm/fs/openssl-0.9.8d –disable-etc-default-login 
+CC=/usr/local/arm/3.4.1/bin/arm-linux-gcc AR=/usr/local/arm/3.4.1/bin/arm-linux-ar
+make
+##不要make install
+
+3. 安装
+
+(1) 将 openssh-4.6p1目录下的 sshd 拷贝到 目标板的/usr/sbin目录下
+(2) 再copy scp sftp  ssh ssh-add   ssh-agent   ssh-keygen   ssh-keyscan 到目标板/usr/local/bin目录下
+copy sftp-server   ssh-keysign 到/usr/local/libexec
+(3) 在目标板下：
+mkdir -p /usr/local/etc/ 
+然后将openssh下的sshd_config,ssh_config 拷贝到该目录下
+
+mkdir -p /var/run; mkdir -p /var/empty/sshd 
+chmod 755 /var/empty 
+（4）在主机上：
+ssh-keygen -t rsa1 -f ssh_host_key -N ""
+ssh-keygen -t rsa -f ssh_host_rsa_key -N ""
+ssh-keygen -t dsa -f ssh_host_dsa_key -N “”
+将生存的 ssh_host_* 4个文件copy到目标板的 /usr/local/etc/目录下
+(5) 添加用户:
+将主机上 /etc/目下的 passwd, shadow, group 三个文件copy到目标板的 /etc目录下， 同时记得将passwd的最后 /bin/bash 该为 /bin/sh 
+//这一步以后，开发板上的用户结构与你本机的结构就是一样的了，所以在cp之前先把你自己的root密码设好
+//#passwd设置root密码，然后在把上面3个文件cp到开发板/etc下
+其实可以删除不需要的一些用户。
+4.测试
+目标板启动sshd: # /usr/sbin/sshd
+//在开发板上运行这个命令的时候可能会提示
+//Privilege separation user sshd does not exist
+//需要在开发板的系统里adduser shhd
+//或者在 /etc/passwd 中添加下面这一行
+
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+主机: $ ssh root@192.168.0.34（开发板的ip） //root密码就是你本机上root的密码
+ps: 红色的那些代表让arm做ssh server时必须的

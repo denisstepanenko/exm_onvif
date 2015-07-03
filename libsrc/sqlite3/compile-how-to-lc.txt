@@ -1,0 +1,7 @@
+1.configure:
+configure --disable-tcl --host=arm-hisiv200-linux
+2.Makefile:
+change TCC=arm-hisiv200-linux-gcc
+3.make
+4.cp sqlite3  and  libsqlite.a   libsqlite.so->libsqlite.so.0.8.6
+

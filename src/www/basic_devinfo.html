@@ -1,0 +1,181 @@
+<html>
+<head>
+<script type="text/javascript">
+//此处定义相关数组,需要和cgi程序返回相一致
+var myArray = new Array();
+myArray.push("devinfo:devguid");
+myArray.push("devinfo:devtypestring");
+myArray.push("devinfo:firmware");
+myArray.push("leave_fac:date");
+myArray.push("devinfo:batchseq");
+myArray.push("resource:trignum");
+myArray.push("resource:outnum");
+myArray.push("resource:com");
+myArray.push("resource:ide");
+myArray.push("resource:disk_capacity");
+myArray.push("resource:videonum");
+myArray.push("resource:audionum");
+
+function loadXMLDoc()
+{
+	var xmlhttp;
+	var json;
+	if (window.XMLHttpRequest)
+  	{// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+  	}
+	else
+  	{// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+	xmlhttp.onreadystatechange=function()
+  	{	
+  		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    		{
+	
+			//从cgi程序获取json
+			
+
+
+
+			json = eval ("("+xmlhttp.responseText+")");
+			SaveJson(json)
+
+    		}
+  	}
+	xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.send("method=GET_PARA&page=1");
+}
+
+function setXMLDoc()
+{
+	//两种方式都可以
+	var url=MakeURL();	
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+  	{// code for IE7+, Firefox, Chrome, Opera, Safari
+  		xmlhttp=new XMLHttpRequest();
+  	}
+	else
+  	{// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+	xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.send(url);
+
+}
+function SaveJson(json)
+{
+	var i;
+	for(i=0;i<myArray.length;)
+	{
+		document.getElementById(myArray[i]).value=json[myArray[i]];
+		i++
+	}
+
+
+}
+function MakeURL()
+{
+	var i;
+	var url="method=SAVE_PARA&page=1";
+	for(i=0;i<myArray.length;)
+	{
+		url=url+"&"+myArray[i]+"="+document.getElementById(myArray[i]).value;
+		i++;
+	}
+	return url;
+
+}
+function getCookie(c_name)
+{
+if (document.cookie.length>0)
+  {
+  c_start=document.cookie.indexOf(c_name + "=")
+  if (c_start!=-1)
+    { 
+    c_start=c_start + c_name.length+1 
+    c_end=document.cookie.indexOf(";",c_start)
+    if (c_end==-1) c_end=document.cookie.length
+    return unescape(document.cookie.substring(c_start,c_end))
+    } 
+  }
+return ""
+}
+function checkCookie()
+{
+	status=getCookie('login_status')
+	if (status!=null && status=="0")
+  		{
+			//alert('成功登陆 '+status+'!')
+		}
+	else 
+    {
+		{alert('请先登陆设备'+status+'!')}
+  }
+}
+</script>
+</head>
+
+
+<body onLoad="loadXMLDoc();checkCookie()">
+<table border="1">
+<caption>基本信息</caption>
+<tr>
+  <td>GUID</td>
+  <td><input disabled id="devinfo:devguid"></td>
+</tr>
+<tr>
+  <td>设备型号</td>
+  <td><input disabled id="devinfo:devtypestring"></td>
+</tr>
+<tr>
+  <td>固件版本</td>
+  <td><input disabled  id="devinfo:firmware"></td>
+</tr>
+<tr>
+  <td>出厂时间</td>
+  <td><input disabled  id="leave_fac:date"></td>
+</tr>
+<tr>
+  <td>板卡批次</td>
+  <td><input disabled  id="devinfo:batchseq"></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td>输入端子数量</td>
+  <td><input disabled   id="resource:trignum"></td>
+</tr>
+<tr>
+  <td>输出端子数量</td>
+  <td><input disabled   id="resource:outnum"></td>
+</tr>
+<tr>
+  <td>串口数量</td>
+  <td><input disabled   id="resource:com"></td>
+</tr>
+<tr>
+  <td>硬盘数量</td>
+  <td><input disabled   id="resource:ide"></td>
+</tr>
+<tr>
+  <td>硬盘容量</td>
+  <td><input disabled   id="resource:disk_capacity"></td>
+</tr>
+<tr>
+  <td>视频输入数量</td>
+  <td><input disabled   id="resource:videonum"></td>
+</tr>
+<tr>
+  <td>音频输入数量</td>
+  <td><input disabled   id="resource:audionum"></td>
+</tr>
+</table>
+
+</body>
+</html>

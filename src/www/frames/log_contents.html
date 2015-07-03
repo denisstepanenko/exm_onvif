@@ -1,0 +1,60 @@
+<html
+<head>
+<script type="text/javascript">
+function loadXMLDoc()
+{
+	var xmlhttp;
+	var json;
+	if (window.XMLHttpRequest)
+  	{// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+  	}
+	else
+  	{// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+		}
+	}
+	xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.send("method=GET_LOG");
+}
+function getCookie(c_name)
+{
+if (document.cookie.length>0)
+  {
+  c_start=document.cookie.indexOf(c_name + "=")
+  if (c_start!=-1)
+    { 
+    c_start=c_start + c_name.length+1 
+    c_end=document.cookie.indexOf(";",c_start)
+    if (c_end==-1) c_end=document.cookie.length
+    return unescape(document.cookie.substring(c_start,c_end))
+    } 
+  }
+return ""
+}
+function checkCookie()
+{
+	var status=getCookie('login_status')
+	if (status!=null && status=="0")
+  		{
+			//alert('登录成功 '+status+'!')
+		}
+	else 
+    {
+		{alert('请先登录设备'+status+'!')}
+  }
+}
+</script>
+</head>
+<body  onLoad="loadXMLDoc();checkCookie()">
+<div id="myDiv"><h2><h2>
+</body>
+</html>
+

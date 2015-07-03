@@ -1,0 +1,54 @@
+<HTML><HEAD><TITLE>Menu</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META http-equiv=Pragma content=no-cache>
+<META http-equiv=Cache-Control content=no-cache>
+<META http-equiv=Expires content="wed, 26 Feb 1997 08:21:57 GMT">
+<!--<LINK href="css_menu.css" rel=stylesheet>-->
+<META content="MSHTML 6.00.2800.1106" name=GENERATOR>
+<style type="text/css"><!--
+BODY {margin-top: 15px; margin-left: 15px; FONT-FAMILY: "宋体", "Times New Roman"; WHITE-SPACE: nowrap; 
+BACKGROUND-COLOR: #0052A4}
+TD {PADDING-LEFT: 13px;   FONT-SIZE: 12px;  TEXT-DECORATION: none; height:  18px; line-height:  18px;}
+TD.info {COLOR: #FFFFFF; PADDING-LEFT: 2px;}
+a.L1  {COLOR: #FFFFFF}
+a.L2  {COLOR: #FFF685}
+A:visited {TEXT-DECORATION: none; underline: none}
+A:hover {CURSOR: hand; COLOR: #FFF685; TEXT-DECORATION: none}
+A:link {TEXT-DECORATION: none; underline: none}
+td.dot1	{BACKGROUND-IMAGE: url(/images/pw.gif);	background-repeat:no-repeat; background-position:0px 3px;}
+td.plus 	{BACKGROUND-IMAGE: url(/images/plus.gif);background-repeat:no-repeat; background-position:0px 3px;}
+td.minus 	{BACKGROUND-IMAGE: url(/images/minus.gif);background-repeat:no-repeat; background-position:0px 3px;}
+td.dot2 	{BACKGROUND-IMAGE: url(/images/pw.gif);	background-repeat:no-repeat; background-position:13px 3px;PADDING-LEFT: 26px;}
+td.otherInfo {PADDING-LEFT: 1px; PADDING-RIGHT: 20px;}
+--></style>
+<script language=javascript><!--
+if(window.parent == window){window.location.href="http://192.168.9.14";}
+function Click(){ window.event.returnValue=false;}
+document.oncontextmenu=Click;
+	function ResetStatus(strInfo)
+	{
+window.status=""; return true;}
+	function renew(mainID,subID) {	
+		if(mainID==null)  mainID=0;
+		if(subID==null)  subID=0;
+		var MenuHtml ='/userRpm/MenuRpm.htm' + '?MainID=' + mainID + '&SubID=' + subID;
+		window.location.href =MenuHtml;
+		return false;  }
+//--></script>
+</HEAD>
+<BODY bgColor=#330099 leftMargin=0 topMargin=0 marginheight="0" marginwidth="0">
+<TABLE cellSpacing=2 cellPadding=1 border=0 width=150>
+<TBODY>
+<tr><td class=dot1><a href="/quick_configure.html" target=mainFrame class=L1 onClick="renew(0, 0);">快速设置</td></tr>
+<tr><td class=dot1><a href="/basic_devinfo.html" target=mainFrame class=L1 onClick="renew(1, 0);">设备基本信息</a></td></tr>
+<tr><td class=plus><a href="/video_audio_configure.html" target=mainFrame class=L1 onClick="renew(2, 0);">音视频参数设置</a></td></tr>
+<tr><td class=minus><a href="/alarm_configure.html" target=mainFrame class=L2 onClick="renew(5, 0);">报警服务设置</a></td></tr>
+<tr><td class=dot2><a href="/alarm_configure.html" target=mainFrame class=L1 onClick="renew(5, 1);">端子报警设置</a></td></tr>
+<tr><td class=dot2><a href="/video_alarm_configure.html" target=mainFrame class=L1 onClick="renew(5, 2);">视频报警设置</a></td></tr>
+<!--tr><td class=dot2><a href="/playback_configure.html" target=mainFrame class=L1 onClick="renew(5, 3);">报警回放设置</a></td></tr-->
+<tr><td class=plus><a href="/show_log.html" target=mainFrame class=L1 onClick="renew(6, 0);">日志查看</a></td></tr>
+<tr><td class=plus><a href="/disk_operate.html" target=mainFrame class=L1 onClick="renew(7, 0);">硬盘操作</a></td></tr>
+<tr><td class=plus><a href="/reboot_device.html" target=mainFrame class=L1 onClick="renew(9, 0);">重启设备</a></td></tr>
+<tr><td >&nbsp;</td></tr>
+<tr><td class=otherInfo><a href="#" OnMouseOver="return ResetStatus('');" onClick="window.open('http://www.gtalarm.com.cn','','')" class=L1>如需了解更多，请点击国通创安官方网站</a></td></tr>
+</TBODY></TABLE></BODY></HTML>

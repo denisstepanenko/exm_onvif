@@ -1,0 +1,673 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+//此处定义相关数组,需要和cgi程序返回相一致
+    /*
+var myArray = new Array();
+
+myArray.push("netencoder:audio_vol");
+myArray.push("video0:bright");
+myArray.push("video0:hue");
+myArray.push("video0:contrast");
+myArray.push("video0:saturation");
+myArray.push("video0:mic_vol");
+myArray.push("video1:bright");
+myArray.push("video1:hue");
+myArray.push("video1:contrast");
+myArray.push("video1:saturation");
+myArray.push("video1:mic_vol");
+myArray.push("video2:bright");
+myArray.push("video2:hue");
+myArray.push("video2:contrast");
+myArray.push("video2:saturation");
+myArray.push("video2:mic_vol");
+myArray.push("video3:bright");
+myArray.push("video3:hue");
+myArray.push("video3:contrast");
+myArray.push("video3:saturation");
+myArray.push("video3:mic_vol");
+//myArray.push("netencoder:targetbitrate");
+var selArray = new Array();
+
+selArray.push("netencoder:framerate");
+selArray.push("netencoder:vidpicsize");
+selArray.push("hqenc0:framerate");
+selArray.push("hqenc0:vidpicsize");
+selArray.push("hqpara:rec_type");
+selArray.push("hqpara:a_channel");
+*/
+
+var textArray = new Array();
+    /*
+textArray.push("netencoder:targetbitrate");
+textArray.push("netencoder:maxbitrate");
+textArray.push("hqenc0:targetbitrate");
+textArray.push("hqenc0:maxbitrate");
+textArray.push("hqpara:pre_rec");
+textArray.push("hqpara:dly_rec");
+textArray.push("hqpara:cut_len");
+*/
+textArray.push("audio0:ip_addr");
+textArray.push("audio0:mask");
+textArray.push("audio0:mac");
+textArray.push("audio0:guid");
+textArray.push("audio0:cmd_port");
+textArray.push("audio0:audio_down_port");
+
+
+
+
+
+textArray.push("audio1:ip_addr");
+textArray.push("audio1:mask");
+textArray.push("audio1:mac");
+textArray.push("audio1:guid");
+textArray.push("audio1:cmd_port");
+textArray.push("audio1:audio_down_port");
+
+
+textArray.push("audio2:ip_addr");
+textArray.push("audio2:mask");
+textArray.push("audio2:mac");
+textArray.push("audio2:guid");
+textArray.push("audio2:cmd_port");
+textArray.push("audio2:audio_down_port");
+
+
+textArray.push("audio3:ip_addr");
+textArray.push("audio3:mask");
+textArray.push("audio3:mac");
+textArray.push("audio3:guid");
+textArray.push("audio3:cmd_port");
+textArray.push("audio3:audio_down_port");
+    
+textArray.push("onvif0:ip");
+textArray.push("onvif1:ip");
+textArray.push("onvif2:ip");
+textArray.push("onvif3:ip");
+
+var radioArray = new Array();
+radioArray.push("audio0:internal");
+radioArray.push("audio1:internal");
+radioArray.push("audio2:internal");
+radioArray.push("audio3:internal");
+
+
+
+
+
+
+
+
+
+function loadXMLDoc()
+{
+	var xmlhttp;
+	var json;
+	if (window.XMLHttpRequest)
+  	{// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+  	}
+	else
+  	{// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+	xmlhttp.onreadystatechange=function()
+  	{	
+  		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    		{
+	
+			//从cgi程序获取json
+			
+
+
+
+			json = eval ("("+xmlhttp.responseText+")");
+			SaveJson(json)
+
+    		}
+  	}
+	xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.send("method=GET_PARA&page=2");
+}
+
+function setXMLDoc()
+{
+	//两种方式都可以
+	var url=MakeURL();	
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+  	{// code for IE7+, Firefox, Chrome, Opera, Safari
+  		xmlhttp=new XMLHttpRequest();
+  	}
+	else
+  	{// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+	xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.send(url);
+	var cfm =window.confirm("配置已保存，是否重启");
+	if(cfm==true)
+	{
+		xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send("method=REBOOT");
+		return;
+		
+	}
+	
+}
+function operate_device(method,button,div_section)
+{
+	//两种方式都可以	
+	
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+  	{// code for IE7+, Firefox, Chrome, Opera, Safari
+  		xmlhttp=new XMLHttpRequest();
+  	}
+	else
+  	{// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+	xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.send("method="+method);
+	document.getElementById(button).disabled=true;
+	xmlhttp.onreadystatechange=function()
+  	{	
+  		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    	{
+			document.getElementById(button).disabled=false;
+			alert("搜索完成!");
+			document.getElementById(div_section).innerHTML=xmlhttp.responseText;
+    	}
+  	}
+	
+	
+}
+
+function SaveJson(json)
+{
+	var i;
+	var value;
+	var str="_val";
+	var length;
+	var net_val = parseInt(json["netencoder:bitratecon"])-1;
+	var hq_val=parseInt(json["hqenc0:bitratecon"])-1;
+	/*
+	for(i=0;i<myArray.length;)
+	{
+		//document.getElementById(myArray[i]).value=json[myArray[i]];
+		
+		//需要修改为从需要的数组里获取相应值
+		//document.getElementById(myArray[i]+str).innerHTML = document.getElementById(myArray[i]).value;
+		value = json[myArray[i]];
+		if(eval(value)>eval(document.getElementById(myArray[i]).max))
+		{
+				value=document.getElementById(myArray[i]).value=document.getElementById(myArray[i]).max;
+		}
+		else
+		{
+			document.getElementById(myArray[i]).value = value;
+		}
+		document.getElementById(myArray[i]+str).innerHTML=value;
+		i++;
+		
+	}
+	for(i=0;i<selArray.length;)
+	{	
+		//zsk add 不越界
+		value = json[selArray[i]];
+		length = document.getElementById(selArray[i]).length;
+		if(eval(value)>=length||isNaN(value))
+		{
+			document.getElementById(selArray[i]).options[length-1].selected=true;
+		}
+		else
+		{
+			document.getElementById(selArray[i]).options[json[selArray[i]]].selected=true;
+			
+		}
+		
+		i++;
+	}
+    */
+	for(i=0;i<textArray.length;)
+	{
+		document.getElementById(textArray[i]).value=json[textArray[i]];
+		i++
+	}
+	for(i=0;i<radioArray.length;)
+	{
+		var audio_val=parseInt(json[radioArray[i]]);
+		if(audio_val==1)	
+			document.getElementsByName(radioArray[i]).item(0).checked=true;
+		else 
+			document.getElementsByName(radioArray[i]).item(1).checked=true;
+		i++;
+	
+
+
+	}
+
+	//document.getElementsByName("netencoder:bitratecon").item(net_val).checked=true;
+	//document.getElementsByName("hqenc0:bitratecon").item(hq_val).checked=true;
+}
+function MakeURL()
+{
+	var i;
+	var net_mode=2;
+	var hq_mode=2;
+	var audio_val;
+	var url="method=SAVE_PARA&page=2";
+    /*
+	for(i=0;i<myArray.length;)
+	{
+		url=url+"&"+myArray[i]+"="+document.getElementById(myArray[i]).value;
+		i++;
+	}
+	for(i=0;i<selArray.length;)
+	{
+		url=url+"&"+selArray[i]+"="+document.getElementById(selArray[i]).value;
+		i++;
+	}
+    */
+	for(i=0;i<textArray.length;)
+	{
+		url=url+"&"+textArray[i]+"="+document.getElementById(textArray[i]).value;
+		i++;
+	}
+	for(i=0;i<radioArray.length;)
+	{
+		if(document.getElementsByName(radioArray[i]).item(0).checked==true)
+		  audio_val=1
+		else
+		  audio_val=0;
+		url=url+"&"+radioArray[i]+"="+audio_val;
+		i++;
+	}
+	/*
+	if(document.getElementsByName("netencoder:bitratecon").item(0).checked==true)
+	{
+			net_mode=1;
+	}
+
+	url=url+"&"+"netencoder:bitratecon"+"="+net_mode;
+	if(document.getElementsByName("hqenc0:bitratecon").item(0).checked==true)
+	{
+			hq_mode=1;
+	}
+
+	url=url+"&"+"hqenc0:bitratecon"+"="+hq_mode;
+    */
+	return url;
+
+}
+function ismaxlength(obj)
+{
+	var mlength=obj.getAttribute? parseInt(obj.getAttribute("maxlength")) : ""
+	if (obj.getAttribute && obj.value.length>mlength)
+		obj.value=obj.value.substring(0,mlength)
+}
+function change(get,out) 
+{
+  var value = document.getElementById(get).value;
+  document.getElementById(out).innerHTML = value;
+}
+function check_valid_value(type,id)
+{
+	var type_val=eval(type);
+	var val= document.getElementById(id).value;
+
+	switch(type_val)
+	{
+		case 0://音频配置
+			if(val>15||val<0||isNaN(val)||val=="")
+			{
+				alert("请输入一个有效值[0~15]");
+				document.getElementById(id).value=8;
+			}
+			break;
+		case 1: //视频配置
+			if(val>99||val<0||isNaN(val)||val=="")
+			{
+				alert("请输入一个有效值[0~99]");
+				document.getElementById(id).value=49;
+			}
+			break;
+		case 2: //码流配置
+			if(val>4000||val<0||isNaN(val)||val=="")
+			{
+				alert("请输入一个有效值[0~4000]");
+				document.getElementById(id).value=2000;
+			}
+			break;
+		case 3: //时间配置
+			if(val>1800||val<0||isNaN(val)||val=="")
+			{
+				alert("请输入一个有效值[0~1800]");
+				document.getElementById(id).value=180;
+			}
+			break;
+		 default:
+		 	break;
+	}
+}
+/*function check_valid_value(type,id)
+{
+	var type_val=eval(type);
+	var val= eval(document.getElementById(id).value) ;
+	switch(type_val)
+	{
+		case 0://音频配置
+			if(val>15||val<0)
+			{
+				alert("请输入一个有效值[0~15]");
+				document.getElementById(id).value=8;
+			}
+			break;
+		case 1: //视频配置
+			if(val>99||val<0)
+			{
+				alert("请输入一个有效值[0~99]");
+				document.getElementById(id).value=49;
+			}
+			break;
+		case 2: //码流配置
+			if(val>4000||val<0)
+			{
+				alert("请输入一个有效值[0~4000]");
+				document.getElementById(id).value=2000;
+			}
+			break;
+		case 3: //时间配置
+			if(val>1800||val<0)
+			{
+				alert("请输入一个有效值[0~1800]");
+				document.getElementById(id).value=180;
+			}
+			break;
+		 default:
+		 	break;
+	}
+}
+*/
+function getCookie(c_name)
+{
+if (document.cookie.length>0)
+  {
+  c_start=document.cookie.indexOf(c_name + "=")
+  if (c_start!=-1)
+    { 
+    c_start=c_start + c_name.length+1 
+    c_end=document.cookie.indexOf(";",c_start)
+    if (c_end==-1) c_end=document.cookie.length
+    return unescape(document.cookie.substring(c_start,c_end))
+    } 
+  }
+return ""
+}
+function checkCookie()
+{
+	var status=getCookie('login_status')
+	if (status!=null && status=="0")
+  		{
+			//alert('成功登陆 '+status+'!')
+		}
+	else 
+    {
+		{alert('请先登陆设备'+status+'!')}
+  }
+}
+
+$(document).ready(function(){
+
+	$("#probe_device").click(function(){
+		$.post("/cgi-bin/cgi_main",
+			"method=PROBE_DEVICE",
+		function(data,status){
+			alert("搜索完成");
+			$("#probe_device_list").html(data);
+			$("#probe_device").attr("disabled",false);
+		});
+		$(this).attr("disabled",true);
+	});
+});
+$(document).ready(function(){
+
+	$("#probe_onvif_device").click(function(){
+		$.post("/cgi-bin/cgi_main",
+			"method=PROBE_ONVIF_DEVICE",
+		function(data,status){
+			//alert("数据：" + data + "\n状态：" + status);
+			var notic="不要频繁请求";
+			if(data.indexOf(notic)>0)
+				alert(notic);
+			else
+			{
+				alert("搜索完成");
+				$("#probe_onvif_device_list").html(data);
+			}
+			$("#probe_onvif_device").attr("disabled",false);
+		});
+		$(this).attr("disabled",true);
+	});
+});
+$(document).ready(function(){
+
+	var num=4;
+	var i;
+	for(i=0;i<num;i++)
+	{
+		$("#mod_ip"+i).click(function(){
+			$.post("/cgi-bin/cgi_main",
+				"method=MOD_IP"+i,
+			function(data,status){
+				alert("修改完成");
+				$("#mod_ip"+i).attr("disabled",false);
+			});
+			$(this).attr("disabled",true);
+		});
+	}
+});
+
+</script>
+
+
+</head>
+
+
+<body onLoad="loadXMLDoc();checkCookie()">
+<p>
+  <label>
+	<button type="botton"  id="probe_onvif_device" >搜索ONVIF设备</button>
+  </label>
+</p>
+<div id="probe_onvif_device_list"></div>
+<p>
+  <label>
+	<button type="botton"  id="probe_device" >搜索IP对讲设备</button>
+  </label>
+</p>
+<div id="probe_device_list"></div>
+<input type="button" onClick="setXMLDoc();checkCookie()" value="提交数据" />
+<p>视频0</p>
+<table width="428" border="0">
+  <tr>
+    <td width="100">IP地址</td>
+  </tr>
+  <tr>
+    <td><input type="text" id="onvif0:ip" maxlength="20" /></td>
+  </tr>
+</table>
+<p>视频1</p>
+<table width="428" border="0">
+  <tr>
+    <td width="100">IP地址</td>
+  </tr>
+  <tr>
+    <td><input type="text" id="onvif1:ip" maxlength="20" /></td>
+  </tr>
+</table>
+<p>视频2</p>
+<table width="428" border="0">
+  <tr>
+    <td width="100">IP地址</td>
+  </tr>
+  <tr>
+    <td><input type="text" id="onvif2:ip" maxlength="20" /></td>
+  </tr>
+</table>
+<p>视频3</p>
+<table width="428" border="0">
+  <tr>
+    <td width="100">IP地址</td>
+  </tr>
+  <tr>
+    <td><input type="text" id="onvif3:ip" maxlength="20" /></td>
+  </tr>
+</table>
+
+
+<p>音频0</p>
+<p>
+  <label>
+    <input type="radio" name="audio0:internal" value="1" id="audio0:internal">
+    ONVIF编码器
+  </label> 
+</p>
+<p>
+  <label>
+    <input type="radio" name="audio0:internal" value="0" id="audio0:internal">
+    IP对讲设备
+    </label>
+</p>
+<table width="428" border="0">
+  <tr>
+    <td width="100">IP地址</td>
+    <td width="100">掩码</td>
+    <td width="100">GUID</td>
+    <td width="100">MAC地址</td>
+    <td width="100">命令端口</td>
+    <td width="100">下行端口</td>
+  </tr>
+  <tr>
+    <td><input type="text" id="audio0:ip_addr" maxlength="20" /></td>
+    <td><input type="text" id="audio0:mask" maxlength="20" /></td>
+    <td><input type="text" id="audio0:guid" maxlength="20" /></td>
+    <td><input type="text" id="audio0:mac" maxlength="20" /></td>
+    <td><input type="text" id="audio0:cmd_port" maxlength="20" /></td>
+    <td><input type="text" id="audio0:audio_down_port" maxlength="20" /></td>
+  </tr>
+</table>
+<p>音频1</p>
+<p>
+  <label>
+    <input type="radio" name="audio1:internal" value="1" id="audio1:internal">
+    ONVIF编码器
+    </label>
+</p>
+<p>
+  <label>
+    <input type="radio" name="audio1:internal" value="0" id="audio1:internal">
+    IP对讲设备
+  </label>
+</p>
+<table width="428" border="0">
+  <tr>
+    <td width="100">IP地址</td>
+    <td width="100">掩码</td>
+    <td width="100">GUID</td>
+    <td width="100">MAC地址</td>
+    <td width="100">命令端口</td>
+    <td width="100">下行端口</td>
+  </tr>
+  <tr>
+    <td><input type="text" id="audio1:ip_addr" maxlength="20" class="ip"/></td>
+    <td><input type="text" id="audio1:mask" maxlength="20" /></td>
+    <td><input type="text" id="audio1:guid" maxlength="20" class="guid"/></td>
+    <td><input type="text" id="audio1:mac" maxlength="20" class="mac"/></td>
+    <td><input type="text" id="audio1:cmd_port" maxlength="20" /></td>
+    <td><input type="text" id="audio1:audio_down_port" maxlength="20" /></td>
+  </tr>
+</table>
+<p>音频2</p>
+<p>
+  <label>
+    <input type="radio" name="audio2:internal" value="1" id="audio2:internal">
+      ONVIF编码器
+  </label> 
+</p>
+<p>
+  <label>
+    <input type="radio" name="audio2:internal" value="0" id="audio2:internal">
+  IP对讲设备
+    </label>
+</p>
+<table width="428" border="0">
+  <tr>
+    <td width="100">IP地址</td>
+    <td width="100">掩码</td>
+    <td width="100">GUID</td>
+    <td width="100">MAC地址</td>
+    <td width="100">命令端口</td>
+    <td width="100">下行端口</td>
+  </tr>
+  <tr>
+    <td><input type="text" id="audio2:ip_addr" maxlength="20" class="ip"/></td>
+    <td><input type="text" id="audio2:mask" maxlength="20" /></td>
+    <td><input type="text" id="audio2:guid" maxlength="20" class="guid"/></td>
+    <td><input type="text" id="audio2:mac" maxlength="20" class="mac"/></td>
+    <td><input type="text" id="audio2:cmd_port" maxlength="20" /></td>
+    <td><input type="text" id="audio2:audio_down_port" maxlength="20" /></td>
+  </tr>
+</table>
+<p>音频3</p>
+<p>
+  <label>
+    <input type="radio" name="audio3:internal" value="1" id="audio3:internal">
+    ONVIF编码器
+    </label>
+</p>
+<p>
+  <label>
+    <input type="radio" name="audio3:internal" value="0" id="audio3:internal">
+    IP对讲设备
+    </label>
+</p>
+<table width="428" border="0">
+  <tr>
+    <td width="100">IP地址</td>
+    <td width="100">掩码</td>
+    <td width="100">GUID</td>
+    <td width="100">MAC地址</td>
+    <td width="100">命令端口</td>
+    <td width="100">下行端口</td>
+  </tr>
+  <tr>
+    <td><input type="text" id="audio3:ip_addr" maxlength="20" class="ip"/></td>
+    <td><input type="text" id="audio3:mask" maxlength="20" /></td>
+    <td><input type="text" id="audio3:guid" maxlength="20" class="guid"/></td>
+    <td><input type="text" id="audio3:mac" maxlength="20" class="mac"/></td>
+    <td><input type="text" id="audio3:cmd_port" maxlength="20" /></td>
+    <td><input type="text" id="audio3:audio_down_port" maxlength="20" /></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+
+
+
+</body>
+</html>
+
+
+
+
+  

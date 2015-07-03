@@ -1,0 +1,8 @@
+1.	使用新的softreboot脚本		--加入重起vsftpd,boa和xvsnatset的功能
+2.	使用新的ifcheck			--加入在网线正常后route add upnp 组播地址的功能
+3.	使用新的vmmain(GTVM)		--增加了use_upnp参数,以及在注册时根据情况选择发送xvs外部控制端口
+4.	使用新的rc.conf			--在INTERNET_MODE为1且使用dhcp或upnp时,启动upnpd后5秒再启动watchproc
+5.	把upnpd拷到/gt1000下...-.-
+
+
+以上都已更新到/nfs/test和/nfs/vm_test

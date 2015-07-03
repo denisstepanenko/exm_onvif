@@ -1,0 +1,165 @@
+<html>
+<head >
+<script type="text/javascript">
+
+function disk_format()
+{
+	
+	//两种方式都可以
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+  	{// code for IE7+, Firefox, Chrome, Opera, Safari
+  		xmlhttp=new XMLHttpRequest();
+  	}
+	else
+  	{// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+	
+	
+	var no=document.getElementById("partition")
+	var option=no.options[no.selectedIndex].value
+
+	//alert(option);
+
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			document.getElementById("format_patition").innerHTML=xmlhttp.responseText;
+			document.getElementById("button_disk_init").disabled=false;
+			document.getElementById("button_disk_info").disabled=false;
+			document.getElementById("button_disk_format").disabled=false;
+		}
+		if (xmlhttp.readyState==3)
+		{
+			document.getElementById("format_patition").innerHTML=xmlhttp.responseText;
+		}
+	}
+	var cfm =window.confirm("是否格式化");
+	if(cfm==true)
+	{
+		document.getElementById("format_patition").innerHTML="starting format patition";
+		document.getElementById("button_disk_init").disabled= true;
+		document.getElementById("button_disk_info").disabled=true;
+		document.getElementById("button_disk_format").disabled=true;
+		xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send("method=DISK_OPERATE&page="+option);
+		return;
+		
+	}
+
+}
+function disk_info_get()
+{
+	//两种方式都可以
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+  	{// code for IE7+, Firefox, Chrome, Opera, Safari
+  		xmlhttp=new XMLHttpRequest();
+  	}
+	else
+  	{// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			document.getElementById("patition_info").innerHTML=xmlhttp.responseText;
+		}
+	}
+	
+		xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send("method=DISK_OPERATE&page=5");
+		return;
+		
+	
+
+}
+function disk_init()
+{
+	//两种方式都可以
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+  	{// code for IE7+, Firefox, Chrome, Opera, Safari
+  		xmlhttp=new XMLHttpRequest();
+  	}
+	else
+  	{// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			document.getElementById("format_disk").innerHTML=xmlhttp.responseText;
+			document.getElementById("button_disk_format").disabled=false;
+			document.getElementById("button_disk_info").disabled=false;
+			document.getElementById("button_disk_init").disabled=false;
+		}
+	}
+	var cfm =window.confirm("是否要给硬盘重新分区，并格式化？");
+	if(cfm==true)
+	{
+		document.getElementById("format_disk").innerHTML="strating format disk";
+		document.getElementById("button_disk_format").disabled=true;
+		document.getElementById("button_disk_info").disabled=true;
+		document.getElementById("button_disk_init").disabled=true;
+		xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send("method=DISK_OPERATE&page=0");
+		return;
+		
+	}
+
+}
+function getCookie(c_name)
+{
+if (document.cookie.length>0)
+  {
+  c_start=document.cookie.indexOf(c_name + "=")
+  if (c_start!=-1)
+    { 
+    c_start=c_start + c_name.length+1 
+    c_end=document.cookie.indexOf(";",c_start)
+    if (c_end==-1) c_end=document.cookie.length
+    return unescape(document.cookie.substring(c_start,c_end))
+    } 
+  }
+return ""
+}
+function checkCookie()
+{
+	var status=getCookie('login_status')
+	if (status!=null && status=="0")
+  		{
+			//alert('成功登陆 '+status+'!')
+		}
+	else 
+    {
+		{alert('请先登陆设备'+status+'!')}
+  }
+}
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+</head>
+<body>
+<input type="button" onClick="disk_info_get();checkCookie()" value="查询分区信息" id="button_disk_info"/>
+<div id="patition_info">
+</div>
+<input type="button" onClick="disk_format();checkCookie()" value="格式化硬盘" id="button_disk_format" />
+<select  id="partition" >
+    <option value="1"  selected>分区1</option>
+    <option value="2" >分区2</option>
+    <option value="3" >分区3</option>
+    <option value="4" >分区4</option>
+    </select>
+<div id="format_patition"></div>
+<input type="button" onClick="disk_init();checkCookie()" value="硬盘全盘分区格式化" id="button_disk_init" />
+<div id="format_disk"></div>
+</body>
+</html>

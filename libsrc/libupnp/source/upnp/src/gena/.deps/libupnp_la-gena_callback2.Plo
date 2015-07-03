@@ -1,0 +1,302 @@
+src/gena/libupnp_la-gena_callback2.lo: src/gena/gena_callback2.c \
+ src/inc/config.h ../autoconfig.h src/inc/gena.h src/inc/config.h \
+ src/inc/service_table.h src/inc/uri.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/fcntl.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/features.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/uClibc_config.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/sys/cdefs.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/fcntl.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/sys/types.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/types.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/wordsize.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../lib/gcc/arm-hisiv100-linux-uclibcgnueabi/4.4.1/include/stddef.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/typesizes.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/pthreadtypes.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/endian.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/endian.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/byteswap.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/byteswap.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/byteswap-common.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/time.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/sys/select.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/select.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/sigset.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/time.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/sys/sysmacros.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/string.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/malloc.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/stdio.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/uClibc_stdio.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/wchar.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/wchar.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/uClibc_mutex.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/pthread.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/sched.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/sched.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/uClibc_clk_tck.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/signal.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/setjmp.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/uClibc_pthread.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../lib/gcc/arm-hisiv100-linux-uclibcgnueabi/4.4.1/include/stdarg.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/stdio_lim.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/errno.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/errno.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/linux/errno.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/asm/errno.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/asm-generic/errno.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/asm-generic/errno-base.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/ctype.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/uClibc_touplow.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/stdlib.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/alloca.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/arpa/inet.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/netinet/in.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/stdint.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/sys/socket.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/sys/uio.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/uio.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/socket.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../lib/gcc/arm-hisiv100-linux-uclibcgnueabi/4.4.1/include-fixed/limits.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../lib/gcc/arm-hisiv100-linux-uclibcgnueabi/4.4.1/include-fixed/syslimits.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/limits.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/posix1_lim.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/local_lim.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/linux/limits.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/uClibc_local_lim.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/posix2_lim.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/sockaddr.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/asm/socket.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/asm/sockios.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/in.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/unistd.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/posix_opt.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/confname.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/getopt.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/netdb.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/rpc/netdb.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/netdb.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/sys/time.h \
+ ../upnp/inc/upnp.h ../ixml/inc/ixml.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/assert.h \
+ ../upnp/inc/upnpconfig.h src/inc/miniserver.h src/inc/sock.h \
+ src/inc/util.h src/inc/httpparser.h src/inc/membuffer.h \
+ ../threadutil/inc/LinkedList.h ../threadutil/inc/FreeList.h \
+ ../threadutil/inc/ithread.h ../threadutil/inc/ThreadPool.h \
+ ../threadutil/inc/LinkedList.h \
+ /opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/sys/timeb.h \
+ src/inc/client_table.h ../threadutil/inc/TimerThread.h \
+ ../threadutil/inc/ThreadPool.h src/inc/upnp_timeout.h \
+ src/inc/gena_device.h src/inc/gena_ctrlpt.h src/inc/httpparser.h \
+ src/inc/httpreadwrite.h src/inc/statcodes.h src/inc/unixutil.h
+
+src/inc/config.h:
+
+../autoconfig.h:
+
+src/inc/gena.h:
+
+src/inc/config.h:
+
+src/inc/service_table.h:
+
+src/inc/uri.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/fcntl.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/features.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/uClibc_config.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/sys/cdefs.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/fcntl.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/sys/types.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/types.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/wordsize.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../lib/gcc/arm-hisiv100-linux-uclibcgnueabi/4.4.1/include/stddef.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/typesizes.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/pthreadtypes.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/endian.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/endian.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/byteswap.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/byteswap.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/byteswap-common.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/time.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/sys/select.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/select.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/sigset.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/time.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/sys/sysmacros.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/string.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/malloc.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/stdio.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/uClibc_stdio.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/wchar.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/wchar.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/uClibc_mutex.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/pthread.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/sched.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/sched.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/uClibc_clk_tck.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/signal.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/setjmp.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/uClibc_pthread.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../lib/gcc/arm-hisiv100-linux-uclibcgnueabi/4.4.1/include/stdarg.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/stdio_lim.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/errno.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/errno.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/linux/errno.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/asm/errno.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/asm-generic/errno.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/asm-generic/errno-base.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/ctype.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/uClibc_touplow.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/stdlib.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/alloca.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/arpa/inet.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/netinet/in.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/stdint.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/sys/socket.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/sys/uio.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/uio.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/socket.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../lib/gcc/arm-hisiv100-linux-uclibcgnueabi/4.4.1/include-fixed/limits.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../lib/gcc/arm-hisiv100-linux-uclibcgnueabi/4.4.1/include-fixed/syslimits.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/limits.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/posix1_lim.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/local_lim.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/linux/limits.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/uClibc_local_lim.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/posix2_lim.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/sockaddr.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/asm/socket.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/asm/sockios.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/in.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/unistd.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/posix_opt.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/confname.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/getopt.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/netdb.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/rpc/netdb.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/bits/netdb.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/sys/time.h:
+
+../upnp/inc/upnp.h:
+
+../ixml/inc/ixml.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/assert.h:
+
+../upnp/inc/upnpconfig.h:
+
+src/inc/miniserver.h:
+
+src/inc/sock.h:
+
+src/inc/util.h:
+
+src/inc/httpparser.h:
+
+src/inc/membuffer.h:
+
+../threadutil/inc/LinkedList.h:
+
+../threadutil/inc/FreeList.h:
+
+../threadutil/inc/ithread.h:
+
+../threadutil/inc/ThreadPool.h:
+
+../threadutil/inc/LinkedList.h:
+
+/opt/hisi-linux-nptl/arm-hisiv100-linux/bin/../target/usr/include/sys/timeb.h:
+
+src/inc/client_table.h:
+
+../threadutil/inc/TimerThread.h:
+
+../threadutil/inc/ThreadPool.h:
+
+src/inc/upnp_timeout.h:
+
+src/inc/gena_device.h:
+
+src/inc/gena_ctrlpt.h:
+
+src/inc/httpparser.h:
+
+src/inc/httpreadwrite.h:
+
+src/inc/statcodes.h:
+
+src/inc/unixutil.h:

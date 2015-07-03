@@ -1,0 +1,72 @@
+<html>
+<head>
+<script type="text/javascript">
+function require_check(username,passwd)
+{
+	var xmlhttp;
+	var json;
+	var url="method=LOGIN&username="+username+"&passwd="+passwd;
+	if (window.XMLHttpRequest)
+  	{// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+  	}
+	else
+  	{// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+	xmlhttp.onreadystatechange=function()
+  	{	
+  		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    		{
+	
+			//从cgi程序获取json
+			
+				json = eval ("("+xmlhttp.responseText+")");
+				var result=json["result"];
+				if (result==0) 
+				{	  
+       				location="/userRpm/main.html";  //跳转页面
+				}			 
+				else 
+				{  
+					alert("用户名密码错误")
+				}
+
+    		}
+  	}
+	xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.send(url);
+}
+function passuser(form) 
+{	
+	var usr_val = form.user.value;
+	var pass_val = form.password.value;
+	require_check(usr_val,pass_val);
+
+}
+function my_cancel(form)
+{
+ form.user.value="";
+ form.password.value="";
+}
+
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" /></head>
+
+<body>
+<center>
+<table bgcolor="white" cellpadding="12" border="1">
+<tr><td colspan="2"><center><h1><i><b>国通创安IP1004
+</b></i></h1></center></td></tr>
+<tr><td><h1><i><b>用户名:</b></i></h1></td><td><form name="login"><input
+name="user" type="text"></td></tr>
+<tr><td><h1><i><b>密码:</b></i></h1></td><td><input name="password"
+type="password"></td></tr>
+<tr><td><center><input type="button" value="登录"
+onClick="passuser(login)"></center></td>
+<td><center><input type="button" value="清空" 
+onClick="my_cancel(login)"></form></td>
+</tr></table></center>
+</body>
+</html>

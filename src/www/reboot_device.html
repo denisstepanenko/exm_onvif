@@ -1,0 +1,65 @@
+<html>
+<head >
+<script type="text/javascript">
+
+
+
+
+function setXMLDoc()
+{
+	//两种方式都可以
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+  	{// code for IE7+, Firefox, Chrome, Opera, Safari
+  		xmlhttp=new XMLHttpRequest();
+  	}
+	else
+  	{// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+
+	var cfm =window.confirm("是否重启");
+	if(cfm==true)
+	{
+		xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send("method=REBOOT");
+		return;
+		
+	}
+
+}
+function getCookie(c_name)
+{
+if (document.cookie.length>0)
+  {
+  c_start=document.cookie.indexOf(c_name + "=")
+  if (c_start!=-1)
+    { 
+    c_start=c_start + c_name.length+1 
+    c_end=document.cookie.indexOf(";",c_start)
+    if (c_end==-1) c_end=document.cookie.length
+    return unescape(document.cookie.substring(c_start,c_end))
+    } 
+  }
+return ""
+}
+function checkCookie()
+{
+	status=getCookie('login_status')
+	if (status!=null && status=="0")
+  		{
+			//alert('成功登陆 '+status+'!')
+		}
+	else 
+    {
+		{alert('请先登陆设备'+status+'!')}
+  }
+}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" /></head>
+<body>
+<input type="button" onClick="setXMLDoc();checkCookie()" value="重启设备" />
+
+</body>
+</html>

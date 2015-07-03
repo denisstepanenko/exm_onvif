@@ -1,0 +1,21 @@
+rm板上移植pppoe的经验吧。在Arm上成功移植pppoe，其中经历了很多波折，因此把过程写下来，给自己也给他人提供一些参考。闲话少说，直接步骤吧：
+对了，先要在编译内核时把含有ppp和pppoe的选项选上，不过含有ppp的我没有全选，这个视个人情况而定吧。
+1、交叉编译libcap-0.9.1 <代码来源于www.tcpdump.org>
+./configure --host=arm-linux --prefix=/usr --with-pcap=linux-2.4.10(这个根据自己的内核版本来定，如果不指明编译时会报错，但指明了在后面也会出一点问题。也因为这个问题，有人强制在configure里删除了配置with-pcap那一段，我懒得删所以先留着了，呵呵)
+make   ：这个时候报错：No rule to make target 'pcap-linux-2.4.10' ，needed by 'libcap.a'。这个问题就是由configure时--with-pcap那一项配置引起的。我查看了一下Makefile，发现包含有linux-2.4.10关键字的地方只有PSRC=http://network.51cto.com/art/201009/pcap-linux-2.4.10.C那一项，于是我将其改为PSRC=pcap.C，再次make，编译成功，不过只生成了libpcap.a。再打开Makefile，找到libpcap.so:＄(OBJ)……那一段，将ld改为arm-linux-ld，然后执行：make libpcap.so，最后报了一个pcap.o有错。我想还是因为with-pcap那一项的问题，再回到Makefile，将PSRC＝pcap.c那一行改为PSRC=pcap-linux.c，重新make，接着make libpcap.so，终于成功了，哈哈！将libpcap.so copy 至arm板root（newroot）下的lib目录，又做了两个链接libpcap.so.0 和libpcap.so.0.9.1。
+2、交叉编译 ppp-2.4.1
+源码下载：ftp://ftp.samba.org/pub/ppp
+解压缩，进入ppp-2.4.1目录，执行下面两步：
+./configure --prefix = /usr
+make CC = arm-linux-gcc
+很遗憾，一大堆错误，而且都是莫名其妙的错误。据经验估计应该是工具链的原因。但是因为之前曾经吃过换工具链引起库不兼容出了段错误的亏，所以这次没敢轻易换工具链。改了好几个小时还是没有改完，没办法，菜鸟就是这样，呵呵。只好妥协，换了arm-linux-gcc.3.3.2，一编译，果然通过。虽然心中窃喜，不过还是有点担心，怕怕哦。
+再将pppd、chat等四个可执行程序copy到newroot下的usr/sbin目录，还有scripts目录下的几个脚本也拷过去。
+进入newroot下的dev,执行：mknod ppp c 108 0
+3、交叉编译rp-pppoe,我用的是3.7版本
+./configure --host=arm-linux --prefix=/usr
+make
+最终将pppd pppoe pppoe-setup pppoe-start pppoe-stop等copy到/newroot/usr/sbin下，也可以自己make install。
+其中pppoe是可执行文件，pppoe-xxx是脚本。
+最后将文件系统烧入flash，运行pppoe-setup，根据自己的实际情况输入用户名密码DNS等信息。然后运行pppoe-start脚本。如果这步一切正常就可以了。可惜我挺不幸的，不仅自动生成的脚本pppoe-connect也有问题，而且我的文件系统里面shell配置太简单，expr、printf等命令都没有，没办法，只好改脚本了。怎么改就不再一一叙述了，不过因为改pppoe-connect脚本时太大意，用了一个全部替换命令将echo都替换成＄ECHO，换完也没检查，把pppd的一个参数里面含有的echo也给换掉了，后来看DEGBUG出来的脚本还对着那个错误纳闷了半天。脚本的错误清除了，但还是拨号成功不了，而且一点儿输出信息都没有，出错信息没有。
+后来直接运行pppd，Segmentation Default ——段错误！刚开始以为是工具链的原因，只好又用原来的工具链3.2.1来编译，参考了网上一个人的方法，把arm-linux/sys-include/route.h替换为include下的route.h，重新编译通过了，但还是段错误。郁闷了好几天，狂google了一通，终于找到了错误所在，原来是mmap函数的问题，把ppp-2.4.1/pppd下面Makefile里的-DHAVE_MMAP去掉重新编译就可以运行了。
+去掉了段错误，松了一口气，但还是连不上，我那个气呀，真是别人遇到的问题我遇到了，别人没遇到的问题我也遇到了！没办法，还得慢慢来呗。于是运行DEBUG=1 pppoe-start，通过看DEBUG的报告，发现是地址族不被协议支持的问题。再重新编译内核，将含有ipv6的那一项选上，但还是不行。仔细看错误，其描述如下……Socket:Session 0:Address Family not supported by protocol!其中的Socket一词引起了我的兴趣，想了想，再次重新编译内核，把含有Socket的选项Packet Socket，Packet Socket:mmapped IO,Socket Filtering也选上，再次运行pppoe-start，ping www.baidu.com ，终于ping通了，可以用adsl上网了，移植pppoe大功告成。

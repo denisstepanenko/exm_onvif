@@ -1,0 +1,1448 @@
+<html>
+<head>
+<script src="SpryAssets/SpryAccordion.js" type="text/javascript"></script>
+<script src="SpryAssets/SpryTabbedPanels.js" type="text/javascript"></script>
+<script src="SpryAssets/SpryCollapsiblePanel.js" type="text/javascript"></script>
+<script type="text/javascript">
+//此处定义相关数组,需要和cgi程序返回相一致
+var myArray = new Array();
+myArray.push("video0:name");
+myArray.push("video1:name");
+myArray.push("video2:name");
+myArray.push("video3:name");
+myArray.push("actiondefine:1");
+myArray.push("actiondefine:2");
+myArray.push("actiondefine:3");
+myArray.push("actiondefine:4");
+myArray.push("actiondefine:5");
+myArray.push("actiondefine:6");
+myArray.push("actiondefine:7");
+myArray.push("actiondefine:8");
+myArray.push("video0:starthour");
+myArray.push("video0:startmin");
+myArray.push("video0:endhour");
+myArray.push("video0:endmin");
+myArray.push("video1:starthour");
+myArray.push("video1:startmin");
+myArray.push("video1:endhour");
+myArray.push("video1:endmin");
+myArray.push("video2:starthour");
+myArray.push("video2:startmin");
+myArray.push("video2:endhour");
+myArray.push("video2:endmin");
+myArray.push("video3:starthour");
+myArray.push("video3:startmin");
+myArray.push("video3:endhour");
+myArray.push("video3:endmin");
+
+var Video_enable = new Array();
+Video_enable.push("video0:enable");
+Video_enable.push("video1:enable");
+Video_enable.push("video2:enable");
+Video_enable.push("video3:enable");
+Video_enable.push("video0:motion_alarm");
+Video_enable.push("video1:motion_alarm");
+Video_enable.push("video2:motion_alarm");
+Video_enable.push("video3:motion_alarm");
+
+
+var Video_sense = new Array();
+Video_sense.push("video0:blind_sen");
+Video_sense.push("video1:blind_sen");
+Video_sense.push("video2:blind_sen");
+Video_sense.push("video3:blind_sen");
+Video_sense.push("video0:motion_sen");
+Video_sense.push("video1:motion_sen");
+Video_sense.push("video2:motion_sen");
+Video_sense.push("video3:motion_sen");
+
+
+var ActArray = new Array();
+
+ActArray.push("motion0:imact");  
+ActArray.push("motion1:imact");	
+ActArray.push("motion2:imact");  
+ActArray.push("motion3:imact");  
+
+
+
+ActArray.push("motion0:ackact");  
+ActArray.push("motion1:ackact");	
+ActArray.push("motion2:ackact");  
+ActArray.push("motion3:ackact");  
+
+
+ActArray.push("motion0:selectact");  
+ActArray.push("motion1:selectact");	
+ActArray.push("motion2:selectact");  
+ActArray.push("motion3:selectact");  
+
+
+ActArray.push("motion0:rstact");  
+ActArray.push("motion1:rstact");	
+ActArray.push("motion2:rstact");  
+ActArray.push("motion3:rstact");  
+
+
+
+function loadXMLDoc()
+{
+	var xmlhttp;
+	var json;
+	if (window.XMLHttpRequest)
+  	{// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+  	}
+	else
+  	{// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+	xmlhttp.onreadystatechange=function()
+  	{	
+  		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    		{
+	
+			//从cgi程序获取json
+			
+
+
+
+			json = eval ("("+xmlhttp.responseText+")");
+			SaveJson(json);
+			GetValue(json);
+
+    		}
+  	}
+	xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.send("method=GET_PARA&page=4");
+}
+
+function setXMLDoc()
+{
+	//两种方式都可以
+	var url=MakeURL();	
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+  	{// code for IE7+, Firefox, Chrome, Opera, Safari
+  		xmlhttp=new XMLHttpRequest();
+  	}
+	else
+  	{// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+
+	xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.send(url);
+	var cfm =window.confirm("配置已保存，是否重启");
+	if(cfm==true)
+	{
+		xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send("method=REBOOT");
+		return;
+		
+	}
+
+}
+function SaveJson(json)
+{
+	var i;
+	for(i=0;i<myArray.length;)
+	{
+		document.getElementById(myArray[i]).value=json[myArray[i]];
+		i++;
+	}
+	for(i=0;i<Video_enable.length;i++)
+	{
+		
+		if(json[Video_enable[i]]=="1")
+		{
+			document.getElementById(Video_enable[i]).checked=1;
+		}
+	}
+	for(i=0;i<Video_sense.length;)
+	{
+		document.getElementById(Video_sense[i]).options[json[Video_sense[i]]].selected=true;
+		i++;
+	}
+
+}
+function Set_sel(act_type,action,option)
+{
+	
+	
+	document.getElementById(act_type+action).options[option].selected=true;
+	
+}
+function GetValue(json)
+{
+	var act;
+	var name;
+	var strs= new Array(); //定义一数组
+
+	for(i=0;i<ActArray.length;i++)
+	{
+		act=json[ActArray[i]];
+		strs=act.split(","); //字符分割  
+		
+		for (j=0;j< 10; j++)    //最多10个动作
+		{    
+	
+			switch(strs[j])	
+			{
+				case "1":
+					Set_sel(ActArray[i],"_out0",1);
+					//document.getElementById(pre_name+'_out0').options[1].selected=true;
+					break;
+				case "2":
+					Set_sel(ActArray[i],"_out0",3);
+					//document.getElementById(pre_name+'_out0').options[3].selected=true;
+					break;
+				case "3":
+					Set_sel(ActArray[i],"_out1",1);
+					//document.getElementById(pre_name+'_out1').options[1].selected=true;
+					break;
+				case "4":
+					Set_sel(ActArray[i],"_out1",3);
+					//document.getElementById(pre_name+'_out1').options[3].selected=true;
+					break;
+				case "5":
+					Set_sel(ActArray[i],"_out2",1);
+					//document.getElementById(pre_name+'_out2').options[1].selected=true;
+					break;
+				case "6":
+					Set_sel(ActArray[i],"_out2",3);
+					//document.getElementById(pre_name+'_out2').options[3].selected=true;
+					break;
+				case "7":
+					Set_sel(ActArray[i],"_out3",1);
+					//document.getElementById(pre_name+'_out3').options[1].selected=true;
+					break;
+				case "8":
+					Set_sel(ActArray[i],"_out3",3);
+					//document.getElementById(pre_name+'_out3').options[3].selected=true;
+					break;
+				case "51":
+					Set_sel(ActArray[i],"_out0",2);
+					//document.getElementById(pre_name+'_out0').options[2].selected=true;
+					break;
+				case "52":
+					Set_sel(ActArray[i],"_out0",4);
+					//document.getElementById(pre_name+'_out0').options[4].selected=true;
+					break;
+				case "53":
+					Set_sel(ActArray[i],"_out1",2);
+					//document.getElementById(pre_name+'_out1').options[2].selected=true;
+					break;
+				case "54":
+					Set_sel(ActArray[i],"_out1",4);
+					//document.getElementById(pre_name+'_out1').options[4].selected=true;
+					break;
+				case "55":
+					Set_sel(ActArray[i],"_out2",2);
+					//document.getElementById(pre_name+'_out2').options[2].selected=true;
+					break;
+				case "56":
+					Set_sel(ActArray[i],"_out2",4);
+					//document.getElementById(pre_name+'_out2').options[4].selected=true;
+					break;
+				case "57":
+					Set_sel(ActArray[i],"_out3",2);
+					//document.getElementById(pre_name+'_out3').options[2].selected=true;
+					break;
+				case "58":
+					Set_sel(ActArray[i],"_out3",4);
+					//document.getElementById(pre_name+'_out3').options[4].selected=true;
+					break;
+				case "40":
+					Set_sel(ActArray[i],"_expand",1);
+					//document.getElementById(pre_name+'_expand').options[1].selected=true;
+					break;
+				case "30":
+					Set_sel(ActArray[i],"_screen",1);
+					//document.getElementById(pre_name+'_screen').options[1].selected=true;
+					break;
+				case "31":
+					Set_sel(ActArray[i],"_screen",2);
+					//document.getElementById(pre_name+'_screen').options[2].selected=true;
+					break;
+				case "32":
+					Set_sel(ActArray[i],"_screen",3);
+					//document.getElementById(pre_name+'_screen').options[3].selected=true;
+					break;
+				case "33":
+					Set_sel(ActArray[i],"_screen",4);
+					//document.getElementById(pre_name+'_screen').options[4].selected=true;
+					break;
+				case "34":
+					Set_sel(ActArray[i],"_screen",5);
+					//document.getElementById(pre_name+'_screen').options[5].selected=true;
+					break;
+				default:
+					break;
+			}
+		}
+	}
+}
+function MakeURL()
+{
+	var url="method=SAVE_PARA&page=4";
+	var screen_id,screen_val;
+	var expand_id,expand_val;
+	var out0_id,out0_val;
+	var out1_id,out1_val;
+	var out2_id,out2_val;
+	var out3_id,out3_val;
+	for(i=0;i<myArray.length;)
+	{
+		url=url+"&"+myArray[i]+"="+document.getElementById(myArray[i]).value;
+		i++;
+	}
+	for(i=0;i<ActArray.length;)
+	{
+		screen_id = document.getElementById(ActArray[i]+"_screen");
+		screen_val = screen_id.options[screen_id.selectedIndex].value ;
+		
+		expand_id = document.getElementById(ActArray[i]+"_expand");
+		expand_val = expand_id.options[expand_id.selectedIndex].value ;
+		
+		out0_id = document.getElementById(ActArray[i]+"_out0");
+		out0_val = out0_id.options[out0_id.selectedIndex].value; 
+		
+		out1_id = document.getElementById(ActArray[i]+"_out1");
+		out1_val = out1_id.options[out1_id.selectedIndex].value; 
+		
+		out2_id = document.getElementById(ActArray[i]+"_out2");
+		out2_val = out2_id.options[out2_id.selectedIndex].value ;
+		
+		out3_id = document.getElementById(ActArray[i]+"_out3");
+		out3_val = out3_id.options[out3_id.selectedIndex].value; 
+		
+		value_str= screen_val+","+expand_val+","+out0_val+","+out1_val+","+out2_val+","+out3_val
+		url=url+"&"+ ActArray[i]+"="+ value_str;
+		i++;
+	}
+	for(i=0;i<Video_enable.length;)
+	{
+		url=url+"&"+Video_enable[i]+"="+(document.getElementById(Video_enable[i]).checked?1:0);
+		i++;
+	}
+	for(i=0;i<Video_sense.length;)
+	{
+		url=url+"&"+Video_sense[i]+"="+document.getElementById(Video_sense[i]).value;
+		i++;
+	}
+	return url;
+
+}
+function check_valid_hour(id)
+{
+	var val= document.getElementById(id).value ;
+	if(val>23||val<0||isNaN(val)||val=="")
+	{
+		alert("请输入一个有效值");
+		document.getElementById(id).value=0;
+	}
+	
+}
+function check_valid_min(id)
+{
+	var val= document.getElementById(id).value ;
+	if(val>59||val<0||isNaN(val)||val=="")
+	{
+		alert("请输入一个有效值");
+		document.getElementById(id).value=0;
+	}
+	
+}
+function getCookie(c_name)
+{
+if (document.cookie.length>0)
+  {
+  c_start=document.cookie.indexOf(c_name + "=")
+  if (c_start!=-1)
+    { 
+    c_start=c_start + c_name.length+1 
+    c_end=document.cookie.indexOf(";",c_start)
+    if (c_end==-1) c_end=document.cookie.length
+    return unescape(document.cookie.substring(c_start,c_end))
+    } 
+  }
+return ""
+}
+function checkCookie()
+{
+	var status=getCookie('login_status')
+	if (status!=null && status=="0")
+  		{
+			//alert('成功登陆 '+status+'!')
+		}
+	else 
+    {
+		{alert('请先登陆设备'+status+'!')}
+  }
+}
+
+</script>
+<meta http-equiv="Content-Type" content="text/html"; charset="GB2312">
+<link href="SpryAssets/SpryAccordion.css" rel="stylesheet" type="text/css">
+<link href="SpryAssets/SpryTabbedPanels.css" rel="stylesheet" type="text/css">
+<link href="SpryAssets/SpryCollapsiblePanel.css" rel="stylesheet" type="text/css">
+</head>
+
+<body onLoad="loadXMLDoc();checkCookie()">
+  	输出0 闭合<input type="text" id="actiondefine:1" size="10" /><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	打开<input type="text" id="actiondefine:2" size="10" /><br>
+  	输出1 闭合<input type="text" id="actiondefine:3" size="10" /><br>
+  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  	打开<input type="text" id="actiondefine:4" size="10" /><br>
+ 	输出2 闭合<input type="text" id="actiondefine:5" size="10" /><br>
+  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 	打开<input type="text" id="actiondefine:6" size="10" /><br>
+  	输出3 闭合<input type="text" id="actiondefine:7" size="10" /><br>
+  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  	打开<input type="text" id="actiondefine:8" size="10" /><br>
+视频0
+	<input type="checkbox" id="video0:enable" value="1" >
+OSD名称
+	<input type="text" id="video0:name" size="10" maxlength="15" />
+起始时间
+	<input type="text" id="video0:starthour" size="2" maxlength="2" onChange="check_valid_hour('video0:starthour')" />时
+
+	<input type="text" id="video0:startmin" size="2" maxlength="2" onChange="check_valid_min('video0:startmin')" />分
+终止时间
+	<input type="text" id="video0:endhour" size="2" maxlength="2" onChange="check_valid_hour('video0:endhour')" />时
+
+	<input type="text" id="video0:endmin" size="2" maxlength="2" onChange="check_valid_min('video0:endmin')" />分
+    
+    
+<br>遮挡灵敏度
+<select  id="video0:blind_sen">
+    <option value="0" selected>不启用</option>
+    <option value="1" >灵敏度低</option>
+    <option value="2" >灵敏度高</option>
+    </select>
+移动侦测灵敏度
+<select  id="video0:motion_sen">
+    <option value="0" selected>不启用</option>
+    <option value="1" >灵敏度高</option>
+    <option value="2" >灵敏度中</option>
+    <option value="3" >灵敏度低</option>
+    </select>
+移动侦测是否报警
+	<input type="checkbox" id="video0:motion_alarm" value="1" >
+<br>
+<div id="CollapsiblePanel0" class="CollapsiblePanel">
+  <div class="CollapsiblePanelTab" tabindex="0">报警联动配置</div>
+  <div class="CollapsiblePanelContent">
+<div id="TabbedPanels0" class="TabbedPanels">
+  <ul class="TabbedPanelsTabGroup">
+    <li class="TabbedPanelsTab" tabindex="0">立即执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="1">确认执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="2">选择执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="3">复位执行动作</li>
+  </ul>
+  <div class="TabbedPanelsContentGroup">
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="motion0:imact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="motion0:imact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="motion0:imact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="motion0:imact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="motion0:imact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="motion0:imact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="motion0:ackact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="motion0:ackact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="motion0:ackact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="motion0:ackact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="motion0:ackact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="motion0:ackact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="motion0:selectact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="motion0:selectact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="motion0:selectact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="motion0:selectact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="motion0:selectact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="motion0:selectact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="motion0:rstact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="motion0:rstact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="motion0:rstact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="motion0:rstact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="motion0:rstact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="motion0:rstact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+视频1
+	<input type="checkbox" id="video1:enable" value="1" >
+OSD名称
+	<input type="text" id="video1:name" size="10"  maxlength="15"/>
+
+起始时间
+	<input type="text" id="video1:starthour" size="2" maxlength="2" onChange="check_valid_hour('video1:starthour')" />时
+
+	<input type="text" id="video1:startmin" size="2" maxlength="2" onChange="check_valid_min('video1:startmin')" />分
+终止时间
+	<input type="text" id="video1:endhour" size="2" maxlength="2" onChange="check_valid_hour('video1:endhour')" />时
+
+	<input type="text" id="video1:endmin" size="2" maxlength="2" onChange="check_valid_min('video1:endmin')" />分
+<br>遮挡灵敏度
+    <select  id="video1:blind_sen">
+    <option value="0" selected>不启用</option>
+    <option value="1" >灵敏度低</option>
+    <option value="2" >灵敏度高</option>
+    </select>
+移动侦测灵敏度
+     <select  id="video1:motion_sen">
+    <option value="0" selected>不启用</option>
+    <option value="1" >灵敏度高</option>
+    <option value="2" >灵敏度中</option>
+    <option value="3" >灵敏度低</option>
+    </select>     
+移动侦测是否报警
+	<input type="checkbox" id="video1:motion_alarm" value="1" >
+<div id="CollapsiblePanel1" class="CollapsiblePanel">
+  <div class="CollapsiblePanelTab" tabindex="0">报警联动配置</div>
+  <div class="CollapsiblePanelContent">
+<div id="TabbedPanels1" class="TabbedPanels">
+  <ul class="TabbedPanelsTabGroup">
+    <li class="TabbedPanelsTab" tabindex="0">立即执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="1">确认执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="2">选择执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="3">复位执行动作</li>
+  </ul>
+  <div class="TabbedPanelsContentGroup">
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+       <select  disabled id="motion1:imact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="motion1:imact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="motion1:imact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="motion1:imact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="motion1:imact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="motion1:imact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="motion1:ackact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="motion1:ackact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="motion1:ackact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="motion1:ackact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="motion1:ackact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="motion1:ackact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="motion1:selectact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="motion1:selectact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="motion1:selectact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="motion1:selectact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="motion1:selectact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="motion1:selectact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="motion1:rstact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="motion1:rstact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="motion1:rstact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="motion1:rstact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="motion1:rstact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="motion1:rstact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+视频2
+	<input type="checkbox" id="video2:enable" value="1" >
+OSD名称
+	<input type="text" id="video2:name" size="10"  maxlength="15"  />
+
+起始时间
+	<input type="text" id="video2:starthour" size="2" maxlength="2" onChange="check_valid_hour('video2:starthour')" />时
+
+	<input type="text" id="video2:startmin" size="2" maxlength="2" onChange="check_valid_min('video2:startmin')" />分
+终止时间
+	<input type="text" id="video2:endhour" size="2" maxlength="2" onChange="check_valid_hour('video2:endhour')" />时
+
+	<input type="text" id="video2:endmin" size="2" maxlength="2" onChange="check_valid_min('video2:endmin')" />分
+    
+    
+<br>遮挡灵敏度
+<select  id="video2:blind_sen">
+    <option value="0" selected>不启用</option>
+    <option value="1" >灵敏度低</option>
+    <option value="2" >灵敏度高</option>
+</select>
+移动侦测灵敏度
+<select  id="video2:motion_sen">
+    <option value="0" selected>不启用</option>
+    <option value="1" >灵敏度高</option>
+    <option value="2" >灵敏度中</option>
+    <option value="3" >灵敏度低</option>
+</select>
+移动侦测是否报警
+	<input type="checkbox" id="video2:motion_alarm" value="1" >
+<div id="CollapsiblePanel2" class="CollapsiblePanel">
+  <div class="CollapsiblePanelTab" tabindex="0">报警联动配置</div>
+  <div class="CollapsiblePanelContent">
+<div id="TabbedPanels2" class="TabbedPanels">
+  <ul class="TabbedPanelsTabGroup">
+    <li class="TabbedPanelsTab" tabindex="0">立即执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="1">确认执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="2">选择执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="3">复位执行动作</li>
+  </ul>
+  <div class="TabbedPanelsContentGroup">
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+     <select disabled id="motion2:imact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="motion2:imact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="motion2:imact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="motion2:imact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="motion2:imact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="motion2:imact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="motion2:ackact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="motion2:ackact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="motion2:ackact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="motion2:ackact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="motion2:ackact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="motion2:ackact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="motion2:selectact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="motion2:selectact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="motion2:selectact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="motion2:selectact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="motion2:selectact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="motion2:selectact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="motion2:rstact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="motion2:rstact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="motion2:rstact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="motion2:rstact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="motion2:rstact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="motion2:rstact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+视频3
+	<input type="checkbox" id="video3:enable" value="1" >
+OSD名称
+	<input type="text" id="video3:name" size="10"  maxlength="15" />
+
+起始时间
+	<input type="text" id="video3:starthour" size="2" maxlength="2" onChange="check_valid_hour('video3:starthour')" />时
+
+	<input type="text" id="video3:startmin" size="2" maxlength="2" onChange="check_valid_min('video3:startmin')" />分
+终止时间
+	<input type="text" id="video3:endhour" size="2" maxlength="2" onChange="check_valid_hour('video3:endhour')" />时
+
+	<input type="text" id="video3:endmin" size="2" maxlength="2" onChange="check_valid_min('video3:endmin')" />分
+<br>遮挡灵敏度
+<select  id="video3:blind_sen">
+    <option value="0" selected>不启用</option>
+    <option value="1" >灵敏度低</option>
+    <option value="2" >灵敏度高</option>
+</select>
+移动侦测灵敏度
+<select  id="video3:motion_sen">
+	<option value="0" selected>不启用</option>
+    <option value="1" >灵敏度高</option>
+    <option value="2" >灵敏度中</option>
+    <option value="3" >灵敏度低</option>
+    </select>
+移动侦测是否报警
+	<input type="checkbox" id="video3:motion_alarm" value="1" >
+<div id="CollapsiblePanel3" class="CollapsiblePanel">
+  <div class="CollapsiblePanelTab" tabindex="0">报警联动配置</div>
+  <div class="CollapsiblePanelContent">
+<div id="TabbedPanels3" class="TabbedPanels">
+  <ul class="TabbedPanelsTabGroup">
+    <li class="TabbedPanelsTab" tabindex="0">立即执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="1">确认执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="2">选择执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="3">复位执行动作</li>
+  </ul>
+  <div class="TabbedPanelsContentGroup">
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+     <select disabled id="motion3:imact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="motion3:imact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="motion3:imact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="motion3:imact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="motion3:imact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="motion3:imact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="motion3:ackact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="motion3:ackact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="motion3:ackact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="motion3:ackact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="motion3:ackact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="motion3:ackact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select  disabled id="motion3:selectact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="motion3:selectact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="motion3:selectact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="motion3:selectact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="motion3:selectact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="motion3:selectact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="motion3:rstact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="motion3:rstact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="motion3:rstact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="motion3:rstact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="motion3:rstact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="motion3:rstact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+var TabbedPanels0 = new Spry.Widget.TabbedPanels("TabbedPanels0");
+var TabbedPanels1 = new Spry.Widget.TabbedPanels("TabbedPanels1");
+var TabbedPanels2 = new Spry.Widget.TabbedPanels("TabbedPanels2");
+var TabbedPanels3 = new Spry.Widget.TabbedPanels("TabbedPanels3");
+var CollapsiblePanel0 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel0", {contentIsOpen:false});
+var CollapsiblePanel1 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel1", {contentIsOpen:false});
+var CollapsiblePanel2 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel2", {contentIsOpen:false});
+var CollapsiblePanel3 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel3", {contentIsOpen:false});
+
+//-->
+</script>
+<input type="button" onClick="setXMLDoc();checkCookie()" value="提交数据" />
+</body>
+</html>

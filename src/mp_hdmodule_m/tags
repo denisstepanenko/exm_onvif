@@ -1,0 +1,362 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ALARMLOGFILE_MAX_SIZE	hdmod.h	23;"	d
+ALARMLOG_FILE	hdmod.h	21;"	d
+ALARMLOG_FILE_0	hdmod.h	22;"	d
+CC	Makefile	/^	CC = gcc$/;"	m
+CC	Makefile	/^	CC=arm-hisiv100nptl-linux-gcc$/;"	m
+EMBED	Makefile	/^EMBED = 1 $/;"	m
+EXEC	Makefile	/^EXEC = hdmodule_m$/;"	m
+FOR_PC_MUTI_TEST	mp_hdmodule.h	27;"	d
+GET_ALL_ELE_TYPE	rtpool.c	187;"	d	file:
+GET_PIC_SPACE	mp_hdmodule.h	51;"	d
+HDENC0_KEY_NUMBER	mp_hdmodule.h	38;"	d
+HDMOD_H	hdmod.h	2;"	d
+HQMODULE_USE	mp_hdmodule.h	42;"	d
+IN	hdmod.h	27;"	d
+IO	hdmod.h	28;"	d
+MOTION_DLY_REC	mp_hdmodule.h	64;"	d
+MOTION_PRE_REC	mp_hdmodule.h	63;"	d
+MP_HDMODULE_H	mp_hdmodule.h	2;"	d
+OBJS	Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
+OUT	hdmod.h	29;"	d
+OUT_FP	hdmod.c	/^    static FILE* OUT_FP = NULL;$/;"	v	file:
+PATH_TYPE	mp_hdmodule.h	44;"	d
+PATH_TYPE	mp_hdmodule.h	46;"	d
+POOLSIZE	mp_hdmodule.h	55;"	d
+POOLSIZE	mp_hdmodule.h	57;"	d
+PROCESS_GATECMD_H	process_modcmd.h	2;"	d
+REAL_D1_TEST_FOR_3000	hdmod.h	5;"	d
+RTPOOL_H	rtpool.h	2;"	d
+SHOW_WORK_INFO	mp_hdmodule.h	24;"	d
+SRC	Makefile	/^SRC  = hdmain.c hdmod.c rtpool.c process_modcmd.c $/;"	m
+TAKE_PIC_MAX	mp_hdmodule.h	61;"	d
+TOP_DIR	Makefile	/^TOP_DIR  = $(shell pwd)$/;"	m
+VERSION	mp_hdmodule.h	6;"	d
+__anon1::gate	hdmod.h	/^gateinfo                gate;$/;"	m	struct:__anon1	access:public
+__anon1::takepic	hdmod.h	/^struct takepic_struct   takepic;$/;"	m	struct:__anon1	typeref:struct:__anon1::takepic_struct	access:public
+a_connect_enc	hdmod.c	/^static int a_connect_enc[4]={0};\/\/当前是否连接着视频缓冲池$/;"	v	file:
+active	rtpool.h	/^	struct pool_ele_struct *active;	\/\/指向第一个有效元素$/;"	m	struct:pool_head_struct	typeref:struct:pool_head_struct::pool_ele_struct	access:public
+alarm_log_struct	hdmod.h	/^struct alarm_log_struct{$/;"	s
+alarm_log_struct::data	hdmod.h	/^BYTE data[12]; \/\/数据及回车部分，如trig:0x0001$/;"	m	struct:alarm_log_struct	access:public
+alarm_log_struct::time	hdmod.h	/^BYTE time[24]; \/\/时间部分,如<2005-12-14 13:13:13> $/;"	m	struct:alarm_log_struct	access:public
+alarm_log_struct::type	hdmod.h	/^BYTE type[8];  \/\/类型部分，ack or alarm$/;"	m	struct:alarm_log_struct	access:public
+alarmpic_path	hdmod.h	/^    char alarmpic_path[60];     \/\/报警抓图索引路径如"\/picindex\/alarmpic.txt"$/;"	m	struct:hd_enc_struct	access:public
+alarmpic_required	hdmod.h	/^    int alarmpic_required;  \/\/需要报警抓图置1，否则置0$/;"	m	struct:hd_enc_struct	access:public
+alarmpicflag	hdmod.h	/^    int alarmpicflag;       \/\/报警抓图进行中置1，否则0$/;"	m	struct:hd_enc_struct	access:public
+audio_cnt	hdmod.h	/^    int audio_cnt;          \/\/用于监视音频编码器状态$/;"	m	struct:hd_enc_struct	access:public
+audio_cond	hdmod.h	/^    pthread_cond_t audio_cond;          \/\/是否需要连接音频的条件变量$/;"	m	struct:hd_enc_struct	access:public
+audio_mutex	hdmod.h	/^    pthread_mutex_t audio_mutex;        \/\/是否连接音频的互斥体$/;"	m	struct:hd_enc_struct	access:public
+audio_save_fmt	hdmod.c	/^static int audio_save_fmt=1;                        \/\/\/音频存储格式 1:u-pcm 3:raw-pcm 4:mpeg2$/;"	v	file:
+audio_thread_id	hdmod.h	/^    pthread_t       audio_thread_id;    \/\/录音线程id$/;"	m	struct:hd_enc_struct	access:public
+audiochannel	hdmod.h	/^    int audiochannel;               \/\/音频录像通道$/;"	m	struct:hd_enc_struct	access:public
+aviinfo	hdmod.h	/^    avi_t * aviinfo;                    \/\/当前录像文件信息$/;"	m	struct:hd_enc_struct	access:public
+bitrate	hdmod.h	/^    int bitrate;                    \/\/录像比特率，kbps为单位$/;"	m	struct:hd_enc_struct	access:public
+change_thread_id	hdmod.c	/^void change_thread_id(int channel,int id) $/;"	f	signature:(int channel,int id)
+change_thread_id	hdmod.h	/^void change_thread_id(int channel,int id);$/;"	p	signature:(int channel,int id)
+channel	hdmod.h	/^    int channel;                    \/\/记录通道号$/;"	m	struct:hd_enc_struct	access:public
+check_alarmlog_for_hqsaveflag	hdmod.c	/^int check_alarmlog_for_hqsaveflag(struct alarm_log_struct *log)$/;"	f	signature:(struct alarm_log_struct *log)
+check_alarmlog_for_trigflag	hdmod.c	/^int check_alarmlog_for_trigflag(struct alarm_log_struct *log)$/;"	f	signature:(struct alarm_log_struct *log)
+clear_hdmod_trig_flag	hdmod.c	/^int clear_hdmod_trig_flag(int channel)$/;"	f	signature:(int channel)
+clear_hdmod_trig_flag	hdmod.h	/^int clear_hdmod_trig_flag(int channel);$/;"	p	signature:(int channel)
+close_record_file	hdmod.c	/^int close_record_file(struct hd_enc_struct *hd)$/;"	f	signature:(struct hd_enc_struct *hd)
+close_record_file	hdmod.h	/^int close_record_file(struct hd_enc_struct *hd);$/;"	p	signature:(struct hd_enc_struct *hd)
+com_fd	process_modcmd.c	/^static int  com_fd= -1; \/\/发送和接收命令的udp socket$/;"	v	file:
+connect_enc	hdmod.c	/^static int connect_enc[4]={0};\/\/当前是否连接着视频缓冲池$/;"	v	file:
+conv_8km_2_32ks	hdmod.c	/^int conv_8km_2_32ks(char *source,char *target,int srclen)$/;"	f	signature:(char *source,char *target,int srclen)
+convert_old_ing_files	hdmod.c	/^int convert_old_ing_files(void)$/;"	f	signature:(void)
+convert_old_ing_files	hdmod.h	/^int convert_old_ing_files(void);$/;"	p	signature:(void)
+convert_old_ing_files_fn	hdmod.c	/^int convert_old_ing_files_fn(IN char * devname, IN char * mountpath, IO void *arg)$/;"	f	signature:(IN char * devname, IN char * mountpath, IO void *arg)
+count	rtpool.h	/^	int   count;					\/\/有效元素个数$/;"	m	struct:pool_head_struct	access:public
+creat_hdmodule_modsocket_thread	process_modcmd.c	/^int creat_hdmodule_modsocket_thread(void)$/;"	f	signature:(void)
+creat_hdmodule_modsocket_thread	process_modcmd.h	/^int creat_hdmodule_modsocket_thread(void);$/;"	p	signature:(void)
+creat_modcmdproc_thread	process_modcmd.h	/^int creat_modcmdproc_thread(pthread_attr_t *attr,void *arg);$/;"	p	signature:(pthread_attr_t *attr,void *arg)
+create_hqpic_avi_file	hdmod.c	/^int create_hqpic_avi_file(struct stream_fmt_struct *frame, char *indexname,char *ifile)$/;"	f	signature:(struct stream_fmt_struct *frame, char *indexname,char *ifile)
+create_hqpic_file	hdmod.c	/^int  create_hqpic_file(struct stream_fmt_struct *frame, char *indexname,char *ifile,int channel)$/;"	f	signature:(struct stream_fmt_struct *frame, char *indexname,char *ifile,int channel)
+create_record_file	hdmod.c	/^avi_t * create_record_file(struct hd_enc_struct *hd)$/;"	f	signature:(struct hd_enc_struct *hd)
+create_record_file	hdmod.h	/^avi_t * create_record_file(struct hd_enc_struct *hd);$/;"	p	signature:(struct hd_enc_struct *hd)
+current_takepic	hdmod.h	/^    struct takepic_struct current_takepic; \/\/记录现在正在抓图的结构$/;"	m	struct:hd_enc_struct	typeref:struct:hd_enc_struct::takepic_struct	access:public
+cutflag	hdmod.h	/^    int cutflag;                        \/\/文件切割标志$/;"	m	struct:hd_enc_struct	access:public
+data	hdmod.h	/^BYTE data[12]; \/\/数据及回车部分，如trig:0x0001$/;"	m	struct:alarm_log_struct	access:public
+del_typ	hdmod.h	/^    int del_typ;                     \/\/删除的方式，0为一直删，1为存一个删一个$/;"	m	struct:hd_enc_struct	access:public
+devname	hdmod.h	/^    char devname[30];       \/\/设备节点,如"\/dev\/IME6410_D1"$/;"	m	struct:hd_enc_struct	access:public
+diff_timeval	hdmod.c	/^double diff_timeval(struct timeval *timenow, struct timeval *timerequired)$/;"	f	signature:(struct timeval *timenow, struct timeval *timerequired)
+disk_get_next_partition	hdmod.c	/^int disk_get_next_partition(char* partition_name)$/;"	f	signature:(char* partition_name)
+disk_get_next_record_partition	hdmod.c	/^int disk_get_next_record_partition(char* partition_name)$/;"	f	signature:(char* partition_name)
+disk_get_record_partition	hdmod.c	/^int disk_get_record_partition(struct hd_enc_struct *phdenc)$/;"	f	signature:(struct hd_enc_struct *phdenc)
+dly_rec	hdmod.h	/^    int dly_rec;                        \/\/延时录像时间$/;"	m	struct:hd_enc_struct	access:public
+drop_ele_type	rtpool.c	/^int drop_ele_type(struct pool_head_struct *head,DWORD type,int num)$/;"	f	signature:(struct pool_head_struct *head,DWORD type,int num)
+drop_ele_type	rtpool.h	/^int drop_ele_type(struct pool_head_struct *head,DWORD type,int num);$/;"	p	signature:(struct pool_head_struct *head,DWORD type,int num)
+dump_clearinfo_to_log	hdmod.c	/^void dump_clearinfo_to_log(void)$/;"	f	signature:(void)
+dump_clearinfo_to_log	hdmod.h	/^void dump_clearinfo_to_log(void);$/;"	p	signature:(void)
+dump_saveinfo_to_log	hdmod.c	/^void dump_saveinfo_to_log(int mode,int ch,int time)$/;"	f	signature:(int mode,int ch,int time)
+dump_sysinfo	hdmain.c	/^void dump_sysinfo(void)$/;"	f	signature:(void)
+ele_type	rtpool.h	/^	DWORD	ele_type;			\/\/元素类型 i\/p\/audio$/;"	m	struct:pool_ele_struct	access:public
+element	rtpool.h	/^	BYTE  element[4]	;			\/\/元素$/;"	m	struct:pool_ele_struct	access:public
+enable	hdmod.h	/^    int enable;                 \/\/该路视频是否有效，若无效则不予以录像$/;"	m	struct:hd_enc_struct	access:public
+exit_log	hdmain.c	/^static void exit_log(int signo)$/;"	f	file:	signature:(int signo)
+ffmpeg_write_audio_file	hdmod.c	/^int ffmpeg_write_audio_file(AVCodecContext *c,avi_t *AVI,char *data,int len)$/;"	f	signature:(AVCodecContext *c,avi_t *AVI,char *data,int len)
+file_mutex	hdmod.h	/^    pthread_mutex_t file_mutex;         \/\/录像文件锁$/;"	m	struct:hd_enc_struct	access:public
+filelen	hdmod.h	/^    int filelen;                        \/\/当前文件的长度(秒)$/;"	m	struct:hd_enc_struct	access:public
+filename	hdmod.h	/^    char filename[100];             \/\/当前录像文件名$/;"	m	struct:hd_enc_struct	access:public
+finfo2filename	hdmod.c	/^int finfo2filename(struct file_info_struct *info,char *filename)\/\/wsy,若有标志则length按切分长度$/;"	f	signature:(struct file_info_struct *info,char *filename)
+fix_adts_header	hdmod.c	/^void fix_adts_header(char* data,int len)$/;"	f	signature:(char* data,int len)
+free	rtpool.h	/^	struct pool_ele_struct *free;	\/\/指向第一个空闲缓冲区$/;"	m	struct:pool_head_struct	typeref:struct:pool_head_struct::pool_ele_struct	access:public
+free_ele	rtpool.c	/^int free_ele(struct pool_head_struct *head,struct pool_ele_struct *ele)$/;"	f	signature:(struct pool_head_struct *head,struct pool_ele_struct *ele)
+free_ele	rtpool.h	/^int free_ele(struct pool_head_struct *head,struct pool_ele_struct *ele);$/;"	p	signature:(struct pool_head_struct *head,struct pool_ele_struct *ele)
+g_hdenc	hdmod.c	/^static struct hd_enc_struct g_hdenc[MAX_HQCHANNEL];   \/\/第0路高清晰录像结构$/;"	v	typeref:struct:hd_enc_struct	file:
+gate	hdmod.h	/^gateinfo                gate;$/;"	m	struct:__anon1	access:public
+get_active_ele	rtpool.c	/^struct pool_ele_struct *get_active_ele(struct pool_head_struct *head)$/;"	f	signature:(struct pool_head_struct *head)
+get_active_ele	rtpool.h	/^struct pool_ele_struct *get_active_ele(struct pool_head_struct *head);$/;"	p	signature:(struct pool_head_struct *head)
+get_active_type_ele	rtpool.c	/^static struct pool_ele_struct *get_active_type_ele(struct pool_head_struct *head,DWORD type)$/;"	f	file:	signature:(struct pool_head_struct *head,DWORD type)
+get_alarmpic_required	hdmod.c	/^int get_alarmpic_required(int channel)$/;"	f	signature:(int channel)
+get_alarmpic_required	hdmod.h	/^int get_alarmpic_required(int channel);$/;"	p	signature:(int channel)
+get_alarmpicflag	hdmod.c	/^int get_alarmpicflag(int channel)$/;"	f	signature:(int channel)
+get_alarmpicflag	hdmod.h	/^int get_alarmpicflag(int channel);$/;"	p	signature:(int channel)
+get_encoder	hdmod.h	/^struct compress_struct *get_encoder(int channel);$/;"	p	signature:(int channel)
+get_fname_time	hdmod.c	/^int get_fname_time(char*filename)$/;"	f	signature:(char*filename)
+get_free_eleroom	rtpool.c	/^struct pool_ele_struct *get_free_eleroom(struct pool_head_struct *head)$/;"	f	signature:(struct pool_head_struct *head)
+get_free_eleroom	rtpool.h	/^struct pool_ele_struct *get_free_eleroom(struct pool_head_struct *head);$/;"	p	signature:(struct pool_head_struct *head)
+get_gtthread_attr	hdmain.c	/^int get_gtthread_attr(pthread_attr_t *attr)$/;"	f	signature:(pthread_attr_t *attr)
+get_gtthread_attr	mp_hdmodule.h	/^int get_gtthread_attr(pthread_attr_t *attr);$/;"	p	signature:(pthread_attr_t *attr)
+get_hd_minval	hdmod.c	/^int get_hd_minval(void)$/;"	f	signature:(void)
+get_hd_minval	hdmod.h	/^int get_hd_minval(void);$/;"	p	signature:(void)
+get_hdch	hdmod.c	/^struct hd_enc_struct    *get_hdch(int channel)$/;"	f	signature:(int channel)
+get_hdch	hdmod.h	/^struct hd_enc_struct    *get_hdch(int channel);$/;"	p	signature:(int channel)
+get_hdmod_stat	hdmod.c	/^struct hdmod_state_struct *get_hdmod_stat(void)$/;"	f	signature:(void)
+get_hdmodstatint	hdmod.c	/^DWORD get_hdmodstatint(void)$/;"	f	signature:(void)
+get_hdmodstatint	hdmod.h	/^DWORD get_hdmodstatint(void);$/;"	p	signature:(void)
+get_hq_pic_answer	process_modcmd.c	/^int get_hq_pic_answer(gateinfo *gate, WORD result, BYTE *timeprint,char* indexname)$/;"	f	signature:(gateinfo *gate, WORD result, BYTE *timeprint,char* indexname)
+get_hq_pic_answer	process_modcmd.h	/^int get_hq_pic_answer(gateinfo *gate, WORD result, BYTE *timeprint,char* indexname);$/;"	p	signature:(gateinfo *gate, WORD result, BYTE *timeprint,char* indexname)
+get_hqsave_mode	hdmod.c	/^int get_hqsave_mode(int ch)$/;"	f	signature:(int ch)
+get_hqsave_time	hdmod.c	/^int get_hqsave_time(struct alarm_log_struct *info)$/;"	f	signature:(struct alarm_log_struct *info)
+get_pool_active_num	rtpool.c	/^int	get_pool_active_num(struct pool_head_struct *head)$/;"	f	signature:(struct pool_head_struct *head)
+get_pool_active_num	rtpool.h	/^int	get_pool_active_num(struct pool_head_struct *head);$/;"	p	signature:(struct pool_head_struct *head)
+get_pool_free_num	rtpool.c	/^int	get_pool_free_num(struct pool_head_struct *head)$/;"	f	signature:(struct pool_head_struct *head)
+get_pool_free_num	rtpool.h	/^int	get_pool_free_num(struct pool_head_struct *head);$/;"	p	signature:(struct pool_head_struct *head)
+get_record_ch	hdmod.c	/^int get_record_ch(struct alarm_log_struct *info)$/;"	f	signature:(struct alarm_log_struct *info)
+get_record_time	hdmod.c	/^int get_record_time(struct alarm_log_struct *info)$/;"	f	signature:(struct alarm_log_struct *info)
+get_save_status	hdmod.c	/^void get_save_status(void)$/;"	f	signature:(void)
+get_save_status	hdmod.h	/^void get_save_status(void);$/;"	p	signature:(void)
+get_stream_pool	hdmod.c	/^struct pool_head_struct *get_stream_pool(int channel)$/;"	f	signature:(int channel)
+get_stream_pool	hdmod.h	/^struct pool_head_struct *get_stream_pool(int channel);$/;"	p	signature:(int channel)
+get_takingpicflag	hdmod.c	/^int get_takingpicflag(int channel)$/;"	f	signature:(int channel)
+get_takingpicflag	hdmod.h	/^int get_takingpicflag(int channel);$/;"	p	signature:(int channel)
+get_time_before	hdmod.c	/^int  get_time_before(struct timeval *timenow, int diff_in_msec,struct timeval *timebefore)$/;"	f	signature:(struct timeval *timenow, int diff_in_msec,struct timeval *timebefore)
+get_time_before	hdmod.h	/^int  get_time_before(struct timeval *timenow, int diff_in_msec,struct timeval *timebefore);$/;"	p	signature:(struct timeval *timenow, int diff_in_msec,struct timeval *timebefore)
+get_trig_status	hdmod.c	/^void get_trig_status(void)$/;"	f	signature:(void)
+get_trig_status	hdmod.h	/^void get_trig_status(void);$/;"	p	signature:(void)
+hd_enc_struct	hdmod.h	/^struct hd_enc_struct{               \/\/高清晰存储对象数据结构$/;"	s
+hd_enc_struct::alarmpic_path	hdmod.h	/^    char alarmpic_path[60];     \/\/报警抓图索引路径如"\/picindex\/alarmpic.txt"$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::alarmpic_required	hdmod.h	/^    int alarmpic_required;  \/\/需要报警抓图置1，否则置0$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::alarmpicflag	hdmod.h	/^    int alarmpicflag;       \/\/报警抓图进行中置1，否则0$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::audio_cnt	hdmod.h	/^    int audio_cnt;          \/\/用于监视音频编码器状态$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::audio_cond	hdmod.h	/^    pthread_cond_t audio_cond;          \/\/是否需要连接音频的条件变量$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::audio_mutex	hdmod.h	/^    pthread_mutex_t audio_mutex;        \/\/是否连接音频的互斥体$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::audio_thread_id	hdmod.h	/^    pthread_t       audio_thread_id;    \/\/录音线程id$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::audiochannel	hdmod.h	/^    int audiochannel;               \/\/音频录像通道$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::aviinfo	hdmod.h	/^    avi_t * aviinfo;                    \/\/当前录像文件信息$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::bitrate	hdmod.h	/^    int bitrate;                    \/\/录像比特率，kbps为单位$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::channel	hdmod.h	/^    int channel;                    \/\/记录通道号$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::current_takepic	hdmod.h	/^    struct takepic_struct current_takepic; \/\/记录现在正在抓图的结构$/;"	m	struct:hd_enc_struct	typeref:struct:hd_enc_struct::takepic_struct	access:public
+hd_enc_struct::cutflag	hdmod.h	/^    int cutflag;                        \/\/文件切割标志$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::del_typ	hdmod.h	/^    int del_typ;                     \/\/删除的方式，0为一直删，1为存一个删一个$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::devname	hdmod.h	/^    char devname[30];       \/\/设备节点,如"\/dev\/IME6410_D1"$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::dly_rec	hdmod.h	/^    int dly_rec;                        \/\/延时录像时间$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::enable	hdmod.h	/^    int enable;                 \/\/该路视频是否有效，若无效则不予以录像$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::file_mutex	hdmod.h	/^    pthread_mutex_t file_mutex;         \/\/录像文件锁$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::filelen	hdmod.h	/^    int filelen;                        \/\/当前文件的长度(秒)$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::filename	hdmod.h	/^    char filename[100];             \/\/当前录像文件名$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::hdsave_mode	hdmod.h	/^    int hdsave_mode;                \/\/高清晰录像工作模式 1表示需要正常工作 0表示需要停止$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::keyframe_cnt	hdmod.h	/^    int keyframe_cnt;       \/\/用于监视keyframe线程从缓冲池取数据的计数器$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::keyframe_pool_thread_id	hdmod.h	/^    pthread_t       keyframe_pool_thread_id; \/\/I帧缓冲池线程id$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::keynumber	hdmod.h	/^    int keynumber;                  \/\/用于创建队列的key$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::max_len	hdmod.h	/^    int max_len;                    \/\/文件切分长度(秒)$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::mutex	hdmod.h	/^    pthread_mutex_t mutex;              $/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::partition	hdmod.h	/^    char partition[16];         \/\/当前录像文件所在分区，如"\/hqdata\/hda3"$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::picerrorcode	hdmod.h	/^    int picerrorcode;       \/\/在录像过程中出现的编码器错误，供抓图用$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::pictime	hdmod.h	/^    int pictime;             \/\/抓图进行了的秒数$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::pre_connect	hdmod.h	/^    int pre_connect;                    \/\/需要提前连接的秒数(临时计算)$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::pre_rec	hdmod.h	/^    int pre_rec;                    \/\/预录时间(秒)$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::qid	hdmod.h	/^    int qid;                        \/\/队列id$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::queryflag	hdmod.h	/^    int queryflag; \/\/若文件被查询了则置1，关闭时记得改变其文件长度$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::queuenumber	hdmod.h	/^    int queuenumber;             \/\/队列中数目$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::readenc_flag	hdmod.h	/^    int readenc_flag;       \/\/录像线程正在从缓冲池读数据的标志$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::rec_type	hdmod.h	/^    int rec_type;                   \/\/预录模式,0为一直预录,1为触发和移动录像模式$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::recordlen	hdmod.h	/^    int recordlen;                  \/\/当前录像事件需要持续的时间(秒),没秒钟减1，到0表示录像停止$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::remote_trig_time	hdmod.h	/^    int remote_trig_time; \/\/手工录像时间,为0则不录$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::remote_trigged	hdmod.h	/^    int remote_trigged; \/\/手工录像触发状态,1为触发,0为无触发$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::sem	hdmod.h	/^    sem_t sem;$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::semflag	hdmod.h	/^    int semflag;$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::state	hdmod.h	/^    int state;                      \/\/当前状态0表示空闲 1表示正在预录2表示正在报警录像$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::streampool	hdmod.h	/^    struct pool_head_struct streampool; \/\/缓冲池..$/;"	m	struct:hd_enc_struct	typeref:struct:hd_enc_struct::pool_head_struct	access:public
+hd_enc_struct::takepic_thread_id	hdmod.h	/^    pthread_t takepic_thread_id;    \/\/抓图线程的id$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::takingpicflag	hdmod.h	/^    int takingpicflag;      \/\/本通道是否在抓图$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::thread_id	hdmod.h	/^    pthread_t       thread_id;          \/\/录像线程id$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::threadexit	hdmod.h	/^    int threadexit;           \/\/线程退出命令，如果想让线程退出，就置1$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::timemax	hdmod.h	/^    int timemax;             \/\/抓图最多允许进行多少秒$/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::trig	hdmod.h	/^    int trig;                       \/\/当前的触发状态 $/;"	m	struct:hd_enc_struct	access:public
+hd_enc_struct::watchcnt	hdmod.h	/^    int watchcnt;           \/\/用于监视录像线程从缓冲池取数据的计数器$/;"	m	struct:hd_enc_struct	access:public
+hd_playback_cancel	hdmod.c	/^void hd_playback_cancel(void)$/;"	f	signature:(void)
+hd_playback_cancel	hdmod.h	/^void hd_playback_cancel(void);$/;"	p	signature:(void)
+hd_playback_en	hdmod.c	/^void hd_playback_en(void)$/;"	f	signature:(void)
+hd_playback_en	hdmod.h	/^void hd_playback_en(void);$/;"	p	signature:(void)
+hd_playback_flag	hdmod.c	/^static int hd_playback_flag=0;$/;"	v	file:
+hd_second_proc	hdmod.c	/^void hd_second_proc(void)$/;"	f	signature:(void)
+hd_second_proc	hdmod.h	/^void hd_second_proc(void);$/;"	p	signature:(void)
+hdmod_state	hdmod.c	/^static struct hdmod_state_struct hdmod_state={0,0,0};\/\/,0,0,0};$/;"	v	typeref:struct:hdmod_state_struct	file:
+hdsave_mode	hdmod.h	/^    int hdsave_mode;                \/\/高清晰录像工作模式 1表示需要正常工作 0表示需要停止$/;"	m	struct:hd_enc_struct	access:public
+head_buf	hdmod.c	/^    static unsigned char head_buf[1024*256]={0};$/;"	v	file:
+init_com_channel	process_modcmd.c	/^int init_com_channel(void)$/;"	f	signature:(void)
+init_com_channel	process_modcmd.h	/^int init_com_channel(void);$/;"	p	signature:(void)
+init_hdenc	hdmod.c	/^int init_hdenc(void)$/;"	f	signature:(void)
+init_hdenc	hdmod.h	/^int init_hdenc(void);$/;"	p	signature:(void)
+init_hdenc_ch	hdmod.c	/^int init_hdenc_ch(int channel)$/;"	f	signature:(int channel)
+init_hdenc_ch	hdmod.h	/^int init_hdenc_ch(int channel);$/;"	p	signature:(int channel)
+init_hqpara_default_val	hdmod.c	/^int init_hqpara_default_val(struct hd_enc_struct    *hdenc)$/;"	f	signature:(struct hd_enc_struct *hdenc)
+initrtpool	rtpool.c	/^int initrtpool(struct pool_head_struct *head)$/;"	f	signature:(struct pool_head_struct *head)
+initrtpool	rtpool.h	/^int initrtpool(struct pool_head_struct *head);$/;"	p	signature:(struct pool_head_struct *head)
+is_keyframe	hdmod.c	/^int is_keyframe(struct stream_fmt_struct *frame)$/;"	f	signature:(struct stream_fmt_struct *frame)
+keyframe_cnt	hdmod.h	/^    int keyframe_cnt;       \/\/用于监视keyframe线程从缓冲池取数据的计数器$/;"	m	struct:hd_enc_struct	access:public
+keyframe_pool_thread	hdmod.c	/^void *keyframe_pool_thread(void *hd)$/;"	f	signature:(void *hd)
+keyframe_pool_thread	hdmod.h	/^void *keyframe_pool_thread(void *hd);$/;"	p	signature:(void *hd)
+keyframe_pool_thread_id	hdmod.h	/^    pthread_t       keyframe_pool_thread_id; \/\/I帧缓冲池线程id$/;"	m	struct:hd_enc_struct	access:public
+keynumber	hdmod.h	/^    int keynumber;                  \/\/用于创建队列的key$/;"	m	struct:hd_enc_struct	access:public
+lock_recent_file	hdmod.c	/^int lock_recent_file(struct hd_enc_struct *hd)\/\/从index.db取并且锁$/;"	f	signature:(struct hd_enc_struct *hd)
+main	hdmain.c	/^int main(int argc,char *argv[])$/;"	f	signature:(int argc,char *argv[])
+make_file_name	hdmod.c	/^int make_file_name(struct hd_enc_struct *hd,char * filename)$/;"	f	signature:(struct hd_enc_struct *hd,char * filename)
+max_len	hdmod.h	/^    int max_len;                    \/\/文件切分长度(秒)$/;"	m	struct:hd_enc_struct	access:public
+mkrtpool	rtpool.c	/^int mkrtpool(struct pool_head_struct *head,int plen,int num)$/;"	f	signature:(struct pool_head_struct *head,int plen,int num)
+mkrtpool	rtpool.h	/^int mkrtpool(struct pool_head_struct *head,int plen,int num);$/;"	p	signature:(struct pool_head_struct *head,int plen,int num)
+modify_queried_filename	hdmod.c	/^int modify_queried_filename(char *name,char *newname)$/;"	f	signature:(char *name,char *newname)
+modsocket_thread_id	process_modcmd.c	/^static pthread_t modsocket_thread_id=-1;$/;"	v	file:
+msg	hdmod.h	/^struct msg$/;"	s
+msg::msg_type	hdmod.h	/^        long msg_type;$/;"	m	struct:msg	access:public
+msg::name	hdmod.h	/^        char name[100];$/;"	m	struct:msg	access:public
+msg_type	hdmod.h	/^        long msg_type;$/;"	m	struct:msg	access:public
+mutex	hdmod.h	/^    pthread_mutex_t mutex;              $/;"	m	struct:hd_enc_struct	access:public
+mutex	rtpool.h	/^	pthread_mutex_t mutex;		\/\/操作缓冲池数据的互斥体$/;"	m	struct:pool_head_struct	access:public
+name	hdmod.h	/^        char name[100];$/;"	m	struct:msg	access:public
+next	rtpool.h	/^	struct pool_ele_struct *next;	\/\/指向后一个元素$/;"	m	struct:pool_ele_struct	typeref:struct:pool_ele_struct::pool_ele_struct	access:public
+old_cferr_state	hdmod.c	/^static int old_cferr_state=0;$/;"	v	file:
+partition	hdmod.h	/^    char partition[16];         \/\/当前录像文件所在分区，如"\/hqdata\/hda3"$/;"	m	struct:hd_enc_struct	access:public
+picerrorcode	hdmod.h	/^    int picerrorcode;       \/\/在录像过程中出现的编码器错误，供抓图用$/;"	m	struct:hd_enc_struct	access:public
+pictime	hdmod.h	/^    int pictime;             \/\/抓图进行了的秒数$/;"	m	struct:hd_enc_struct	access:public
+plen	rtpool.h	/^	int	plen;					\/\/每个元素可容纳的对象大小$/;"	m	struct:pool_head_struct	access:public
+pool	rtpool.h	/^	struct pool_ele_struct **pool;	\/\/缓冲池$/;"	m	struct:pool_head_struct	typeref:struct:pool_head_struct::pool_ele_struct	access:public
+pool_ele_struct	rtpool.h	/^struct pool_ele_struct{			\/\/缓冲池里的元素结构$/;"	s
+pool_ele_struct::ele_type	rtpool.h	/^	DWORD	ele_type;			\/\/元素类型 i\/p\/audio$/;"	m	struct:pool_ele_struct	access:public
+pool_ele_struct::element	rtpool.h	/^	BYTE  element[4]	;			\/\/元素$/;"	m	struct:pool_ele_struct	access:public
+pool_ele_struct::next	rtpool.h	/^	struct pool_ele_struct *next;	\/\/指向后一个元素$/;"	m	struct:pool_ele_struct	typeref:struct:pool_ele_struct::pool_ele_struct	access:public
+pool_head_struct	rtpool.h	/^struct pool_head_struct{		\/\/缓冲池结构$/;"	s
+pool_head_struct::active	rtpool.h	/^	struct pool_ele_struct *active;	\/\/指向第一个有效元素$/;"	m	struct:pool_head_struct	typeref:struct:pool_head_struct::pool_ele_struct	access:public
+pool_head_struct::count	rtpool.h	/^	int   count;					\/\/有效元素个数$/;"	m	struct:pool_head_struct	access:public
+pool_head_struct::free	rtpool.h	/^	struct pool_ele_struct *free;	\/\/指向第一个空闲缓冲区$/;"	m	struct:pool_head_struct	typeref:struct:pool_head_struct::pool_ele_struct	access:public
+pool_head_struct::mutex	rtpool.h	/^	pthread_mutex_t mutex;		\/\/操作缓冲池数据的互斥体$/;"	m	struct:pool_head_struct	access:public
+pool_head_struct::plen	rtpool.h	/^	int	plen;					\/\/每个元素可容纳的对象大小$/;"	m	struct:pool_head_struct	access:public
+pool_head_struct::pool	rtpool.h	/^	struct pool_ele_struct **pool;	\/\/缓冲池$/;"	m	struct:pool_head_struct	typeref:struct:pool_head_struct::pool_ele_struct	access:public
+pool_head_struct::ssema	rtpool.h	/^	sem_t  ssema;				\/\/表示缓冲池有新元素的信号量$/;"	m	struct:pool_head_struct	access:public
+pool_head_struct::total_size	rtpool.h	/^	int	total_size;				\/\/缓冲池中可容纳的元素总数$/;"	m	struct:pool_head_struct	access:public
+pre_connect	hdmod.h	/^    int pre_connect;                    \/\/需要提前连接的秒数(临时计算)$/;"	m	struct:hd_enc_struct	access:public
+pre_rec	hdmod.h	/^    int pre_rec;                    \/\/预录时间(秒)$/;"	m	struct:hd_enc_struct	access:public
+process_alarm_snapshot	process_modcmd.c	/^static int process_alarm_snapshot(mod_socket_cmd_type *cmd)$/;"	f	file:	signature:(mod_socket_cmd_type *cmd)
+process_argument	hdmain.c	/^int process_argument(int argc,char **argv)$/;"	f	signature:(int argc,char **argv)
+process_filename_to_index	hdmod.c	/^int process_filename_to_index(int channel,char *filename, int indexno, FILE *fp)$/;"	f	signature:(int channel,char *filename, int indexno, FILE *fp)
+process_gate_cmd	process_modcmd.c	/^static int process_gate_cmd(struct gt_usr_cmd_struct *cmd,gateinfo *gate)$/;"	f	file:	signature:(struct gt_usr_cmd_struct *cmd,gateinfo *gate)
+process_hdrecord_ctrl	process_modcmd.c	/^static int process_hdrecord_ctrl(mod_socket_cmd_type *cmd)$/;"	f	file:	signature:(mod_socket_cmd_type *cmd)
+process_modsocket_cmd	process_modcmd.c	/^static int process_modsocket_cmd(int sourceid, mod_socket_cmd_type *cmd)$/;"	f	file:	signature:(int sourceid, mod_socket_cmd_type *cmd)
+process_net_index	process_modcmd.c	/^int process_net_index(int channel,char *index,struct query_index_struct *query)$/;"	f	signature:(int channel,char *index,struct query_index_struct *query)
+process_net_index	process_modcmd.h	/^int process_net_index(int channel,char *index,struct query_index_struct *query);$/;"	p	signature:(int channel,char *index,struct query_index_struct *query)
+process_opt_h	hdmain.c	/^int process_opt_h(void)$/;"	f	signature:(void)
+process_playback_cmd	process_modcmd.c	/^void process_playback_cmd(void)$/;"	f	signature:(void)
+process_remote_trig_record	process_modcmd.c	/^static int  process_remote_trig_record(mod_socket_cmd_type *cmd)$/;"	f	file:	signature:(mod_socket_cmd_type *cmd)
+process_trig_record_event	process_modcmd.c	/^static int process_trig_record_event(mod_socket_cmd_type *cmd)$/;"	f	file:	signature:(mod_socket_cmd_type *cmd)
+ps_fd	hdmod.c	/^    static PS_handle_t *ps_fd;$/;"	v	file:
+ps_len	hdmod.c	/^    int ps_len;$/;"	v
+put_active_ele	rtpool.c	/^int put_active_ele(struct pool_head_struct *head,struct pool_ele_struct *active)$/;"	f	signature:(struct pool_head_struct *head,struct pool_ele_struct *active)
+put_active_ele	rtpool.h	/^int put_active_ele(struct pool_head_struct *head,struct pool_ele_struct *active);$/;"	p	signature:(struct pool_head_struct *head,struct pool_ele_struct *active)
+qid	hdmod.h	/^    int qid;                        \/\/队列id$/;"	m	struct:hd_enc_struct	access:public
+query_index_in_partition	hdmod.c	/^int query_index_in_partition(IN char *devname, IN char* mountpath, IO void *fn_arg)$/;"	f	signature:(IN char *devname, IN char* mountpath, IO void *fn_arg)
+query_record_index	hdmod.c	/^int query_record_index(char *indexname,int ch,time_t start,time_t stop,int trig)$/;"	f	signature:(char *indexname,int ch,time_t start,time_t stop,int trig)
+query_record_index	hdmod.h	/^int query_record_index(char *indexname,int ch,time_t start,time_t stop,int trig);$/;"	p	signature:(char *indexname,int ch,time_t start,time_t stop,int trig)
+queryflag	hdmod.h	/^    int queryflag; \/\/若文件被查询了则置1，关闭时记得改变其文件长度$/;"	m	struct:hd_enc_struct	access:public
+queuenumber	hdmod.h	/^    int queuenumber;             \/\/队列中数目$/;"	m	struct:hd_enc_struct	access:public
+read_hqsave_para_file	hdmod.c	/^int read_hqsave_para_file(char *filename,char *section, int channel)$/;"	f	signature:(char *filename,char *section, int channel)
+read_hqsave_para_file	hdmod.h	/^int read_hqsave_para_file(char *filename,char *section, int channel);$/;"	p	signature:(char *filename,char *section, int channel)
+read_place	hdmod.c	/^static int read_place=0;$/;"	v	file:
+readenc_flag	hdmod.h	/^    int readenc_flag;       \/\/录像线程正在从缓冲池读数据的标志$/;"	m	struct:hd_enc_struct	access:public
+rec_type	hdmod.h	/^    int rec_type;                   \/\/预录模式,0为一直预录,1为触发和移动录像模式$/;"	m	struct:hd_enc_struct	access:public
+record_audio_thread	hdmod.c	/^void *record_audio_thread(void *hd)$/;"	f	signature:(void *hd)
+record_audio_thread	hdmod.h	/^void *record_audio_thread(void *hd);$/;"	p	signature:(void *hd)
+record_audio_thread_cleanup	hdmod.c	/^void record_audio_thread_cleanup(void *para)$/;"	f	signature:(void *para)
+record_file_thread	hdmod.c	/^void *record_file_thread(void *hd)$/;"	f	signature:(void *hd)
+record_file_thread	hdmod.h	/^void *record_file_thread(void *hd);$/;"	p	signature:(void *hd)
+record_file_thread_cleanup	hdmod.c	/^void record_file_thread_cleanup(void *para)$/;"	f	signature:(void *para)
+recordlen	hdmod.h	/^    int recordlen;                  \/\/当前录像事件需要持续的时间(秒),没秒钟减1，到0表示录像停止$/;"	m	struct:hd_enc_struct	access:public
+refresh_hdmodule_para	process_modcmd.c	/^int refresh_hdmodule_para(void)$/;"	f	signature:(void)
+remote_start_record	hdmod.c	/^int remote_start_record(struct hd_enc_struct *hd,int reclen)$/;"	f	signature:(struct hd_enc_struct *hd,int reclen)
+remote_start_record	hdmod.h	/^int remote_start_record(struct hd_enc_struct *hd,int reclen);$/;"	p	signature:(struct hd_enc_struct *hd,int reclen)
+remote_stop_record	hdmod.c	/^int remote_stop_record(struct hd_enc_struct *hd)$/;"	f	signature:(struct hd_enc_struct *hd)
+remote_stop_record	hdmod.h	/^int remote_stop_record(struct hd_enc_struct *hd);$/;"	p	signature:(struct hd_enc_struct *hd)
+remote_trig_time	hdmod.h	/^    int remote_trig_time; \/\/手工录像时间,为0则不录$/;"	m	struct:hd_enc_struct	access:public
+remote_trigged	hdmod.h	/^    int remote_trigged; \/\/手工录像触发状态,1为触发,0为无触发$/;"	m	struct:hd_enc_struct	access:public
+restart_recordfilethread	hdmod.c	/^int restart_recordfilethread(struct hd_enc_struct *hd_new)$/;"	f	signature:(struct hd_enc_struct *hd_new)
+restart_recordfilethread	hdmod.h	/^int restart_recordfilethread(struct hd_enc_struct *hd_new);$/;"	p	signature:(struct hd_enc_struct *hd_new)
+rtflag_filename	hdmod.c	/^int rtflag_filename(char *filename,char* tname)$/;"	f	signature:(char *filename,char* tname)
+second_proc	hdmain.c	/^void second_proc(void)$/;"	f	signature:(void)
+sem	hdmod.h	/^    sem_t sem;$/;"	m	struct:hd_enc_struct	access:public
+semflag	hdmod.h	/^    int semflag;$/;"	m	struct:hd_enc_struct	access:public
+send_state2main	process_modcmd.c	/^int send_state2main(void)$/;"	f	signature:(void)
+send_state2main	process_modcmd.h	/^int send_state2main(void);$/;"	p	signature:(void)
+set_alarmpic_required	hdmod.c	/^int set_alarmpic_required(int value, int ch)$/;"	f	signature:(int value, int ch)
+set_alarmpic_required	hdmod.h	/^int set_alarmpic_required(int value, int ch);$/;"	p	signature:(int value, int ch)
+set_alarmpicflag	hdmod.c	/^int set_alarmpicflag(int value, int ch)$/;"	f	signature:(int value, int ch)
+set_alarmpicflag	hdmod.h	/^int set_alarmpicflag(int value, int ch);$/;"	p	signature:(int value, int ch)
+set_cferr_flag	hdmod.c	/^void set_cferr_flag(int flag)$/;"	f	signature:(int flag)
+set_ele_type	rtpool.h	/^static __inline void set_ele_type(struct pool_ele_struct *ele,DWORD type)$/;"	f	signature:(struct pool_ele_struct *ele,DWORD type)
+set_msgmnb_value	hdmod.c	/^int set_msgmnb_value(int queueid,int msgnum)$/;"	f	signature:(int queueid,int msgnum)
+set_semflag	hdmod.c	/^int set_semflag(int channel,int value)$/;"	f	signature:(int channel,int value)
+set_sys_encoder_flag	hdmod.h	/^int set_sys_encoder_flag(int encno,int inst_flag,int errnum);$/;"	p	signature:(int encno,int inst_flag,int errnum)
+set_takingpicflag	hdmod.c	/^int set_takingpicflag(int value, int ch)$/;"	f	signature:(int value, int ch)
+set_takingpicflag	hdmod.h	/^int set_takingpicflag(int value, int ch);$/;"	p	signature:(int value, int ch)
+ssema	rtpool.h	/^	sem_t  ssema;				\/\/表示缓冲池有新元素的信号量$/;"	m	struct:pool_head_struct	access:public
+start_audio_thread	hdmod.c	/^int start_audio_thread(struct hd_enc_struct *hd_new)$/;"	f	signature:(struct hd_enc_struct *hd_new)
+start_audio_thread	hdmod.h	/^int start_audio_thread(struct hd_enc_struct *hd_new);$/;"	p	signature:(struct hd_enc_struct *hd_new)
+start_recordfilethread	hdmod.c	/^int start_recordfilethread(struct hd_enc_struct *hd_new)$/;"	f	signature:(struct hd_enc_struct *hd_new)
+start_recordfilethread	hdmod.h	/^int start_recordfilethread(struct hd_enc_struct *hd_new);$/;"	p	signature:(struct hd_enc_struct *hd_new)
+state	hdmod.h	/^    int state;                      \/\/当前状态0表示空闲 1表示正在预录2表示正在报警录像$/;"	m	struct:hd_enc_struct	access:public
+stop_Allrecordfilethread	hdmod.c	/^int stop_Allrecordfilethread()$/;"	f
+stop_recordfilethread	hdmod.c	/^int stop_recordfilethread(struct hd_enc_struct *hd_new)$/;"	f	signature:(struct hd_enc_struct *hd_new)
+stop_recordfilethread	hdmod.h	/^int stop_recordfilethread(struct hd_enc_struct *hd_new);$/;"	p	signature:(struct hd_enc_struct *hd_new)
+streampool	hdmod.h	/^    struct pool_head_struct streampool; \/\/缓冲池..$/;"	m	struct:hd_enc_struct	typeref:struct:hd_enc_struct::pool_head_struct	access:public
+takepic	hdmod.h	/^struct takepic_struct   takepic;$/;"	m	struct:__anon1	typeref:struct:__anon1::takepic_struct	access:public
+takepic_info	hdmod.h	/^}takepic_info;$/;"	t	typeref:struct:__anon1
+takepic_thread	hdmod.c	/^void *takepic_thread(void *takepic)\/\/抓图线程$/;"	f	signature:(void *takepic)
+takepic_thread	hdmod.h	/^void *takepic_thread(void * takepic);$/;"	p	signature:(void * takepic)
+takepic_thread_cleanup	hdmod.c	/^void takepic_thread_cleanup(void *para)$/;"	f	signature:(void *para)
+takepic_thread_id	hdmod.h	/^    pthread_t takepic_thread_id;    \/\/抓图线程的id$/;"	m	struct:hd_enc_struct	access:public
+takingpicflag	hdmod.h	/^    int takingpicflag;      \/\/本通道是否在抓图$/;"	m	struct:hd_enc_struct	access:public
+thread_id	hdmod.h	/^    pthread_t       thread_id;          \/\/录像线程id$/;"	m	struct:hd_enc_struct	access:public
+threadexit	hdmod.h	/^    int threadexit;           \/\/线程退出命令，如果想让线程退出，就置1$/;"	m	struct:hd_enc_struct	access:public
+time	hdmod.h	/^BYTE time[24]; \/\/时间部分,如<2005-12-14 13:13:13> $/;"	m	struct:alarm_log_struct	access:public
+time2path	hdmod.c	/^int time2path (struct dir_info_struct *pathdir, time_t time)$/;"	f	signature:(struct dir_info_struct *pathdir, time_t time)
+timemax	hdmod.h	/^    int timemax;             \/\/抓图最多允许进行多少秒$/;"	m	struct:hd_enc_struct	access:public
+total_size	rtpool.h	/^	int	total_size;				\/\/缓冲池中可容纳的元素总数$/;"	m	struct:pool_head_struct	access:public
+trig	hdmod.h	/^    int trig;                       \/\/当前的触发状态 $/;"	m	struct:hd_enc_struct	access:public
+trig_record_event	hdmod.c	/^int trig_record_event(struct hd_enc_struct *hd,WORD trig,int reclen)$/;"	f	signature:(struct hd_enc_struct *hd,WORD trig,int reclen)
+trig_record_event	hdmod.h	/^int trig_record_event(struct hd_enc_struct *hd,WORD trig,int reclen);$/;"	p	signature:(struct hd_enc_struct *hd,WORD trig,int reclen)
+type	hdmod.h	/^BYTE type[8];  \/\/类型部分，ack or alarm$/;"	m	struct:alarm_log_struct	access:public
+usage	hdmod.c	/^static int usage=0;$/;"	v	file:
+usr_get_hq_pic_cmd	process_modcmd.c	/^static int usr_get_hq_pic_cmd(struct gt_usr_cmd_struct *netcmd,gateinfo *gate)$/;"	f	file:	signature:(struct gt_usr_cmd_struct *netcmd,gateinfo *gate)
+usr_local_record_control	process_modcmd.c	/^static int usr_local_record_control(struct gt_usr_cmd_struct *cmd,gateinfo *gate)$/;"	f	file:	signature:(struct gt_usr_cmd_struct *cmd,gateinfo *gate)
+usr_lock_file_time	process_modcmd.c	/^static int usr_lock_file_time(struct gt_usr_cmd_struct *cmd,gateinfo *gate)$/;"	f	file:	signature:(struct gt_usr_cmd_struct *cmd,gateinfo *gate)
+usr_query_index_with_channel	process_modcmd.c	/^int usr_query_index_with_channel(mod_socket_cmd_type *cmd)$/;"	f	signature:(mod_socket_cmd_type *cmd)
+usr_take_pic	hdmod.c	/^int usr_take_pic(gateinfo *gate, struct takepic_struct *takepic)$/;"	f	signature:(gateinfo *gate, struct takepic_struct *takepic)
+usr_take_pic	hdmod.h	/^int usr_take_pic(gateinfo *gate, struct takepic_struct *takepic);$/;"	p	signature:(gateinfo *gate, struct takepic_struct *takepic)
+watchcnt	hdmod.h	/^    int watchcnt;           \/\/用于监视录像线程从缓冲池取数据的计数器$/;"	m	struct:hd_enc_struct	access:public
+write_buf	hdmod.c	/^static unsigned char write_buf[1024*150];$/;"	v	file:
+write_place	hdmod.c	/^static int write_place=0;$/;"	v	file:

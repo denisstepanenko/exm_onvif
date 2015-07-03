@@ -1,0 +1,3609 @@
+<html>
+<head>
+<script src="SpryAssets/SpryAccordion.js" type="text/javascript"></script>
+<script src="SpryAssets/SpryTabbedPanels.js" type="text/javascript"></script>
+<script src="SpryAssets/SpryCollapsiblePanel.js" type="text/javascript"></script>
+<script type="text/javascript">
+//此处定义相关数组,需要和cgi程序返回相一致
+var myArray = new Array();
+myArray.push("alarm0:alarmtype");
+myArray.push("alarm1:alarmtype");
+myArray.push("alarm2:alarmtype");
+myArray.push("alarm3:alarmtype");
+myArray.push("alarm4:alarmtype");
+myArray.push("alarm5:alarmtype");
+myArray.push("alarm6:alarmtype");
+myArray.push("alarm7:alarmtype");
+myArray.push("alarm8:alarmtype");
+myArray.push("alarm9:alarmtype");
+myArray.push("alarm10:alarmtype");
+myArray.push("alarm11:alarmtype");
+    
+myArray.push("actiondefine:1");
+myArray.push("actiondefine:2");
+myArray.push("actiondefine:3");
+myArray.push("actiondefine:4");
+myArray.push("actiondefine:5");
+myArray.push("actiondefine:6");
+myArray.push("actiondefine:7");
+myArray.push("actiondefine:8");
+    
+myArray.push("alarm0:starthour");
+myArray.push("alarm0:startmin");
+myArray.push("alarm0:endhour");
+myArray.push("alarm0:endmin");
+myArray.push("alarm1:starthour");
+myArray.push("alarm1:startmin");
+myArray.push("alarm1:endhour");
+myArray.push("alarm1:endmin");
+myArray.push("alarm2:starthour");
+myArray.push("alarm2:startmin");
+myArray.push("alarm2:endhour");
+myArray.push("alarm2:endmin");
+myArray.push("alarm3:starthour");
+myArray.push("alarm3:startmin");
+myArray.push("alarm3:endhour");
+myArray.push("alarm3:endmin");
+myArray.push("alarm4:starthour");
+myArray.push("alarm4:startmin");
+myArray.push("alarm4:endhour");
+myArray.push("alarm4:endmin");
+myArray.push("alarm5:starthour");
+myArray.push("alarm5:startmin");
+myArray.push("alarm5:endhour");
+myArray.push("alarm5:endmin");
+myArray.push("alarm6:starthour");
+myArray.push("alarm6:startmin");
+myArray.push("alarm6:endhour");
+myArray.push("alarm6:endmin");
+myArray.push("alarm7:starthour");
+myArray.push("alarm7:startmin");
+myArray.push("alarm7:endhour");
+myArray.push("alarm7:endmin");
+    
+myArray.push("alarm8:starthour");
+myArray.push("alarm8:startmin");
+myArray.push("alarm8:endhour");
+myArray.push("alarm8:endmin");
+    
+myArray.push("alarm9:starthour");
+myArray.push("alarm9:startmin");
+myArray.push("alarm9:endhour");
+myArray.push("alarm9:endmin");
+    
+myArray.push("alarm10:starthour");
+myArray.push("alarm10:startmin");
+myArray.push("alarm10:endhour");
+myArray.push("alarm10:endmin");
+    
+myArray.push("alarm11:starthour");
+myArray.push("alarm11:startmin");
+myArray.push("alarm11:endhour");
+myArray.push("alarm11:endmin");
+var ActArray = new Array();
+
+ActArray.push("alarm0:imact");  
+ActArray.push("alarm1:imact");	
+ActArray.push("alarm2:imact");  
+ActArray.push("alarm3:imact");  
+ActArray.push("alarm4:imact");  
+ActArray.push("alarm5:imact"); 
+ActArray.push("alarm6:imact");  
+ActArray.push("alarm7:imact");  
+ActArray.push("alarm8:imact");  
+ActArray.push("alarm9:imact"); 
+ActArray.push("alarm10:imact");  
+ActArray.push("alarm11:imact");  
+
+ActArray.push("alarm0:ackact");  
+ActArray.push("alarm1:ackact");	
+ActArray.push("alarm2:ackact");  
+ActArray.push("alarm3:ackact");  
+ActArray.push("alarm4:ackact");  
+ActArray.push("alarm5:ackact"); 
+ActArray.push("alarm6:ackact");  
+ActArray.push("alarm7:ackact");  
+ActArray.push("alarm8:ackact");  
+ActArray.push("alarm9:ackact"); 
+ActArray.push("alarm10:ackact");  
+ActArray.push("alarm11:ackact");  
+    
+ActArray.push("alarm0:selectact");  
+ActArray.push("alarm1:selectact");	
+ActArray.push("alarm2:selectact");  
+ActArray.push("alarm3:selectact");  
+ActArray.push("alarm4:selectact");  
+ActArray.push("alarm5:selectact"); 
+ActArray.push("alarm6:selectact");  
+ActArray.push("alarm7:selectact");  
+ActArray.push("alarm8:selectact");  
+ActArray.push("alarm9:selectact"); 
+ActArray.push("alarm10:selectact");  
+ActArray.push("alarm11:selectact");  
+
+ActArray.push("alarm0:rstact");  
+ActArray.push("alarm1:rstact");	
+ActArray.push("alarm2:rstact");  
+ActArray.push("alarm3:rstact");  
+ActArray.push("alarm4:rstact");  
+ActArray.push("alarm5:rstact"); 
+ActArray.push("alarm6:rstact");  
+ActArray.push("alarm7:rstact");  
+ActArray.push("alarm8:rstact");  
+ActArray.push("alarm9:rstact"); 
+ActArray.push("alarm10:rstact");  
+ActArray.push("alarm11:rstact");  
+
+var Alarm_enble = new Array();
+Alarm_enble.push("alarm0:enable");
+Alarm_enble.push("alarm1:enable");
+Alarm_enble.push("alarm2:enable");
+Alarm_enble.push("alarm3:enable");
+Alarm_enble.push("alarm4:enable");
+Alarm_enble.push("alarm5:enable");
+Alarm_enble.push("alarm6:enable");
+Alarm_enble.push("alarm7:enable");
+Alarm_enble.push("alarm8:enable");
+Alarm_enble.push("alarm9:enable");
+Alarm_enble.push("alarm10:enable");
+Alarm_enble.push("alarm11:enable");
+
+/*
+var Alarm_attrib = new Array();
+Alarm_attrib.push("alarm0:attrib");
+Alarm_attrib.push("alarm1:attrib");
+Alarm_attrib.push("alarm2:attrib");
+Alarm_attrib.push("alarm3:attrib");
+Alarm_attrib.push("alarm4:attrib");
+Alarm_attrib.push("alarm5:attrib");
+Alarm_attrib.push("alarm6:attrib");
+Alarm_attrib.push("alarm7:attrib");
+*/
+var PB_ch = new Array();
+PB_ch.push("alarm0:playback_ch");
+PB_ch.push("alarm1:playback_ch");
+PB_ch.push("alarm2:playback_ch");
+PB_ch.push("alarm3:playback_ch");
+PB_ch.push("alarm4:playback_ch");
+PB_ch.push("alarm5:playback_ch");
+PB_ch.push("alarm6:playback_ch");
+PB_ch.push("alarm7:playback_ch");
+PB_ch.push("alarm8:playback_ch");
+PB_ch.push("alarm9:playback_ch");
+PB_ch.push("alarm10:playback_ch");
+PB_ch.push("alarm11:playback_ch");
+
+var Multichannel_attrib = new Array();
+Multichannel_attrib.push("multichannel:enable");
+function loadXMLDoc()
+{
+	var xmlhttp;
+	var json;
+	if (window.XMLHttpRequest)
+  	{// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+  	}
+	else
+  	{// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+	xmlhttp.onreadystatechange=function()
+  	{	
+  		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    		{
+	
+			//从cgi程序获取json
+			
+
+
+
+			json = eval ("("+xmlhttp.responseText+")");
+			SaveJson(json);
+			GetValue(json);
+
+    		}
+  	}
+	xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.send("method=GET_PARA&page=3");
+}
+
+function setXMLDoc()
+{
+	//两种方式都可以
+	var url=MakeURL();	
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+  	{// code for IE7+, Firefox, Chrome, Opera, Safari
+  		xmlhttp=new XMLHttpRequest();
+  	}
+	else
+  	{// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+	xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.send(url);
+	var cfm =window.confirm("配置已保存，是否重启");
+	if(cfm==true)
+	{
+		xmlhttp.open("POST","/cgi-bin/cgi_main",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send("method=REBOOT");
+		return;
+		
+	}
+
+}
+function SaveJson(json)
+{
+	var i;
+	for(i=0;i<myArray.length;)
+	{
+		document.getElementById(myArray[i]).value=json[myArray[i]];
+		i++;
+	}
+	for(i=0;i<Alarm_enble.length;i++)
+	{
+		
+		if(json[Alarm_enble[i]]=="1")
+		{
+			document.getElementById(Alarm_enble[i]).checked=1;
+		}
+			
+	}
+    /*
+	for(i=0;i<Alarm_attrib.length;i++)
+	{
+		document.getElementById(Alarm_attrib[i]).options[json[Alarm_attrib[i]]].selected=true;
+		
+	}
+    */
+	for(i=0;i<PB_ch.length;i++)
+	{
+		document.getElementById(PB_ch[i]).options[Number(json[PB_ch[i]])+1].selected=true;
+		if(json[Multichannel_attrib[0]]=="1")
+		{
+			document.getElementById(PB_ch[i]).options[5].disabled=true;
+		}
+
+
+
+		
+	}
+
+
+}
+function Set_sel(act_type,action,option)
+{
+	
+	
+	document.getElementById(act_type+action).options[option].selected=true;
+	
+}
+function GetValue(json)
+{
+	var act;
+	var name;
+	var strs= new Array(); //定义一数组
+
+	for(i=0;i<ActArray.length;i++)
+	{
+		act=json[ActArray[i]];
+		strs=act.split(","); //字符分割  
+		
+		for (j=0;j< 10; j++)    //最多10个动作
+		{    
+	
+			switch(strs[j])	
+			{
+				case "1":
+					Set_sel(ActArray[i],"_out0",1);
+					//document.getElementById(pre_name+'_out0').options[1].selected=true;
+					break;
+				case "2":
+					Set_sel(ActArray[i],"_out0",3);
+					//document.getElementById(pre_name+'_out0').options[3].selected=true;
+					break;
+				case "3":
+					Set_sel(ActArray[i],"_out1",1);
+					//document.getElementById(pre_name+'_out1').options[1].selected=true;
+					break;
+				case "4":
+					Set_sel(ActArray[i],"_out1",3);
+					//document.getElementById(pre_name+'_out1').options[3].selected=true;
+					break;
+				case "5":
+					Set_sel(ActArray[i],"_out2",1);
+					//document.getElementById(pre_name+'_out2').options[1].selected=true;
+					break;
+				case "6":
+					Set_sel(ActArray[i],"_out2",3);
+					//document.getElementById(pre_name+'_out2').options[3].selected=true;
+					break;
+				case "7":
+					Set_sel(ActArray[i],"_out3",1);
+					//document.getElementById(pre_name+'_out3').options[1].selected=true;
+					break;
+				case "8":
+					Set_sel(ActArray[i],"_out3",3);
+					//document.getElementById(pre_name+'_out3').options[3].selected=true;
+					break;
+				case "51":
+					Set_sel(ActArray[i],"_out0",2);
+					//document.getElementById(pre_name+'_out0').options[2].selected=true;
+					break;
+				case "52":
+					Set_sel(ActArray[i],"_out0",4);
+					//document.getElementById(pre_name+'_out0').options[4].selected=true;
+					break;
+				case "53":
+					Set_sel(ActArray[i],"_out1",2);
+					//document.getElementById(pre_name+'_out1').options[2].selected=true;
+					break;
+				case "54":
+					Set_sel(ActArray[i],"_out1",4);
+					//document.getElementById(pre_name+'_out1').options[4].selected=true;
+					break;
+				case "55":
+					Set_sel(ActArray[i],"_out2",2);
+					//document.getElementById(pre_name+'_out2').options[2].selected=true;
+					break;
+				case "56":
+					Set_sel(ActArray[i],"_out2",4);
+					//document.getElementById(pre_name+'_out2').options[4].selected=true;
+					break;
+				case "57":
+					Set_sel(ActArray[i],"_out3",2);
+					//document.getElementById(pre_name+'_out3').options[2].selected=true;
+					break;
+				case "58":
+					Set_sel(ActArray[i],"_out3",4);
+					//document.getElementById(pre_name+'_out3').options[4].selected=true;
+					break;
+				case "40":
+					Set_sel(ActArray[i],"_expand",1);
+					//document.getElementById(pre_name+'_expand').options[1].selected=true;
+					break;
+				case "30":
+					Set_sel(ActArray[i],"_screen",1);
+					//document.getElementById(pre_name+'_screen').options[1].selected=true;
+					break;
+				case "31":
+					Set_sel(ActArray[i],"_screen",2);
+					//document.getElementById(pre_name+'_screen').options[2].selected=true;
+					break;
+				case "32":
+					Set_sel(ActArray[i],"_screen",3);
+					//document.getElementById(pre_name+'_screen').options[3].selected=true;
+					break;
+				case "33":
+					Set_sel(ActArray[i],"_screen",4);
+					//document.getElementById(pre_name+'_screen').options[4].selected=true;
+					break;
+				case "34":
+					Set_sel(ActArray[i],"_screen",5);
+					//document.getElementById(pre_name+'_screen').options[5].selected=true;
+					break;
+				default:
+					break;
+			}
+		}
+	}
+}
+function MakeURL()
+{
+	var url="method=SAVE_PARA&page=3";
+	var screen_id,screen_val;
+	var expand_id,expand_val;
+	var out0_id,out0_val;
+	var out1_id,out1_val;
+	var out2_id,out2_val;
+	var out3_id,out3_val;
+	for(i=0;i<myArray.length;)
+	{
+		url=url+"&"+myArray[i]+"="+document.getElementById(myArray[i]).value;
+		i++;
+	}
+	for(i=0;i<ActArray.length;)
+	{
+		screen_id = document.getElementById(ActArray[i]+"_screen");
+		screen_val = screen_id.options[screen_id.selectedIndex].value ;
+		
+		expand_id = document.getElementById(ActArray[i]+"_expand");
+		expand_val = expand_id.options[expand_id.selectedIndex].value ;
+		
+		out0_id = document.getElementById(ActArray[i]+"_out0");
+		out0_val = out0_id.options[out0_id.selectedIndex].value; 
+		
+		out1_id = document.getElementById(ActArray[i]+"_out1");
+		out1_val = out1_id.options[out1_id.selectedIndex].value; 
+		
+		out2_id = document.getElementById(ActArray[i]+"_out2");
+		out2_val = out2_id.options[out2_id.selectedIndex].value ;
+		
+		out3_id = document.getElementById(ActArray[i]+"_out3");
+		out3_val = out3_id.options[out3_id.selectedIndex].value; 
+		
+		value_str= screen_val+","+expand_val+","+out0_val+","+out1_val+","+out2_val+","+out3_val
+		url=url+"&"+ ActArray[i]+"="+ value_str;
+		i++;
+	}
+	for(i=0;i<Alarm_enble.length;)
+	{
+		url=url+"&"+Alarm_enble[i]+"="+(document.getElementById(Alarm_enble[i]).checked?1:0);
+		i++;
+	}
+    /*
+	for(i=0;i<Alarm_attrib.length;)
+	{
+		attrib_id = document.getElementById(Alarm_attrib[i]);
+		attrib_val = attrib_id.options[attrib_id.selectedIndex].value ;
+		url=url+"&"+Alarm_attrib[i]+"="+attrib_val;
+		i++;
+	}
+    */
+	for(i=0;i<PB_ch.length;)
+	{
+		pb_ch_id = document.getElementById(PB_ch[i]);
+		pb_ch_val = pb_ch_id.options[pb_ch_id.selectedIndex].value ;
+		url=url+"&"+PB_ch[i]+"="+pb_ch_val;
+		i++;
+	}
+	
+	
+	return url;
+
+}
+function check_valid_hour(id)
+{
+	var val= document.getElementById(id).value ;
+	if(val>23||val<0)
+	{
+		alert("请输入一个有效值");
+		document.getElementById(id).value=0;
+	}
+	
+}
+function check_valid_min(id)
+{
+	var val= document.getElementById(id).value ;
+	if(val>59||val<0)
+	{
+		alert("请输入一个有效值");
+		document.getElementById(id).value=0;
+	}
+	
+}
+function getCookie(c_name)
+{
+if (document.cookie.length>0)
+  {
+  c_start=document.cookie.indexOf(c_name + "=")
+  if (c_start!=-1)
+    { 
+    c_start=c_start + c_name.length+1 
+    c_end=document.cookie.indexOf(";",c_start)
+    if (c_end==-1) c_end=document.cookie.length
+    return unescape(document.cookie.substring(c_start,c_end))
+    } 
+  }
+return ""
+}
+function checkCookie()
+{
+	var status=getCookie('login_status')
+	if (status!=null && status=="0")
+  		{
+			//alert('成功登陆 '+status+'!')
+		}
+	else 
+    {
+		{alert('请先登陆设备'+status+'!')}
+  }
+}
+</script>
+<meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
+<link href="SpryAssets/SpryAccordion.css" rel="stylesheet" type="text/css">
+<link href="SpryAssets/SpryTabbedPanels.css" rel="stylesheet" type="text/css">
+<link href="SpryAssets/SpryCollapsiblePanel.css" rel="stylesheet" type="text/css">
+</head>
+
+
+
+<body onLoad="loadXMLDoc();checkCookie()">
+    <dt>输出0 </dt>
+    <dd>闭合<input type="text" id="actiondefine:1" size="10" /></dd>
+    <dd>打开<input type="text" id="actiondefine:2" size="10" /></dd>
+    
+    <dt>输出1</dt>
+    <dd>闭合<input type="text" id="actiondefine:3" size="10" /></dd>
+    <dd>打开<input type="text" id="actiondefine:4" size="10" /></dd>
+    
+    <dt>输出2</dt>
+    <dd>闭合<input type="text" id="actiondefine:5" size="10" /></dd>
+    <dd>打开<input type="text" id="actiondefine:6" size="10" /></dd>
+    
+    <dt>输出3</dt>
+    <dd>闭合<input type="text" id="actiondefine:7" size="10" /></dd>
+    <dd>打开<input type="text" id="actiondefine:8" size="10" /></dd>
+    
+端子0<input type="checkbox" id="alarm0:enable" value="1" >
+名称<input type="text" id="alarm0:alarmtype" size="10" />
+<!--
+属性
+	<select size="1" id="alarm0:attrib">
+    	<option value="0" selected>常开</option>
+    	<option value="1">常闭</option>
+    </select>
+-->
+起始时间
+	<input type="text" id="alarm0:starthour" size="2" maxlength="2" onChange="check_valid_hour('alarm0:starthour')" />时
+
+	<input type="text" id="alarm0:startmin" size="2" maxlength="2" onChange="check_valid_min('alarm0:startmin')" />分
+终止时间
+	<input type="text" id="alarm0:endhour" size="2" maxlength="2" onChange="check_valid_hour('alarm0:endhour')" />时
+
+	<input type="text" id="alarm0:endmin" size="2" maxlength="2" onChange="check_valid_min('alarm0:endmin')" />分
+回放通道
+    <select name="alarm0:playback_ch"  id="alarm0:playback_ch">
+      <option value="-1" selected>不回放</option>
+      <option value="0" >0通道回放</option>
+      <option value="1" >1通道回放</option>
+      <option value="2" >2通道回放</option>
+      <option value="3" >3通道回放</option>
+      <option value="4" >4分屏回放</option>
+    </select>
+<br>
+<div id="CollapsiblePanel0" class="CollapsiblePanel">
+  <div class="CollapsiblePanelTab" tabindex="0">报警联动配置</div>
+  <div class="CollapsiblePanelContent">
+<div id="TabbedPanels0" class="TabbedPanels">
+  <ul class="TabbedPanelsTabGroup">
+    <li class="TabbedPanelsTab" tabindex="0">立即执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="1">确认执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="2">选择执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="3">复位执行动作</li>
+  </ul>
+  <div class="TabbedPanelsContentGroup">
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm0:imact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm0:imact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm0:imact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm0:imact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm0:imact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm0:imact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm0:ackact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm0:ackact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select  id="alarm0:ackact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm0:ackact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm0:ackact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm0:ackact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm0:selectact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm0:selectact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm0:selectact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm0:selectact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm0:selectact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm0:selectact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm0:rstact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm0:rstact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm0:rstact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm0:rstact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm0:rstact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm0:rstact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+端子1<input type="checkbox" id="alarm1:enable" value="1" >
+名称<input type="text" id="alarm1:alarmtype" size="10" />
+<!--
+属性
+<select id="alarm1:attrib" size="1">
+	<option value="0" selected>常开</option>
+	<option value="1">常闭</option>
+</select>
+-->
+起始时间
+	<input type="text" id="alarm1:starthour" size="2" maxlength="2" onChange="check_valid_hour('alarm1:starthour')" />时
+
+	<input type="text" id="alarm1:startmin" size="2" maxlength="2" onChange="check_valid_min('alarm1:startmin')" />分
+终止时间
+	<input type="text" id="alarm1:endhour" size="2" maxlength="2" onChange="check_valid_hour('alarm1:endhour')" />时
+
+	<input type="text" id="alarm1:endmin" size="2" maxlength="2" onChange="check_valid_min('alarm1:endmin')" />分
+回放通道
+    <select  id="alarm1:playback_ch">
+      <option value="-1" selected>不回放</option>
+    <option value="0" >0通道回放</option>    
+    <option value="1" >1通道回放</option>
+    <option value="2" >2通道回放</option>
+    <option value="3" >3通道回放</option>
+    <option value="4">4分屏回放</option>
+</select>
+    
+<div id="CollapsiblePanel1" class="CollapsiblePanel">
+  <div class="CollapsiblePanelTab" tabindex="0">报警联动配置</div>
+  <div class="CollapsiblePanelContent">
+<div id="TabbedPanels1" class="TabbedPanels">
+  <ul class="TabbedPanelsTabGroup">
+    <li class="TabbedPanelsTab" tabindex="0">立即执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="1">确认执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="2">选择执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="3">复位执行动作</li>
+  </ul>
+  <div class="TabbedPanelsContentGroup">
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+       <select  disabled id="alarm1:imact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm1:imact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm1:imact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm1:imact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm1:imact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm1:imact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm1:ackact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm1:ackact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm1:ackact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm1:ackact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm1:ackact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm1:ackact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm1:selectact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm1:selectact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm1:selectact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm1:selectact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm1:selectact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm1:selectact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm1:rstact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm1:rstact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm1:rstact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm1:rstact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm1:rstact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm1:rstact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+端子2<input type="checkbox" id="alarm2:enable" value="1" >
+名称<input type="text" id="alarm2:alarmtype" size="10" />
+<!--
+属性
+<select size="1" id="alarm2:attrib">
+<option value="0" selected>常开</option>
+<option value="1">常闭</option>
+</select>
+-->
+起始时间
+	<input type="text" id="alarm2:starthour" size="2" maxlength="2" onChange="check_valid_hour('alarm2:starthour')" />时
+
+	<input type="text" id="alarm2:startmin" size="2" maxlength="2" onChange="check_valid_min('alarm2:startmin')" />分
+终止时间
+	<input type="text" id="alarm2:endhour" size="2" maxlength="2" onChange="check_valid_hour('alarm2:endhour')" />时
+
+	<input type="text" id="alarm2:endmin" size="2" maxlength="2" onChange="check_valid_min('alarm2:endmin')" />分
+回放通道
+    <select  id="alarm2:playback_ch">
+      <option value="-1" selected>不回放</option>
+    <option value="0" >0通道回放</option>    
+    <option value="1" >1通道回放</option>
+    <option value="2" >2通道回放</option>
+    <option value="3" >3通道回放</option>
+    <option value="4">4分屏回放</option>
+</select>
+<div id="CollapsiblePanel2" class="CollapsiblePanel">
+  <div class="CollapsiblePanelTab" tabindex="0">报警联动配置</div>
+  <div class="CollapsiblePanelContent">
+<div id="TabbedPanels2" class="TabbedPanels">
+  <ul class="TabbedPanelsTabGroup">
+    <li class="TabbedPanelsTab" tabindex="0">立即执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="1">确认执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="2">选择执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="3">复位执行动作</li>
+  </ul>
+  <div class="TabbedPanelsContentGroup">
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+     <select disabled id="alarm2:imact_screen">
+    <option value="0" selected >不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm2:imact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm2:imact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm2:imact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm2:imact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm2:imact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm2:ackact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm2:ackact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm2:ackact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm2:ackact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm2:ackact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm2:ackact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm2:selectact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm2:selectact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm2:selectact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm2:selectact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm2:selectact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm2:selectact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm2:rstact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm2:rstact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm2:rstact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm2:rstact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm2:rstact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm2:rstact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+端子3<input type="checkbox" id="alarm3:enable" value="1" >
+名称<input type="text" id="alarm3:alarmtype" size="10" />
+<!--
+属性
+<select size="1" id="alarm3:attrib">
+<option value="0" selected>常开</option>
+<option value="1">常闭</option>
+</select>
+-->
+起始时间
+	<input type="text" id="alarm3:starthour" size="2" maxlength="2" onChange="check_valid_hour('alarm3:starthour')" />时
+
+	<input type="text" id="alarm3:startmin" size="2" maxlength="2" onChange="check_valid_min('alarm3:startmin')" />分
+终止时间
+	<input type="text" id="alarm3:endhour" size="2" maxlength="2" onChange="check_valid_hour('alarm3:endhour')" />时
+
+	<input type="text" id="alarm3:endmin" size="2" maxlength="2" onChange="check_valid_min('alarm3:endmin')" />分
+回放通道
+    <select  id="alarm3:playback_ch">
+      <option value="-1" selected>不回放</option>
+    <option value="0" >0通道回放</option>    
+    <option value="1" >1通道回放</option>
+    <option value="2" >2通道回放</option>
+    <option value="3" >3通道回放</option>
+    <option value="4">4分屏回放</option>
+</select>
+<div id="CollapsiblePanel3" class="CollapsiblePanel">
+  <div class="CollapsiblePanelTab" tabindex="0">报警联动配置</div>
+  <div class="CollapsiblePanelContent">
+<div id="TabbedPanels3" class="TabbedPanels">
+  <ul class="TabbedPanelsTabGroup">
+    <li class="TabbedPanelsTab" tabindex="0">立即执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="1">确认执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="2">选择执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="3">复位执行动作</li>
+  </ul>
+  <div class="TabbedPanelsContentGroup">
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+     <select disabled id="alarm3:imact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm3:imact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm3:imact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm3:imact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm3:imact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm3:imact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm3:ackact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm3:ackact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm3:ackact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm3:ackact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm3:ackact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm3:ackact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm3:selectact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm3:selectact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm3:selectact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm3:selectact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm3:selectact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm3:selectact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm3:rstact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm3:rstact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm3:rstact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm3:rstact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm3:rstact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm3:rstact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+端子4<input type="checkbox" id="alarm4:enable" value="1" >
+名称<input type="text" id="alarm4:alarmtype" size="10"/>
+<!--
+属性
+<select size="1" id="alarm4:attrib">
+	<option value="0" selected>常开</option>
+	<option value="1">常闭</option>
+</select>
+-->
+起始时间
+	<input type="text" id="alarm4:starthour" size="2" maxlength="2" onChange="check_valid_hour('alarm4:starthour')" />时
+
+	<input type="text" id="alarm4:startmin" size="2" maxlength="2" onChange="check_valid_min('alarm4:startmin')" />分
+终止时间
+	<input type="text" id="alarm4:endhour" size="2" maxlength="2" onChange="check_valid_hour('alarm4:endhour')" />时
+
+	<input type="text" id="alarm4:endmin" size="2" maxlength="2" onChange="check_valid_min('alarm4:endmin')" />分
+回放通道
+    <select  id="alarm4:playback_ch">
+      <option value="-1" selected>不回放</option>
+    <option value="0" >0通道回放</option>    
+    <option value="1" >1通道回放</option>
+    <option value="2" >2通道回放</option>
+    <option value="3" >3通道回放</option>
+    <option value="4">4分屏回放</option>
+</select>
+<div id="CollapsiblePanel4" class="CollapsiblePanel">
+  <div class="CollapsiblePanelTab" tabindex="0">报警联动配置</div>
+  <div class="CollapsiblePanelContent">
+<div id="TabbedPanels4" class="TabbedPanels">
+  <ul class="TabbedPanelsTabGroup">
+    <li class="TabbedPanelsTab" tabindex="0">立即执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="1">确认执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="2">选择执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="3">复位执行动作</li>
+  </ul>
+  <div class="TabbedPanelsContentGroup">
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm4:imact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm4:imact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm4:imact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm4:imact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm4:imact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm4:imact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm4:ackact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="1" >0通道全屏</option>
+    <option value="2" >1通道全屏</option>
+    <option value="3" >2通道全屏</option>
+    <option value="4" >3通道全屏</option>
+    <option value="5" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm4:ackact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm4:ackact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm4:ackact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm4:ackact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm4:ackact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select  disabled id="alarm4:selectact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="1" >0通道全屏</option>
+    <option value="2" >1通道全屏</option>
+    <option value="3" >2通道全屏</option>
+    <option value="4" >3通道全屏</option>
+    <option value="5" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm4:selectact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm4:selectact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm4:selectact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm4:selectact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm4:selectact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm4:rstact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="1" >0通道全屏</option>
+    <option value="2" >1通道全屏</option>
+    <option value="3" >2通道全屏</option>
+    <option value="4" >3通道全屏</option>
+    <option value="5" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm4:rstact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm4:rstact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm4:rstact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm4:rstact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm4:rstact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+端子5<input type="checkbox" id="alarm5:enable" value="1" >
+名称<input type="text" id="alarm5:alarmtype" size="10" />
+<!--
+属性
+<select size="1" id="alarm5:attrib">
+	<option value="0" selected>常开</option>
+	<option value="1">常闭</option>
+</select>
+-->
+起始时间
+	<input type="text" id="alarm5:starthour" size="2" maxlength="2" onChange="check_valid_hour('alarm5:starthour')" />时
+
+	<input type="text" id="alarm5:startmin" size="2" maxlength="2" onChange="check_valid_min('alarm5:startmin')" />分
+终止时间
+	<input type="text" id="alarm5:endhour" size="2" maxlength="2" onChange="check_valid_hour('alarm5:endhour')" />时
+
+	<input type="text" id="alarm5:endmin" size="2" maxlength="2" onChange="check_valid_min('alarm5:endmin')" />分
+回放通道
+    <select  id="alarm5:playback_ch">
+      <option value="-1" selected>不回放</option>
+    <option value="0" >0通道回放</option>    
+    <option value="1" >1通道回放</option>
+    <option value="2" >2通道回放</option>
+    <option value="3" >3通道回放</option>
+    <option value="4">4分屏回放</option>
+</select>
+<div id="CollapsiblePanel5" class="CollapsiblePanel">
+  <div class="CollapsiblePanelTab" tabindex="0">报警联动配置</div>
+  <div class="CollapsiblePanelContent">
+<div id="TabbedPanels5" class="TabbedPanels">
+  <ul class="TabbedPanelsTabGroup">
+    <li class="TabbedPanelsTab" tabindex="0">立即执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="1">确认执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="2">选择执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="3">复位执行动作</li>
+  </ul>
+  <div class="TabbedPanelsContentGroup">
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select  disabled id="alarm5:imact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm5:imact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm5:imact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm5:imact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm5:imact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm5:imact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm5:ackact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="1" >0通道全屏</option>
+    <option value="2" >1通道全屏</option>
+    <option value="3" >2通道全屏</option>
+    <option value="4" >3通道全屏</option>
+    <option value="5" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm5:ackact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm5:ackact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm5:ackact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm5:ackact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm5:ackact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm5:selectact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="1" >0通道全屏</option>
+    <option value="2" >1通道全屏</option>
+    <option value="3" >2通道全屏</option>
+    <option value="4" >3通道全屏</option>
+    <option value="5" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm5:selectact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm5:selectact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm5:selectact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm5:selectact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm5:selectact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm5:rstact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="1" >0通道全屏</option>
+    <option value="2" >1通道全屏</option>
+    <option value="3" >2通道全屏</option>
+    <option value="4" >3通道全屏</option>
+    <option value="5" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm5:rstact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm5:rstact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm5:rstact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm5:rstact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm5:rstact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+端子6<input type="checkbox" id="alarm6:enable" value="1" >
+名称<input type="text" id="alarm6:alarmtype" size="10" />
+<!--
+属性
+
+<select name="alarm6:attrib" size="1" id="alarm6:attrib">
+  <option value="0" selected>常开</option>
+  <option value="1">常闭</option>
+</select>
+-->
+起始时间
+<input type="text" id="alarm6:starthour" size="2" maxlength="2" onChange="check_valid_hour('alarm6:starthour')" />时
+
+	<input type="text" id="alarm6:startmin" size="2" maxlength="2" onChange="check_valid_min('alarm6:startmin')" />分
+终止时间
+	<input type="text" id="alarm6:endhour" size="2" maxlength="2" onChange="check_valid_hour('alarm6:endhour')" />时
+
+	<input type="text" id="alarm6:endmin" size="2" maxlength="2" onChange="check_valid_min('alarm6:endmin')" />分
+回放通道
+    <select  id="alarm6:playback_ch">
+      <option value="-1" selected>不回放</option>
+    <option value="0" >0通道回放</option>    
+    <option value="1" >1通道回放</option>
+    <option value="2" >2通道回放</option>
+    <option value="3" >3通道回放</option>
+    <option value="4">4分屏回放</option>
+</select>
+<div id="CollapsiblePanel6" class="CollapsiblePanel">
+  <div class="CollapsiblePanelTab" tabindex="0">报警联动配置</div>
+  <div class="CollapsiblePanelContent">
+<div id="TabbedPanels6" class="TabbedPanels">
+  <ul class="TabbedPanelsTabGroup">
+    <li class="TabbedPanelsTab" tabindex="0">立即执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="1">确认执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="2">选择执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="3">复位执行动作</li>
+  </ul>
+  <div class="TabbedPanelsContentGroup">
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+     <select disabled id="alarm6:imact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm6:imact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm6:imact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm6:imact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm6:imact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm6:imact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm6:ackact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="1" >0通道全屏</option>
+    <option value="2" >1通道全屏</option>
+    <option value="3" >2通道全屏</option>
+    <option value="4" >3通道全屏</option>
+    <option value="5" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm6:ackact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm6:ackact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm6:ackact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm6:ackact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm6:ackact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm6:selectact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="1" >0通道全屏</option>
+    <option value="2" >1通道全屏</option>
+    <option value="3" >2通道全屏</option>
+    <option value="4" >3通道全屏</option>
+    <option value="5" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm6:selectact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm6:selectact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm6:selectact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm6:selectact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm6:selectact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm6:rstact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="1" >0通道全屏</option>
+    <option value="2" >1通道全屏</option>
+    <option value="3" >2通道全屏</option>
+    <option value="4" >3通道全屏</option>
+    <option value="5" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm6:rstact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm6:rstact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm6:rstact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm6:rstact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm6:rstact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+端子7<input type="checkbox" id="alarm7:enable" value="1" >
+名称<input type="text" id="alarm7:alarmtype" size="10" />
+<!--
+属性
+<select size="1" id="alarm7:attrib">
+<option value="0" selected>常开</option>
+<option value="1">常闭</option>
+</select>
+-->
+起始时间
+	<input type="text" id="alarm7:starthour" size="2" maxlength="2" onChange="check_valid_hour('alarm7:starthour')" />时
+
+	<input type="text" id="alarm7:startmin" size="2" maxlength="2" onChange="check_valid_min('alarm7:startmin')" />分
+终止时间
+	<input type="text" id="alarm7:endhour" size="2" maxlength="2" onChange="check_valid_hour('alarm7:endhour')" />时
+
+	<input type="text" id="alarm7:endmin" size="2" maxlength="2" onChange="check_valid_min('alarm7:endmin')" />分
+回放通道
+    <select  id="alarm7:playback_ch">
+      <option value="-1" selected>不回放</option>
+    <option value="0" >0通道回放</option>    
+    <option value="1" >1通道回放</option>
+    <option value="2" >2通道回放</option>
+    <option value="3" >3通道回放</option>
+    <option value="4">4分屏回放</option>
+</select>
+<div id="CollapsiblePanel7" class="CollapsiblePanel">
+  <div class="CollapsiblePanelTab" tabindex="0">报警联动配置</div>
+  <div class="CollapsiblePanelContent">
+<div id="TabbedPanels7" class="TabbedPanels">
+  <ul class="TabbedPanelsTabGroup">
+    <li class="TabbedPanelsTab" tabindex="0">立即执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="1">确认执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="2">选择执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="3">复位执行动作</li>
+  </ul>
+  <div class="TabbedPanelsContentGroup">
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm7:imact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm7:imact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm7:imact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm7:imact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm7:imact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm7:imact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm7:ackact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm7:ackact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm7:ackact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm7:ackact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm7:ackact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm7:ackact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm7:selectact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm7:selectact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm7:selectact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm7:selectact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm7:selectact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm7:selectact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm7:rstact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="1" >0通道全屏</option>
+    <option value="2" >1通道全屏</option>
+    <option value="3" >2通道全屏</option>
+    <option value="4" >3通道全屏</option>
+    <option value="5" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm7:rstact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm7:rstact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm7:rstact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm7:rstact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm7:rstact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+端子8<input type="checkbox" id="alarm8:enable" value="1" >
+名称<input type="text" id="alarm8:alarmtype" size="10" />
+<!--
+属性
+	<select size="1" id="alarm0:attrib">
+    	<option value="0" selected>常开</option>
+    	<option value="1">常闭</option>
+    </select>
+-->
+起始时间
+	<input type="text" id="alarm8:starthour" size="2" maxlength="2" onChange="check_valid_hour('alarm8:starthour')" />时
+
+	<input type="text" id="alarm8:startmin" size="2" maxlength="2" onChange="check_valid_min('alarm8:startmin')" />分
+终止时间
+	<input type="text" id="alarm8:endhour" size="2" maxlength="2" onChange="check_valid_hour('alarm8:endhour')" />时
+
+	<input type="text" id="alarm8:endmin" size="2" maxlength="2" onChange="check_valid_min('alarm8:endmin')" />分
+回放通道
+    <select name="alarm8:playback_ch"  id="alarm8:playback_ch">
+      <option value="-1" selected>不回放</option>
+      <option value="0" >0通道回放</option>
+      <option value="1" >1通道回放</option>
+      <option value="2" >2通道回放</option>
+      <option value="3" >3通道回放</option>
+      <option value="4" >4分屏回放</option>
+    </select>
+     监听端口<input type="text" value="5655" disabled=true/>
+<br>
+<div id="CollapsiblePanel8" class="CollapsiblePanel">
+  <div class="CollapsiblePanelTab" tabindex="0">报警联动配置</div>
+  <div class="CollapsiblePanelContent">
+<div id="TabbedPanels8" class="TabbedPanels">
+  <ul class="TabbedPanelsTabGroup">
+    <li class="TabbedPanelsTab" tabindex="0">立即执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="1">确认执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="2">选择执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="3">复位执行动作</li>
+  </ul>
+  <div class="TabbedPanelsContentGroup">
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm8:imact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm8:imact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm8:imact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm8:imact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm8:imact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm8:imact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm8:ackact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm8:ackact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select  id="alarm8:ackact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm8:ackact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm8:ackact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm8:ackact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm8:selectact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm8:selectact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm8:selectact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm8:selectact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm8:selectact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm8:selectact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm8:rstact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm8:rstact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm8:rstact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm8:rstact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm8:rstact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm8:rstact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+端子9<input type="checkbox" id="alarm9:enable" value="1" >
+名称<input type="text" id="alarm9:alarmtype" size="10" />
+<!--
+属性
+	<select size="1" id="alarm0:attrib">
+    	<option value="0" selected>常开</option>
+    	<option value="1">常闭</option>
+    </select>
+-->
+起始时间
+	<input type="text" id="alarm9:starthour" size="2" maxlength="2" onChange="check_valid_hour('alarm9:starthour')" />时
+
+	<input type="text" id="alarm9:startmin" size="2" maxlength="2" onChange="check_valid_min('alarm9:startmin')" />分
+终止时间
+	<input type="text" id="alarm9:endhour" size="2" maxlength="2" onChange="check_valid_hour('alarm9:endhour')" />时
+
+	<input type="text" id="alarm9:endmin" size="2" maxlength="2" onChange="check_valid_min('alarm9:endmin')" />分
+回放通道
+    <select name="alarm9:playback_ch"  id="alarm9:playback_ch">
+      <option value="-1" selected>不回放</option>
+      <option value="0" >0通道回放</option>
+      <option value="1" >1通道回放</option>
+      <option value="2" >2通道回放</option>
+      <option value="3" >3通道回放</option>
+      <option value="4" >4分屏回放</option>
+    </select>
+监听端口<input type="text" value="5656" disabled=true/>
+<br>
+<div id="CollapsiblePanel9" class="CollapsiblePanel">
+  <div class="CollapsiblePanelTab" tabindex="0">报警联动配置</div>
+  <div class="CollapsiblePanelContent">
+<div id="TabbedPanels9" class="TabbedPanels">
+  <ul class="TabbedPanelsTabGroup">
+    <li class="TabbedPanelsTab" tabindex="0">立即执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="1">确认执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="2">选择执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="3">复位执行动作</li>
+  </ul>
+  <div class="TabbedPanelsContentGroup">
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm9:imact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm9:imact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm9:imact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm9:imact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm9:imact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm9:imact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm9:ackact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm9:ackact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select  id="alarm9:ackact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm9:ackact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm9:ackact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm9:ackact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm9:selectact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm9:selectact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm9:selectact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm9:selectact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm9:selectact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm9:selectact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm9:rstact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm9:rstact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm9:rstact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm9:rstact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm9:rstact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm9:rstact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+端子10<input type="checkbox" id="alarm10:enable" value="1" >
+名称<input type="text" id="alarm10:alarmtype" size="10" />
+<!--
+属性
+	<select size="1" id="alarm0:attrib">
+    	<option value="0" selected>常开</option>
+    	<option value="1">常闭</option>
+    </select>
+-->
+起始时间
+	<input type="text" id="alarm10:starthour" size="2" maxlength="2" onChange="check_valid_hour('alarm10:starthour')" />时
+
+	<input type="text" id="alarm10:startmin" size="2" maxlength="2" onChange="check_valid_min('alarm10:startmin')" />分
+终止时间
+	<input type="text" id="alarm10:endhour" size="2" maxlength="2" onChange="check_valid_hour('alarm10:endhour')" />时
+
+	<input type="text" id="alarm10:endmin" size="2" maxlength="2" onChange="check_valid_min('alarm10:endmin')" />分
+回放通道
+    <select name="alarm10:playback_ch"  id="alarm10:playback_ch">
+      <option value="-1" selected>不回放</option>
+      <option value="0" >0通道回放</option>
+      <option value="1" >1通道回放</option>
+      <option value="2" >2通道回放</option>
+      <option value="3" >3通道回放</option>
+      <option value="4" >4分屏回放</option>
+    </select>
+监听端口<input type="text" value="5657" disabled=true/>
+<br>
+<div id="CollapsiblePanel10" class="CollapsiblePanel">
+  <div class="CollapsiblePanelTab" tabindex="0">报警联动配置</div>
+  <div class="CollapsiblePanelContent">
+<div id="TabbedPanels10" class="TabbedPanels">
+  <ul class="TabbedPanelsTabGroup">
+    <li class="TabbedPanelsTab" tabindex="0">立即执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="1">确认执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="2">选择执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="3">复位执行动作</li>
+  </ul>
+  <div class="TabbedPanelsContentGroup">
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm10:imact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm10:imact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm10:imact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm10:imact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm10:imact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm10:imact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm10:ackact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm10:ackact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select  id="alarm10:ackact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm10:ackact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm10:ackact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm10:ackact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm10:selectact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm10:selectact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm10:selectact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm10:selectact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm10:selectact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm10:selectact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm10:rstact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm10:rstact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm10:rstact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm10:rstact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm10:rstact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm10:rstact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+端子11<input type="checkbox" id="alarm11:enable" value="1" >
+名称<input type="text" id="alarm11:alarmtype" size="10" />
+<!--
+属性
+	<select size="1" id="alarm0:attrib">
+    	<option value="0" selected>常开</option>
+    	<option value="1">常闭</option>
+    </select>
+-->
+起始时间
+	<input type="text" id="alarm11:starthour" size="2" maxlength="2" onChange="check_valid_hour('alarm11:starthour')" />时
+
+	<input type="text" id="alarm11:startmin" size="2" maxlength="2" onChange="check_valid_min('alarm11:startmin')" />分
+终止时间
+	<input type="text" id="alarm11:endhour" size="2" maxlength="2" onChange="check_valid_hour('alarm11:endhour')" />时
+
+	<input type="text" id="alarm11:endmin" size="2" maxlength="2" onChange="check_valid_min('alarm11:endmin')" />分
+回放通道
+    <select name="alarm11:playback_ch"  id="alarm11:playback_ch">
+      <option value="-1" selected>不回放</option>
+      <option value="0" >0通道回放</option>
+      <option value="1" >1通道回放</option>
+      <option value="2" >2通道回放</option>
+      <option value="3" >3通道回放</option>
+      <option value="4" >4分屏回放</option>
+    </select>
+监听端口<input type="text" value="5658" disabled=true/>
+<br>
+<div id="CollapsiblePanel11" class="CollapsiblePanel">
+  <div class="CollapsiblePanelTab" tabindex="0">报警联动配置</div>
+  <div class="CollapsiblePanelContent">
+<div id="TabbedPanels11" class="TabbedPanels">
+  <ul class="TabbedPanelsTabGroup">
+    <li class="TabbedPanelsTab" tabindex="0">立即执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="1">确认执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="2">选择执行动作</li>
+    <li class="TabbedPanelsTab" tabindex="3">复位执行动作</li>
+  </ul>
+  <div class="TabbedPanelsContentGroup">
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm11:imact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm11:imact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm11:imact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm11:imact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm11:imact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm11:imact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm11:ackact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm11:ackact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select  id="alarm11:ackact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm11:ackact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm11:ackact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm11:ackact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm11:selectact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm11:selectact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm11:selectact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm11:selectact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm11:selectact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm11:selectact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+    <div class="TabbedPanelsContent">
+     屏幕切换定义
+    <select disabled id="alarm11:rstact_screen">
+    <option value="0" selected>不切屏</option>
+    <option value="30" >0通道全屏</option>
+    <option value="31" >1通道全屏</option>
+    <option value="32" >2通道全屏</option>
+    <option value="33" >3通道全屏</option>
+    <option value="34" >4分屏</option>
+    </select>
+    <br>
+    扩展动作定义
+    <select id="alarm11:rstact_expand">
+    <option value="0" selected>不播放声音</option>
+    <option value="40" >播放声音</option>
+    </select>
+    <br>
+    输出0定义
+    <select id="alarm11:rstact_out0">
+    <option value="0" selected>不执行</option>
+    <option value="1" >继电器闭合</option>
+    <option value="51" >继电器闭开闭</option>
+    <option value="2" >继电器打开</option>
+    <option value="52" >继电器开闭开</option>
+    </select>
+    <br>
+    输出1定义    
+    <select id="alarm11:rstact_out1">
+    <option value="0" selected>不执行</option>
+    <option value="3" >继电器闭合</option>
+    <option value="53" >继电器闭开闭</option>
+    <option value="4" >继电器打开</option>
+    <option value="54" >继电器开闭开</option>
+    </select>
+    <br>
+    输出2定义
+    <select id="alarm11:rstact_out2">
+    <option value="0" selected>不执行</option>
+    <option value="5" >继电器闭合</option>
+    <option value="55" >继电器闭开闭</option>
+    <option value="6" >继电器打开</option>
+    <option value="56" >继电器开闭开</option>
+    </select>
+    <br>
+    输出3定义
+    <select id="alarm11:rstact_out3">
+    <option value="0" selected>不执行</option>
+    <option value="7" >继电器闭合</option>
+    <option value="57" >继电器闭开闭</option>
+    <option value="8" >继电器打开</option>
+    <option value="58" >继电器开闭开</option>
+    </select>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+<!--
+var TabbedPanels0 = new Spry.Widget.TabbedPanels("TabbedPanels0");
+var TabbedPanels1 = new Spry.Widget.TabbedPanels("TabbedPanels1");
+var TabbedPanels2 = new Spry.Widget.TabbedPanels("TabbedPanels2");
+var TabbedPanels3 = new Spry.Widget.TabbedPanels("TabbedPanels3");
+var TabbedPanels4 = new Spry.Widget.TabbedPanels("TabbedPanels4");
+var TabbedPanels5 = new Spry.Widget.TabbedPanels("TabbedPanels5");
+var TabbedPanels6 = new Spry.Widget.TabbedPanels("TabbedPanels6");
+var TabbedPanels7 = new Spry.Widget.TabbedPanels("TabbedPanels7");
+var TabbedPanels8 = new Spry.Widget.TabbedPanels("TabbedPanels8");
+var TabbedPanels9 = new Spry.Widget.TabbedPanels("TabbedPanels9");
+var TabbedPanels10 = new Spry.Widget.TabbedPanels("TabbedPanels10");
+var TabbedPanels11 = new Spry.Widget.TabbedPanels("TabbedPanels11");
+var CollapsiblePanel0 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel0", {contentIsOpen:false});
+var CollapsiblePanel1 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel1", {contentIsOpen:false});
+var CollapsiblePanel2 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel2", {contentIsOpen:false});
+var CollapsiblePanel3 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel3", {contentIsOpen:false});
+var CollapsiblePanel4 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel4", {contentIsOpen:false});
+var CollapsiblePanel5 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel5", {contentIsOpen:false});
+var CollapsiblePanel6 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel6", {contentIsOpen:false});
+var CollapsiblePanel7 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel7", {contentIsOpen:false});
+var CollapsiblePanel8 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel8", {contentIsOpen:false});
+var CollapsiblePanel9 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel9", {contentIsOpen:false});
+var CollapsiblePanel10 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel10", {contentIsOpen:false});
+var CollapsiblePanel11 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel11", {contentIsOpen:false});
+//-->
+</script>
+<input type="button" onClick="setXMLDoc();checkCookie()" value="提交数据" />
+</body>
+</html>

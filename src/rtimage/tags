@@ -1,0 +1,584 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AAC_HEAD_SIZE	net_aplay.c	19;"	d	file:
+AMR_DTX	net_aplay.c	27;"	d	file:
+AMR_FORMAT	net_aplay.c	25;"	d	file:
+AMR_MODE	net_aplay.c	26;"	d	file:
+AUDIO_AAC_TYPE	net_aplay.c	23;"	d	file:
+AUDIO_ADPCM_TYPE	net_aplay.c	22;"	d	file:
+AUDIO_PLAY_PKT_SIZE	net_aplay.c	18;"	d	file:
+AUDIO_POOL_20070305	audio_pool.h	6;"	d
+AVSERVER_H_20070309	avserver.h	6;"	d
+CC	Makefile	/^CC=arm-hisiv100nptl-linux-gcc$/;"	m
+CC	watch/Makefile	/^	CC = gcc$/;"	m
+CC	watch/Makefile	/^	CC=arm-linux-gcc$/;"	m
+DBG	sec_fifo.h	20;"	d
+DBG	sec_fifo.h	22;"	d
+DBGR	sec_fifo.h	29;"	d
+DBGR	sec_fifo.h	31;"	d
+DEAF	Makefile	/^DEAF = deafmute$/;"	m
+DEAF_OBJS	Makefile	/^DEAF_OBJS = $(DEAF_SRC:.c=.o)$/;"	m
+DEAF_SRC	Makefile	/^DEAF_SRC = deaf\/deafmute.c$/;"	m
+DEBUG	net_aplay.c	683;"	d	file:
+DEBUGR	sec_fifo.h	26;"	d
+DEF_AUDIO_FRAGNB	rtimage2.h	38;"	d
+DEF_AUDIO_FRAGSIZE	rtimage2.h	37;"	d
+DEF_AUDIO_SAMRATE	rtimage2.h	36;"	d
+DEF_CHANNELS	deaf/deafmute.c	17;"	d	file:
+DEF_FRAGNB	deaf/deafmute.c	19;"	d	file:
+DEF_FRAGSIZE	deaf/deafmute.c	18;"	d	file:
+DEF_SAMRATE	deaf/deafmute.c	15;"	d	file:
+DEF_SAMSIZE	deaf/deafmute.c	16;"	d	file:
+EXEC	Makefile	/^EXEC = onvif_rtimage$/;"	m
+EXEC	watch/Makefile	/^EXEC = watch_tcprt$/;"	m
+FIRST_PLAY	maincmdproc.c	22;"	d	file:
+FOR_PC_MUTI_TEST	rtimage2.h	54;"	d
+G726_BPS	net_aplay.c	24;"	d	file:
+GetTickCount	avserver.c	/^ unsigned long GetTickCount()$/;"	f
+GetTickCount	net_aplay.c	/^extern unsigned long GetTickCount();$/;"	p	file:
+HDDBUFF_MAX_FRAME	avserver.h	8;"	d
+IFRAME_HEAD	avserver.c	51;"	d	file:
+IN	rtimage2.h	62;"	d
+IO	rtimage2.h	64;"	d
+LIB_PATH	Makefile	/^LIB_PATH=-L..\/..\/lib\/lib_hi3520D $/;"	m
+MAIN_CMD_PROC_H_20070305	maincmdproc.h	6;"	d
+MAX_AAC_PKT_SIZE	net_aplay.c	20;"	d	file:
+MAX_MAP_BUF_FRAMES	rtimage2.h	49;"	d
+MUST_PLAY	maincmdproc.c	21;"	d	file:
+NET_AVSTREAM_H_20070306	net_avstream.h	6;"	d
+NET_AVSTREAM_H_20070330	net_aplay.h	6;"	d
+NET_STA_FILE	maincmdproc.c	17;"	d	file:
+OBJS	Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
+OBJS	watch/Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
+OUT	rtimage2.h	63;"	d
+PLAY_BACK_H	play_back.h	2;"	d
+REC_DATA_SIZE	deaf/deafmute.c	40;"	d	file:
+RTIMAGE2_H_20070301	rtimage2.h	6;"	d
+RTIMAGE_AUDIO_DEC	net_aplay.h	10;"	d
+RTIMAGE_AUDIO_DEV	net_aplay.h	9;"	d
+RTIMAGE_AUDIO_DEV_CHN	net_aplay.h	11;"	d
+RTIMG_PARA2_H_20070302	rtimg_para2.h	6;"	d
+SCR_FULL	maincmdproc.c	18;"	d	file:
+SCR_QUAD	maincmdproc.c	19;"	d	file:
+SEC_MAX_LEN	sec_fifo.h	4;"	d
+SERV_INFO_H_20070302	serv_info.h	6;"	d
+SRC	Makefile	/^SRC  = main.c rtimg_para2.c  avserver.c maincmdproc.c net_avstream.c net_aplay.c play_back.c #audio_pool.c $/;"	m
+SRC	watch/Makefile	/^SRC  = watch_tcprt.c$/;"	m
+TCPRTIMG_MAX_APLAY_NO	rtimage2.h	48;"	d
+TCPRTIMG_MAX_AVUSR_NO	rtimage2.h	46;"	d
+TCPRT_MAX_VIRAVUSR_NO	rtimage2.h	44;"	d
+TCPRT_USR_INFO_H_20070301	tcprt_usr_info.h	6;"	d
+TCP_SEND_ADJUST_STEP	avserver.c	40;"	d	file:
+TCP_SEND_BUF_MAX	avserver.c	41;"	d	file:
+TCP_SEND_RESERVE_AUDIO	avserver.c	39;"	d	file:
+TOP_DIR	Makefile	/^TOP_DIR  = $(shell pwd)$/;"	m
+TOP_DIR	watch/Makefile	/^TOP_DIR  = $(shell pwd)$/;"	m
+TW2865_FILE	net_aplay.c	21;"	d	file:
+VERSION	deaf/deafmute.c	23;"	d	file:
+VSMAIN_PARA_FILE	maincmdproc.c	20;"	d	file:
+WATCH	Makefile	/^WATCH = watch_tcprt$/;"	m
+WATCH_OBJS	Makefile	/^WATCH_OBJS = $(WATCH_SRC:.c=.o)$/;"	m
+WATCH_SRC	Makefile	/^WATCH_SRC  = watch\/watch_tcprt.c$/;"	m
+__SEC_FIFO_H	sec_fifo.h	2;"	d
+__anon10::a_fmt	tcprt_usr_info.h	/^    int                                     a_fmt;               \/\/\/<音频格式AUDIO_PLAY_TYPE_UPCM,AUDIO_PLAY_TYPE_PCM,$/;"	m	struct:__anon10	access:public
+__anon10::a_sam_rate	tcprt_usr_info.h	/^    int                                     a_sam_rate;     \/\/\/<音频采样率$/;"	m	struct:__anon10	access:public
+__anon10::addr	tcprt_usr_info.h	/^    struct sockaddr_in	         addr;			\/\/\/<远程用户地址$/;"	m	struct:__anon10	typeref:struct:__anon10::sockaddr_in	access:public
+__anon10::aenc_no	tcprt_usr_info.h	/^    int			                aenc_no;		\/\/\/<用户请求连接的音频编码器编号(目前只有一个音频编码器,所以此参数无效)$/;"	m	struct:__anon10	access:public
+__anon10::fd	tcprt_usr_info.h	/^    int			                fd;				\/\/\/<用户连接描述符,负值表示未连接$/;"	m	struct:__anon10	access:public
+__anon10::last_cmd_time	tcprt_usr_info.h	/^    struct timeval 		         last_cmd_time;	\/\/\/<最后一次收到命令的时间$/;"	m	struct:__anon10	typeref:struct:__anon10::timeval	access:public
+__anon10::magic	tcprt_usr_info.h	/^    unsigned long                    magic;                \/\/\/<用户结构信息魔数,0x55aa表示已经初始化,其它值表示未初始化$/;"	m	struct:__anon10	access:public
+__anon10::name	tcprt_usr_info.h	/^    char			                name[40];		\/\/\/<订阅服务的用户名	$/;"	m	struct:__anon10	access:public
+__anon10::no	tcprt_usr_info.h	/^    int			                no;			\/\/\/<用户序号$/;"	m	struct:__anon10	access:public
+__anon10::pid	tcprt_usr_info.h	/^    pid_t			                pid;			\/\/\/<pid 用户子进程号$/;"	m	struct:__anon10	access:public
+__anon10::play_dev	tcprt_usr_info.h	/^    int                           play_dev;$/;"	m	struct:__anon10	access:public
+__anon10::recv_info	tcprt_usr_info.h	/^    stream_recv_info_t            recv_info;          \/\/\/<接收芯片数据的信息结构$/;"	m	struct:__anon10	access:public
+__anon10::serv_stat	tcprt_usr_info.h	/^    int			                serv_stat;		\/\/\/<服务状态,0:没有收到请求服务命令 1:已经收到音频订阅命令,准备提供服务 负值:还没有连接$/;"	m	struct:__anon10	access:public
+__anon10::sock_attr	tcprt_usr_info.h	/^    socket_attrib_t		         sock_attr;		\/\/\/<socket属性$/;"	m	struct:__anon10	access:public
+__anon10::start_time	tcprt_usr_info.h	/^    struct timeval 		         start_time;		\/\/\/<连接的起始时间;$/;"	m	struct:__anon10	typeref:struct:__anon10::timeval	access:public
+__anon10::th_timeout	tcprt_usr_info.h	/^    int			                th_timeout;	\/\/\/<判定超时的阈值(连接后长时间没有收到命令或长时间发不出数据),以秒为单位$/;"	m	struct:__anon10	access:public
+__anon10::thread_id	tcprt_usr_info.h	/^    pthread_t                          thread_id;         \/\/\/<线程id$/;"	m	struct:__anon10	access:public
+__anon10::timeout_cnt	tcprt_usr_info.h	/^    int			                timeout_cnt;	\/\/\/<计算超时的计数器$/;"	m	struct:__anon10	access:public
+__anon10::u_mutex	tcprt_usr_info.h	/^    pthread_mutex_t               u_mutex;		\/\/\/<访问用户数据时需要的互斥体$/;"	m	struct:__anon10	access:public
+__anon11::aframe_adjust	play_back.h	/^	int aframe_adjust[MAX_AUDIO_ENCODER];$/;"	m	struct:__anon11	access:public
+__anon11::current_net_ch	play_back.h	/^	int current_net_ch[TCPRTIMG_MAX_AVUSR_NO+1];$/;"	m	struct:__anon11	access:public
+__anon11::default_screen	play_back.h	/^	int default_screen;$/;"	m	struct:__anon11	access:public
+__anon11::frame_adjust	play_back.h	/^	int frame_adjust[MAX_VIDEO_ENCODER];$/;"	m	struct:__anon11	access:public
+__anon11::mutex	play_back.h	/^	pthread_mutex_t 	mutex;$/;"	m	struct:__anon11	access:public
+__anon11::pb_act	play_back.h	/^	int pb_act[MAX_AUDIO_ENCODER];$/;"	m	struct:__anon11	access:public
+__anon11::pb_aenc	play_back.h	/^	int pb_aenc[MAX_AUDIO_ENCODER];$/;"	m	struct:__anon11	access:public
+__anon11::pb_audio_flag	play_back.h	/^	int pb_audio_flag[MAX_AUDIO_ENCODER];$/;"	m	struct:__anon11	access:public
+__anon11::pb_ct	play_back.h	/^	int pb_ct[MAX_VIDEO_ENCODER];$/;"	m	struct:__anon11	access:public
+__anon11::pb_first_fg	play_back.h	/^	int pb_first_fg[MAX_VIDEO_ENCODER]; \/\/开始链接回放指针的标志$/;"	m	struct:__anon11	access:public
+__anon11::pb_vct	play_back.h	/^	int pb_vct[MAX_VIDEO_ENCODER];$/;"	m	struct:__anon11	access:public
+__anon11::pb_venc	play_back.h	/^	int pb_venc[MAX_VIDEO_ENCODER];\/\/回放指针链接缓冲池的状态-1:已链接0:未链接$/;"	m	struct:__anon11	access:public
+__anon11::playback_flag	play_back.h	/^	int playback_flag[MAX_VIDEO_ENCODER];\/\/正在回放的通道$/;"	m	struct:__anon11	access:public
+__anon12::buffer	sec_fifo.h	/^	char 	*buffer;			\/\/指向缓冲区的指针$/;"	m	struct:__anon12	access:public
+__anon12::in	sec_fifo.h	/^	int	in;				\/\/准备写入的位置	$/;"	m	struct:__anon12	access:public
+__anon12::isvalid	sec_fifo.h	/^	pthread_cond_t isvalid;         \/\/条件变量$/;"	m	struct:__anon12	access:public
+__anon12::lock	sec_fifo.h	/^	pthread_mutex_t lock;			\/\/读写锁,同一时间要么是读出，要么是写入$/;"	m	struct:__anon12	access:public
+__anon12::out	sec_fifo.h	/^	int	out;				\/\/准备读取的位置$/;"	m	struct:__anon12	access:public
+__anon12::remain	sec_fifo.h	/^	int	remain;				\/\/未读取的字节数=准备写入的位置-准备读取的位置$/;"	m	struct:__anon12	access:public
+__anon12::rlock	sec_fifo.h	/^	pthread_mutex_t rlock;$/;"	m	struct:__anon12	access:public
+__anon12::size	sec_fifo.h	/^	int	size;				\/\/缓冲区可以使用的长度，应该小于sec_max_len$/;"	m	struct:__anon12	access:public
+__anon12::stop	sec_fifo.h	/^	int 	stop;				\/\/停止读取数据标志，为1停止读取，为0继续读取$/;"	m	struct:__anon12	access:public
+__anon1::av_usr_list	serv_info.h	/^	av_usr_t	av_usr_list[TCPRTIMG_MAX_AVUSR_NO+1];	 \/\/\/<音视频上行服务用户信息列表,多一个用于处理忙$/;"	m	struct:__anon1	access:public
+__anon1::l_mutex	serv_info.h	/^    pthread_mutex_t     l_mutex;                                         \/\/\/<侦听用的互斥体$/;"	m	struct:__anon1	access:public
+__anon1::lan_usrs	serv_info.h	/^	int		                lan_usrs;				               \/\/\/<当前的局域网用户数$/;"	m	struct:__anon1	access:public
+__anon1::listen_fd	serv_info.h	/^    int                          listen_fd;                                        \/\/\/<侦听服务的描述符$/;"	m	struct:__anon1	access:public
+__anon1::s_mutex	serv_info.h	/^	pthread_mutex_t     s_mutex;                                        \/\/\/<访问音视频上行服务用的互斥体$/;"	m	struct:__anon1	access:public
+__anon1::video_enc	serv_info.h	/^	media_source_t 	  video_enc[MAX_VIDEO_ENCODER]; \/\/\/<视频编码器实例$/;"	m	struct:__anon1	access:public
+__anon1::vir0_lan_users	serv_info.h	/^	int				vir0_lan_users;					\/\/\/<当前虚拟设备0局域网用户数$/;"	m	struct:__anon1	access:public
+__anon1::vir0_wan_users	serv_info.h	/^	int 				vir0_wan_users;					\/\/\/<当前虚拟设备0广域网用户数$/;"	m	struct:__anon1	access:public
+__anon1::vir1_lan_users	serv_info.h	/^	int				vir1_lan_users;					\/\/\/<当前虚拟设备1局域网用户数$/;"	m	struct:__anon1	access:public
+__anon1::vir1_wan_users	serv_info.h	/^	int				vir1_wan_users;					\/\/\/<当前虚拟设备1广域网用户数$/;"	m	struct:__anon1	access:public
+__anon1::wan_usrs	serv_info.h	/^	int		                wan_usrs;				               \/\/\/<当前的广域网用户数$/;"	m	struct:__anon1	access:public
+__anon2::l_mutex	serv_info.h	/^    pthread_mutex_t     l_mutex;                                                             \/\/\/<侦听用的互斥体$/;"	m	struct:__anon2	access:public
+__anon2::listen_fd	serv_info.h	/^    int					listen_fd;                                                           \/\/\/<侦听服务的描述符$/;"	m	struct:__anon2	access:public
+__anon2::s_mutex	serv_info.h	/^	pthread_mutex_t     s_mutex;                                                            \/\/\/<访问音视频上行服务用的互斥体??下行$/;"	m	struct:__anon2	access:public
+__anon2::usr_list	serv_info.h	/^	aplay_usr_t	        usr_list[TCPRTIMG_MAX_APLAY_NO+1];	              \/\/\/<音视频上行服务用户信息列表,多一个用于处理忙$/;"	m	struct:__anon2	access:public
+__anon2::usrs	serv_info.h	/^	int		            usrs;				                                          \/\/\/<当前访问音频下行服务的用户数$/;"	m	struct:__anon2	access:public
+__anon3::ain0_gain	serv_info.h	/^	float            ain0_gain;			$/;"	m	struct:__anon3	access:public
+__anon3::ain1_gain	serv_info.h	/^	float 			 ain1_gain;$/;"	m	struct:__anon3	access:public
+__anon3::ain2_gain	serv_info.h	/^	float            ain2_gain;$/;"	m	struct:__anon3	access:public
+__anon3::ain3_gain	serv_info.h	/^	float            ain3_gain;$/;"	m	struct:__anon3	access:public
+__anon3::aplay_server	serv_info.h	/^	aplay_server_t    aplay_server;      \/\/\/<音频下行服务   $/;"	m	struct:__anon3	access:public
+__anon3::audio_gain	serv_info.h	/^	float		     audio_gain;          \/\/\/<音频输出增益$/;"	m	struct:__anon3	access:public
+__anon3::audio_only_usr_addr	serv_info.h	/^	struct sockaddr_in     audio_only_usr_addr[6];	\/\/\/<只听得标志,0又听又看，1为只听不看$/;"	m	struct:__anon3	typeref:struct:__anon3::sockaddr_in	access:public
+__anon3::audio_pkt_size	serv_info.h	/^    int              audio_pkt_size;    \/\/\/<音频上行数据包大小	$/;"	m	struct:__anon3	access:public
+__anon3::audio_play_port	serv_info.h	/^	int		         audio_play_port; \/\/\/<音频下行服务端口$/;"	m	struct:__anon3	access:public
+__anon3::av_server	serv_info.h	/^	av_server_t	  	  av_server;           \/\/\/<音视频上传服务$/;"	m	struct:__anon3	access:public
+__anon3::av_svr_port	serv_info.h	/^	int		         av_svr_port;	   \/\/\/<音视频上行服务端口$/;"	m	struct:__anon3	access:public
+__anon3::bitratecon	serv_info.h	/^	int            bitratecon;$/;"	m	struct:__anon3	access:public
+__anon3::eth0_addr	serv_info.h	/^	in_addr_t         eth0_addr;           \/\/\/<网口0的局域网地址$/;"	m	struct:__anon3	access:public
+__anon3::eth0_mask	serv_info.h	/^	in_addr_t         eth0_mask;          \/\/\/<网口0的子网掩码$/;"	m	struct:__anon3	access:public
+__anon3::eth1_addr	serv_info.h	/^	in_addr_t         eth1_addr;           \/\/\/<网口0的局域网地址$/;"	m	struct:__anon3	access:public
+__anon3::eth1_mask	serv_info.h	/^	in_addr_t         eth1_mask;          \/\/\/<网口0的子网掩码       $/;"	m	struct:__anon3	access:public
+__anon3::frame_rate	serv_info.h	/^	int 			frame_rate;$/;"	m	struct:__anon3	access:public
+__anon3::max_aplay_usrs	serv_info.h	/^	int              max_aplay_usrs; \/\/\/<音频下行服务最大用户数$/;"	m	struct:__anon3	access:public
+__anon3::max_lan_usrs	serv_info.h	/^	int		         max_lan_usrs;	   \/\/\/<最大局域网用户数$/;"	m	struct:__anon3	access:public
+__anon3::max_wan_usrs	serv_info.h	/^	int		         max_wan_usrs;	   \/\/\/<最大广域网用户数$/;"	m	struct:__anon3	access:public
+__anon3::maxbitrate	serv_info.h	/^	int            maxbitrate;$/;"	m	struct:__anon3	access:public
+__anon3::mic_gain	serv_info.h	/^	int		         mic_gain;		    \/\/\/<mic增益$/;"	m	struct:__anon3	access:public
+__anon3::pkts_limit	serv_info.h	/^	int                 pkts_limit;                 \/\/\/<网卡缓冲区大小切换的阀值$/;"	m	struct:__anon3	access:public
+__anon3::playback_dly	serv_info.h	/^	int			        playback_dly;		\/\/\/报警后的录像回放时间$/;"	m	struct:__anon3	access:public
+__anon3::playback_pre	serv_info.h	/^	int			        playback_pre;		\/\/\/报警前的录像回放时间$/;"	m	struct:__anon3	access:public
+__anon3::targetbitrate	serv_info.h	/^	int            targetbitrate;$/;"	m	struct:__anon3	access:public
+__anon3::tcp_max_buff	serv_info.h	/^	int                 tcp_max_buff;               \/\/\/<缓冲区大小$/;"	m	struct:__anon3	access:public
+__anon3::th_drop_a	serv_info.h	/^	int		         th_drop_a;		   \/\/\/<开始丢弃所有数据的阈值$/;"	m	struct:__anon3	access:public
+__anon3::th_drop_p	serv_info.h	/^	int		         th_drop_p;		   \/\/\/<缓冲池数据多后开始丢视频p帧的阈值$/;"	m	struct:__anon3	access:public
+__anon3::th_drop_v	serv_info.h	/^	int		         th_drop_v;		   \/\/\/<缓冲池数据多后开始丢弃所有视频的阈值$/;"	m	struct:__anon3	access:public
+__anon3::th_timeout	serv_info.h	/^	int		         th_timeout;	   \/\/\/<长时间没有数据交互时判断超时的时间$/;"	m	struct:__anon3	access:public
+__anon3::virdev_num	serv_info.h	/^	int                   virdev_num;	  \/\/\/<设备中虚拟设备个数$/;"	m	struct:__anon3	access:public
+__anon4::recv_buf_len	tcprt_usr_info.h	/^	int	recv_buf_len;	        \/\/\/<接收缓冲区大小$/;"	m	struct:__anon4	access:public
+__anon4::recv_buf_remain	tcprt_usr_info.h	/^       int    recv_buf_remain;      \/\/\/<接收缓冲区内当前字节数$/;"	m	struct:__anon4	access:public
+__anon4::send_buf_len	tcprt_usr_info.h	/^	int	send_buf_len;	        \/\/\/<发送缓冲区大小$/;"	m	struct:__anon4	access:public
+__anon4::send_buf_remain	tcprt_usr_info.h	/^	int	 send_buf_remain;	  \/\/\/<发送缓冲区(socket)当前的字节数(使用ioctl从socket读出缓冲区内未发送出去的字节数)$/;"	m	struct:__anon4	access:public
+__anon4::send_buffers	tcprt_usr_info.h	/^	int    send_buffers;             \/\/\/<放入发送缓冲区中的字节数(write时增加,输出给网络后减少,这个值应该永远小于send_buf_len)$/;"	m	struct:__anon4	access:public
+__anon5::flag	tcprt_usr_info.h	/^	int	flag;		\/\/\/<标记 音频或视频$/;"	m	struct:__anon5	access:public
+__anon5::size	tcprt_usr_info.h	/^	int	size;		\/\/\/<此帧的大小$/;"	m	struct:__anon5	access:public
+__anon6::a_frames	tcprt_usr_info.h	/^	int	              a_frames;			                          \/\/\/>缓冲区map中的音频帧数$/;"	m	struct:__anon6	access:public
+__anon6::frame_map	tcprt_usr_info.h	/^	map_frame_t	frame_map[MAX_MAP_BUF_FRAMES];    \/\/\/>发送socket缓冲区的帧结构	$/;"	m	struct:__anon6	access:public
+__anon6::head	tcprt_usr_info.h	/^	int	              head;				                          \/\/\/>缓冲区队首位置$/;"	m	struct:__anon6	access:public
+__anon6::tail	tcprt_usr_info.h	/^	int	              tail;				                                 \/\/\/>缓冲区队尾位置,head=tail表示没有map中没有元素$/;"	m	struct:__anon6	access:public
+__anon6::v_frames	tcprt_usr_info.h	/^	int	              v_frames;			                          \/\/\/>缓冲区map中的视频帧数$/;"	m	struct:__anon6	access:public
+__anon7::drop_a_flag	tcprt_usr_info.h	/^	int	drop_a_flag;	            \/\/\/<开始丢弃音频数据标志,0表示不需要丢弃$/;"	m	struct:__anon7	access:public
+__anon7::drop_a_frames	tcprt_usr_info.h	/^	int	drop_a_frames;	            \/\/\/<丢弃的音频帧数$/;"	m	struct:__anon7	access:public
+__anon7::drop_p_flag	tcprt_usr_info.h	/^    int    drop_p_flag;                  \/\/\/<开始丢弃P帧数据的标志$/;"	m	struct:__anon7	access:public
+__anon7::drop_v_flag	tcprt_usr_info.h	/^	int	drop_v_flag;	            \/\/\/<开始丢弃视频数据标志,0表示不需要丢弃$/;"	m	struct:__anon7	access:public
+__anon7::drop_v_frames	tcprt_usr_info.h	/^	int	drop_v_frames;	            \/\/\/<丢弃的视频帧数$/;"	m	struct:__anon7	access:public
+__anon7::first_flag	tcprt_usr_info.h	/^    int    first_flag;                        \/\/\/<首次发送视频数据标志$/;"	m	struct:__anon7	access:public
+__anon7::jump_flag	tcprt_usr_info.h	/^       int 		jump_flag;					\/\/设备回放跳转的标志$/;"	m	struct:__anon7	access:public
+__anon7::last_a_seq	tcprt_usr_info.h	/^	int 	last_a_seq;		            \/\/\/<上一帧音频的序号$/;"	m	struct:__anon7	access:public
+__anon7::last_v_seq	tcprt_usr_info.h	/^	int	last_v_seq;		            \/\/\/<上一帧视频的序号$/;"	m	struct:__anon7	access:public
+__anon7::map	tcprt_usr_info.h	/^       stream_send_map_t    map;     \/\/\/<发送的媒体信息映像$/;"	m	struct:__anon7	access:public
+__anon7::require_i_flag	tcprt_usr_info.h	/^	int require_i_flag;                 \/\/已请求i帧标志$/;"	m	struct:__anon7	access:public
+__anon7::send_ack_flag	tcprt_usr_info.h	/^    int    send_ack_flag;               \/\/\/<已发送响应标志 0表示未发送 非0表示已发送$/;"	m	struct:__anon7	access:public
+__anon7::send_i_flag	tcprt_usr_info.h	/^	int	send_i_flag;		            \/\/\/<已发送I帧标志$/;"	m	struct:__anon7	access:public
+__anon7::total_out	tcprt_usr_info.h	/^       int     total_out;                  \/\/\/<总共发送出去的字节数 $/;"	m	struct:__anon7	access:public
+__anon7::total_put	tcprt_usr_info.h	/^       int     total_put;                   \/\/\/<总共放入发送缓冲区中的字节数$/;"	m	struct:__anon7	access:public
+__anon8::addr	tcprt_usr_info.h	/^	struct sockaddr_in	         addr;			\/\/\/<远程用户地址$/;"	m	struct:__anon8	typeref:struct:__anon8::sockaddr_in	access:public
+__anon8::aenc_no	tcprt_usr_info.h	/^	int			                aenc_no;		\/\/\/<用户请求连接的音频编码器编号(目前只有一个音频编码器,所以此参数无效)$/;"	m	struct:__anon8	access:public
+__anon8::fd	tcprt_usr_info.h	/^	int			                fd;				\/\/\/<用户连接描述符,负值表示未连接$/;"	m	struct:__anon8	access:public
+__anon8::last_cmd_time	tcprt_usr_info.h	/^	struct timeval 		  last_cmd_time;	\/\/\/<最后一次收到命令的时间$/;"	m	struct:__anon8	typeref:struct:__anon8::timeval	access:public
+__anon8::magic	tcprt_usr_info.h	/^	unsigned long		         magic;			\/\/\/<用户结构信息魔数,0x55aa表示已经初始化,其它值表示未初始化$/;"	m	struct:__anon8	access:public
+__anon8::name	tcprt_usr_info.h	/^	char			                name[40];		\/\/\/<订阅服务的用户名	$/;"	m	struct:__anon8	access:public
+__anon8::no	tcprt_usr_info.h	/^	int			                no;			\/\/\/<用户序号$/;"	m	struct:__anon8	access:public
+__anon8::pid	tcprt_usr_info.h	/^	pid_t			         pid;			\/\/\/<pid 用户子进程号$/;"	m	struct:__anon8	access:public
+__anon8::send_info	tcprt_usr_info.h	/^	stream_send_info_t	  send_info;		\/\/\/<发送媒体数据的信息结构$/;"	m	struct:__anon8	access:public
+__anon8::serv_stat	tcprt_usr_info.h	/^	int			                serv_stat;		\/\/\/<服务状态,0:没有收到请求服务命令 1:已订阅了视频服务 3:既订阅了视频服务也订阅了音频服务$/;"	m	struct:__anon8	access:public
+__anon8::sock_attr	tcprt_usr_info.h	/^	socket_attrib_t		  sock_attr;		\/\/\/<socket属性$/;"	m	struct:__anon8	access:public
+__anon8::start_time	tcprt_usr_info.h	/^	struct timeval 		  start_time;		\/\/\/<连接的起始时间;$/;"	m	struct:__anon8	typeref:struct:__anon8::timeval	access:public
+__anon8::stream_idx	tcprt_usr_info.h	/^	int                   stream_idx;       \/\/新增加的sdk端idx$/;"	m	struct:__anon8	access:public
+__anon8::th_drop_a	tcprt_usr_info.h	/^	int	                              th_drop_a;		\/\/\/<开始丢弃音频数据的阈值$/;"	m	struct:__anon8	access:public
+__anon8::th_drop_p	tcprt_usr_info.h	/^	int	                              th_drop_p;		\/\/\/<开始丢弃p帧的阈值$/;"	m	struct:__anon8	access:public
+__anon8::th_drop_v	tcprt_usr_info.h	/^	int	                              th_drop_v;		\/\/\/<开始丢弃所有视频的$/;"	m	struct:__anon8	access:public
+__anon8::th_timeout	tcprt_usr_info.h	/^	int			                th_timeout;	\/\/\/<判定超时的阈值(连接后长时间没有收到命令或长时间发不出数据),以秒为单位$/;"	m	struct:__anon8	access:public
+__anon8::thread_id	tcprt_usr_info.h	/^       pthread_t                       thread_id;         \/\/\/<线程id$/;"	m	struct:__anon8	access:public
+__anon8::timeout_cnt	tcprt_usr_info.h	/^	int			                timeout_cnt;	\/\/\/<计算超时的计数器$/;"	m	struct:__anon8	access:public
+__anon8::u_mutex	tcprt_usr_info.h	/^	pthread_mutex_t            u_mutex;		\/\/\/<访问用户数据时需要的互斥体$/;"	m	struct:__anon8	access:public
+__anon8::used	tcprt_usr_info.h	/^	int 				used;$/;"	m	struct:__anon8	access:public
+__anon8::venc_no	tcprt_usr_info.h	/^	int			                venc_no;		\/\/\/<用户请求连接的视频编码器编号$/;"	m	struct:__anon8	access:public
+__anon9::play_buf_used	tcprt_usr_info.h	/^    int                                    play_buf_used;  \/\/\/<已经使用的播放缓冲区字节数$/;"	m	struct:__anon9	access:public
+__anon9::total_play	tcprt_usr_info.h	/^    int                                    total_play;          \/\/\/<总共播放的字节数$/;"	m	struct:__anon9	access:public
+__anon9::total_recv	tcprt_usr_info.h	/^    int                                    total_recv;          \/\/\/<总共收到的字节数$/;"	m	struct:__anon9	access:public
+a_fmt	tcprt_usr_info.h	/^    int                                     a_fmt;               \/\/\/<音频格式AUDIO_PLAY_TYPE_UPCM,AUDIO_PLAY_TYPE_PCM,$/;"	m	struct:__anon10	access:public
+a_frames	tcprt_usr_info.h	/^	int	              a_frames;			                          \/\/\/>缓冲区map中的音频帧数$/;"	m	struct:__anon6	access:public
+a_sam_rate	tcprt_usr_info.h	/^    int                                     a_sam_rate;     \/\/\/<音频采样率$/;"	m	struct:__anon10	access:public
+add_aplay_usr_list	net_aplay.c	/^static int add_aplay_usr_list(aplay_usr_t *usr,struct sockaddr_in *guest)$/;"	f	file:	signature:(aplay_usr_t *usr,struct sockaddr_in *guest)
+add_av_usr_list	net_avstream.c	/^static int add_av_usr_list(av_usr_t *usr,struct sockaddr_in *guest)$/;"	f	file:	signature:(av_usr_t *usr,struct sockaddr_in *guest)
+add_ele2map	avserver.c	/^static inline int add_ele2map(IO stream_send_map_t *map,IN int flag,IN int size)$/;"	f	file:	signature:(IO stream_send_map_t *map,IN int flag,IN int size)
+addr	tcprt_usr_info.h	/^	struct sockaddr_in	         addr;			\/\/\/<远程用户地址$/;"	m	struct:__anon8	typeref:struct:__anon8::sockaddr_in	access:public
+addr	tcprt_usr_info.h	/^    struct sockaddr_in	         addr;			\/\/\/<远程用户地址$/;"	m	struct:__anon10	typeref:struct:__anon10::sockaddr_in	access:public
+adjust_usr_sock_buf	avserver.c	/^static int adjust_usr_sock_buf(av_usr_t *usr,int size)$/;"	f	file:	signature:(av_usr_t *usr,int size)
+aenc_no	tcprt_usr_info.h	/^	int			                aenc_no;		\/\/\/<用户请求连接的音频编码器编号(目前只有一个音频编码器,所以此参数无效)$/;"	m	struct:__anon8	access:public
+aenc_no	tcprt_usr_info.h	/^    int			                aenc_no;		\/\/\/<用户请求连接的音频编码器编号(目前只有一个音频编码器,所以此参数无效)$/;"	m	struct:__anon10	access:public
+aenc_server_thread	avserver.c	/^static void *aenc_server_thread(void *para)$/;"	f	file:	signature:(void *para)
+aframe_adjust	play_back.h	/^	int aframe_adjust[MAX_AUDIO_ENCODER];$/;"	m	struct:__anon11	access:public
+ain0_gain	serv_info.h	/^	float            ain0_gain;			$/;"	m	struct:__anon3	access:public
+ain1_gain	serv_info.h	/^	float 			 ain1_gain;$/;"	m	struct:__anon3	access:public
+ain2_gain	serv_info.h	/^	float            ain2_gain;$/;"	m	struct:__anon3	access:public
+ain3_gain	serv_info.h	/^	float            ain3_gain;$/;"	m	struct:__anon3	access:public
+aplay_server	serv_info.h	/^	aplay_server_t    aplay_server;      \/\/\/<音频下行服务   $/;"	m	struct:__anon3	access:public
+aplay_server_t	serv_info.h	/^}aplay_server_t;$/;"	t	typeref:struct:__anon2
+aplay_usr_t	tcprt_usr_info.h	/^}aplay_usr_t;$/;"	t	typeref:struct:__anon10
+attach_tcprtimage_para	watch/watch_tcprt.c	/^static int attach_tcprtimage_para(void)$/;"	f	file:	signature:(void)
+audio_enc	audio_pool.c	/^static  media_source_t  audio_enc[MAX_AUDIO_ENCODER];       \/\/\/<音频编码器结构$/;"	v	file:
+audio_gain	serv_info.h	/^	float		     audio_gain;          \/\/\/<音频输出增益$/;"	m	struct:__anon3	access:public
+audio_only_usr_addr	serv_info.h	/^	struct sockaddr_in     audio_only_usr_addr[6];	\/\/\/<只听得标志,0又听又看，1为只听不看$/;"	m	struct:__anon3	typeref:struct:__anon3::sockaddr_in	access:public
+audio_pkt_size	serv_info.h	/^    int              audio_pkt_size;    \/\/\/<音频上行数据包大小	$/;"	m	struct:__anon3	access:public
+audio_play_port	serv_info.h	/^	int		         audio_play_port; \/\/\/<音频下行服务端口$/;"	m	struct:__anon3	access:public
+av_server	serv_info.h	/^	av_server_t	  	  av_server;           \/\/\/<音视频上传服务$/;"	m	struct:__anon3	access:public
+av_server_t	serv_info.h	/^}av_server_t;$/;"	t	typeref:struct:__anon1
+av_svr_port	serv_info.h	/^	int		         av_svr_port;	   \/\/\/<音视频上行服务端口$/;"	m	struct:__anon3	access:public
+av_usr_list	serv_info.h	/^	av_usr_t	av_usr_list[TCPRTIMG_MAX_AVUSR_NO+1];	 \/\/\/<音视频上行服务用户信息列表,多一个用于处理忙$/;"	m	struct:__anon1	access:public
+av_usr_t	tcprt_usr_info.h	/^}av_usr_t;$/;"	t	typeref:struct:__anon8
+avi_head_buf	avserver.c	/^static unsigned char    avi_head_buf[MAX_VIDEO_ENCODER][1024*3];   \/\/\/<存放avi头的缓冲区$/;"	v	file:
+avi_head_len	avserver.c	/^static  int             avi_head_len[MAX_VIDEO_ENCODER];                \/\/\/<avi_head_buf中每个元素的有效字节数$/;"	v	file:
+avserver_second_proc	avserver.c	/^void avserver_second_proc(void)$/;"	f	signature:(void)
+avserver_second_proc	avserver.h	/^void avserver_second_proc(void);$/;"	p	signature:(void)
+begin_debug	avserver.c	/^void begin_debug(int signo)$/;"	f	signature:(int signo)
+begin_debug	rtimage2.h	/^void  begin_debug(int);$/;"	p	signature:(int)
+bitratecon	serv_info.h	/^	int            bitratecon;$/;"	m	struct:__anon3	access:public
+buffer	sec_fifo.h	/^	char 	*buffer;			\/\/指向缓冲区的指针$/;"	m	struct:__anon12	access:public
+check_and_play	net_aplay.h	/^void check_and_play(int no);$/;"	p	signature:(int no)
+check_enctype	rtimg_para2.c	/^int check_enctype(dictionary *ini,char *section)$/;"	f	signature:(dictionary *ini,char *section)
+com_fd	maincmdproc.c	/^static int	com_fd= -1; \/\/发送和接收命令的udp socket$/;"	v	file:
+convert_intra_frame	avserver.c	/^static __inline__ void convert_intra_frame(unsigned long *flag)$/;"	f	file:	signature:(unsigned long *flag)
+creat_mod_cmdproc_thread	maincmdproc.c	/^int creat_mod_cmdproc_thread(void)$/;"	f	signature:(void)
+creat_mod_cmdproc_thread	maincmdproc.h	/^int creat_mod_cmdproc_thread(void);$/;"	p	signature:(void)
+creat_snd_pkts_thread	maincmdproc.c	/^int creat_snd_pkts_thread(void)$/;"	f	signature:(void)
+creat_snd_pkts_thread	maincmdproc.h	/^int creat_snd_pkts_thread(void);$/;"	p	signature:(void)
+create_av_server	avserver.c	/^int create_av_server(void)$/;"	f	signature:(void)
+create_av_server	avserver.h	/^int create_av_server(void);$/;"	p	signature:(void)
+create_diskbuff_thread	avserver.h	/^int  create_diskbuff_thread(void);$/;"	p	signature:(void)
+create_rtnet_aplay_servers	net_aplay.c	/^int create_rtnet_aplay_servers(void)$/;"	f	signature:(void)
+create_rtnet_aplay_servers	net_aplay.h	/^int create_rtnet_aplay_servers(void);$/;"	p	signature:(void)
+create_rtnet_av_servers	net_avstream.c	/^int create_rtnet_av_servers(void)$/;"	f	signature:(void)
+create_rtnet_av_servers	net_avstream.h	/^int create_rtnet_av_servers(void);$/;"	p	signature:(void)
+current_net_ch	play_back.h	/^	int current_net_ch[TCPRTIMG_MAX_AVUSR_NO+1];$/;"	m	struct:__anon11	access:public
+debug	avserver.c	/^int debug=0;$/;"	v
+def_audio_gain	rtimage2.h	/^static const int def_audio_gain 	        = 8;		   \/\/\/<摩尔音频输出增益$/;"	v
+def_audio_pkt_size	rtimage2.h	/^static const int def_audio_pkt_size    = 1024;           \/\/\/<默认音频上行数据包大小$/;"	v
+def_mic_gain	rtimage2.h	/^static const int def_mic_gain 		 = 8;		   \/\/\/<默认mic增益$/;"	v
+def_rtsnd_port	rtimage2.h	/^static const int def_rtsnd_port 	        = 8097;		   \/\/\/<音频下行服务默认端口号$/;"	v
+def_rtstream_port	rtimage2.h	/^static const int def_rtstream_port 	 = 8096;    	   \/\/\/<音视频上行服务默认端口号$/;"	v
+def_svr_timeout	rtimage2.h	/^static const int def_svr_timeout         = 10;               \/\/\/<默认的超时时间$/;"	v
+def_th_drop_p	rtimage2.h	/^static const int def_th_drop_p            = 30;              \/\/\/< 开始丢弃p帧视频的默认阈值$/;"	v
+default_screen	play_back.c	/^int default_screen=4;$/;"	v
+default_screen	play_back.h	/^	int default_screen;$/;"	m	struct:__anon11	access:public
+del_aplay_usr_list	net_aplay.c	/^static int del_aplay_usr_list(aplay_usr_t *usr)$/;"	f	file:	signature:(aplay_usr_t *usr)
+del_av_usr_list	net_avstream.c	/^static int del_av_usr_list(av_usr_t *usr)$/;"	f	file:	signature:(av_usr_t *usr)
+del_ele_from_map	avserver.c	/^static inline int del_ele_from_map(stream_send_map_t *map,int bytes)$/;"	f	file:	signature:(stream_send_map_t *map,int bytes)
+drop_a_flag	tcprt_usr_info.h	/^	int	drop_a_flag;	            \/\/\/<开始丢弃音频数据标志,0表示不需要丢弃$/;"	m	struct:__anon7	access:public
+drop_a_frames	tcprt_usr_info.h	/^	int	drop_a_frames;	            \/\/\/<丢弃的音频帧数$/;"	m	struct:__anon7	access:public
+drop_p_flag	avserver.c	/^  int drop_p_flag=0;$/;"	v
+drop_p_flag	tcprt_usr_info.h	/^    int    drop_p_flag;                  \/\/\/<开始丢弃P帧数据的标志$/;"	m	struct:__anon7	access:public
+drop_v_flag	tcprt_usr_info.h	/^	int	drop_v_flag;	            \/\/\/<开始丢弃视频数据标志,0表示不需要丢弃$/;"	m	struct:__anon7	access:public
+drop_v_frames	tcprt_usr_info.h	/^	int	drop_v_frames;	            \/\/\/<丢弃的视频帧数$/;"	m	struct:__anon7	access:public
+dump_av_usr	watch/watch_tcprt.c	/^static void dump_av_usr(av_usr_t *usr)$/;"	f	file:	signature:(av_usr_t *usr)
+end_debug	avserver.c	/^void end_debug(int signo)$/;"	f	signature:(int signo)
+end_debug	rtimage2.h	/^void  end_debug(int);$/;"	p	signature:(int)
+eth0_addr	serv_info.h	/^	in_addr_t         eth0_addr;           \/\/\/<网口0的局域网地址$/;"	m	struct:__anon3	access:public
+eth0_mask	serv_info.h	/^	in_addr_t         eth0_mask;          \/\/\/<网口0的子网掩码$/;"	m	struct:__anon3	access:public
+eth1_addr	serv_info.h	/^	in_addr_t         eth1_addr;           \/\/\/<网口0的局域网地址$/;"	m	struct:__anon3	access:public
+eth1_mask	serv_info.h	/^	in_addr_t         eth1_mask;          \/\/\/<网口0的子网掩码       $/;"	m	struct:__anon3	access:public
+exit_log	main.c	/^static void exit_log(int signo)$/;"	f	file:	signature:(int signo)
+fd	tcprt_usr_info.h	/^	int			                fd;				\/\/\/<用户连接描述符,负值表示未连接$/;"	m	struct:__anon8	access:public
+fd	tcprt_usr_info.h	/^    int			                fd;				\/\/\/<用户连接描述符,负值表示未连接$/;"	m	struct:__anon10	access:public
+find_usr	net_avstream.c	/^av_usr_t * find_usr(int index)$/;"	f	signature:(int index)
+first_flag	tcprt_usr_info.h	/^    int    first_flag;                        \/\/\/<首次发送视频数据标志$/;"	m	struct:__anon7	access:public
+flag	tcprt_usr_info.h	/^	int	flag;		\/\/\/<标记 音频或视频$/;"	m	struct:__anon5	access:public
+frame_adjust	play_back.h	/^	int frame_adjust[MAX_VIDEO_ENCODER];$/;"	m	struct:__anon11	access:public
+frame_head_buf	avserver.c	/^static  unsigned char frame_head_buf[MAX_VIDEO_ENCODER][28];$/;"	v	file:
+frame_map	tcprt_usr_info.h	/^	map_frame_t	frame_map[MAX_MAP_BUF_FRAMES];    \/\/\/>发送socket缓冲区的帧结构	$/;"	m	struct:__anon6	access:public
+frame_rate	serv_info.h	/^	int 			frame_rate;$/;"	m	struct:__anon3	access:public
+gen_venc_avi_head	avserver.c	/^static int gen_venc_avi_head(IN int no)$/;"	f	file:	signature:(IN int no)
+get_audio_enc	audio_pool.c	/^media_source_t *get_audio_enc(IN int no)$/;"	f	signature:(IN int no)
+get_audio_enc	audio_pool.h	/^media_source_t *get_audio_enc(IN int no);$/;"	p	signature:(IN int no)
+get_audio_enc_remain	audio_pool.h	/^int get_audio_enc_remain(int no);$/;"	p	signature:(int no)
+get_frame_rate	rtimg_para2.c	/^static int get_frame_rate(int rate)       \/\/2010-03-21 zsk 修改了之前的case值和return值$/;"	f	file:	signature:(int rate)
+get_free_usr	net_avstream.c	/^av_usr_t * get_free_usr(int * usr_index)$/;"	f	signature:(int * usr_index)
+get_net_scr_ch	play_back.h	/^int get_net_scr_ch(int usr_no);$/;"	p	signature:(int usr_no)
+get_playback_aframe_adjust	play_back.c	/^int get_playback_aframe_adjust(int no)$/;"	f	signature:(int no)
+get_playback_frame_adjust	play_back.c	/^int get_playback_frame_adjust(int no)$/;"	f	signature:(int no)
+get_playback_frame_adjust	play_back.h	/^int get_playback_frame_adjust(int no);$/;"	p	signature:(int no)
+get_playback_parm	play_back.c	/^playback_t * get_playback_parm(void)$/;"	f	signature:(void)
+get_playback_parm	play_back.h	/^playback_t * get_playback_parm(void);$/;"	p	signature:(void)
+get_playback_stat	avserver.h	/^int get_playback_stat(int no);$/;"	p	signature:(int no)
+get_playback_stat	play_back.c	/^int get_playback_stat(int no)$/;"	f	signature:(int no)
+get_playback_stat	play_back.h	/^int get_playback_stat(int enc_no);$/;"	p	signature:(int enc_no)
+get_rtimg_para	rtimg_para2.c	/^tcprtimg_svr_t *get_rtimg_para(void)$/;"	f	signature:(void)
+get_rtimg_para	rtimg_para2.h	/^tcprtimg_svr_t *get_rtimg_para(void);$/;"	p	signature:(void)
+head	tcprt_usr_info.h	/^	int	              head;				                          \/\/\/>缓冲区队首位置$/;"	m	struct:__anon6	access:public
+in	sec_fifo.h	/^	int	in;				\/\/准备写入的位置	$/;"	m	struct:__anon12	access:public
+init_aplay_usr_info	net_aplay.c	/^static void init_aplay_usr_info(IO aplay_usr_t *usr)$/;"	f	file:	signature:(IO aplay_usr_t *usr)
+init_audio_enc_pool	audio_pool.c	/^int init_audio_enc_pool(void)$/;"	f	signature:(void)
+init_audio_enc_pool	audio_pool.h	/^int init_audio_enc_pool(void);$/;"	p	signature:(void)
+init_av_usr_info	net_avstream.c	/^static void init_av_usr_info(av_usr_t *usr)$/;"	f	file:	signature:(av_usr_t *usr)
+init_avserver	avserver.c	/^static int init_avserver(void)$/;"	f	file:	signature:(void)
+init_bitrates	watch/watch_tcprt.c	/^void init_bitrates(void)$/;"	f	signature:(void)
+init_com_channel	maincmdproc.c	/^int init_com_channel(void)$/;"	f	signature:(void)
+init_com_channel	maincmdproc.h	/^int init_com_channel(void);$/;"	p	signature:(void)
+init_net_aplay	net_aplay.c	/^static int init_net_aplay(void)$/;"	f	file:	signature:(void)
+init_net_avstream	net_avstream.c	/^int init_net_avstream(void)$/;"	f	signature:(void)
+init_net_avstream	net_avstream.h	/^int init_net_avstream(void);$/;"	p	signature:(void)
+init_playback_parm	play_back.c	/^void init_playback_parm(void)$/;"	f	signature:(void)
+init_playback_parm	play_back.h	/^void init_playback_parm(void);$/;"	p	signature:(void)
+init_server_para	rtimg_para2.c	/^int init_server_para(void)$/;"	f	signature:(void)
+init_server_para	rtimg_para2.h	/^int init_server_para(void);$/;"	p	signature:(void)
+is_guid_valid	net_avstream.c	/^int is_guid_valid(unsigned char *cmd_dev_id, struct sockaddr_in *cmd_addr)$/;"	f	signature:(unsigned char *cmd_dev_id, struct sockaddr_in *cmd_addr)
+is_guid_valid	rtimage2.h	/^int is_guid_valid(unsigned char * cmd_dev_id, struct sockaddr_in * cmd_addr);$/;"	p	signature:(unsigned char * cmd_dev_id, struct sockaddr_in * cmd_addr)
+is_lan_user	net_avstream.c	/^int is_lan_user(in_addr_t addr)$/;"	f	signature:(in_addr_t addr)
+is_lan_user	rtimage2.h	/^int is_lan_user(in_addr_t addr);$/;"	p	signature:(in_addr_t addr)
+is_usr_valid	net_avstream.c	/^int is_usr_valid(av_usr_t *usr)$/;"	f	signature:(av_usr_t *usr)
+isvalid	sec_fifo.h	/^	pthread_cond_t isvalid;         \/\/条件变量$/;"	m	struct:__anon12	access:public
+jump_flag	tcprt_usr_info.h	/^       int 		jump_flag;					\/\/设备回放跳转的标志$/;"	m	struct:__anon7	access:public
+l_mutex	serv_info.h	/^    pthread_mutex_t     l_mutex;                                                             \/\/\/<侦听用的互斥体$/;"	m	struct:__anon2	access:public
+l_mutex	serv_info.h	/^    pthread_mutex_t     l_mutex;                                         \/\/\/<侦听用的互斥体$/;"	m	struct:__anon1	access:public
+lan_usrs	serv_info.h	/^	int		                lan_usrs;				               \/\/\/<当前的局域网用户数$/;"	m	struct:__anon1	access:public
+last_a_seq	tcprt_usr_info.h	/^	int 	last_a_seq;		            \/\/\/<上一帧音频的序号$/;"	m	struct:__anon7	access:public
+last_cmd_time	tcprt_usr_info.h	/^	struct timeval 		  last_cmd_time;	\/\/\/<最后一次收到命令的时间$/;"	m	struct:__anon8	typeref:struct:__anon8::timeval	access:public
+last_cmd_time	tcprt_usr_info.h	/^    struct timeval 		         last_cmd_time;	\/\/\/<最后一次收到命令的时间$/;"	m	struct:__anon10	typeref:struct:__anon10::timeval	access:public
+last_tv	avserver.c	/^struct timeval last_tv;$/;"	v	typeref:struct:timeval
+last_v_seq	tcprt_usr_info.h	/^	int	last_v_seq;		            \/\/\/<上一帧视频的序号$/;"	m	struct:__anon7	access:public
+listen_fd	serv_info.h	/^    int					listen_fd;                                                           \/\/\/<侦听服务的描述符$/;"	m	struct:__anon2	access:public
+listen_fd	serv_info.h	/^    int                          listen_fd;                                        \/\/\/<侦听服务的描述符$/;"	m	struct:__anon1	access:public
+lock	sec_fifo.h	/^	pthread_mutex_t lock;			\/\/读写锁,同一时间要么是读出，要么是写入$/;"	m	struct:__anon12	access:public
+magic	tcprt_usr_info.h	/^	unsigned long		         magic;			\/\/\/<用户结构信息魔数,0x55aa表示已经初始化,其它值表示未初始化$/;"	m	struct:__anon8	access:public
+magic	tcprt_usr_info.h	/^    unsigned long                    magic;                \/\/\/<用户结构信息魔数,0x55aa表示已经初始化,其它值表示未初始化$/;"	m	struct:__anon10	access:public
+main	deaf/deafmute.c	/^int main(void)$/;"	f	signature:(void)
+main	main.c	/^int main(int argc,char **argv)$/;"	f	signature:(int argc,char **argv)
+main	watch/watch_tcprt.c	/^int main(int argc,char *argv[])$/;"	f	signature:(int argc,char *argv[])
+malloc_rtimage_para	rtimg_para2.c	/^static int malloc_rtimage_para(void)$/;"	f	file:	signature:(void)
+map	tcprt_usr_info.h	/^       stream_send_map_t    map;     \/\/\/<发送的媒体信息映像$/;"	m	struct:__anon7	access:public
+map_frame_t	tcprt_usr_info.h	/^}map_frame_t;$/;"	t	typeref:struct:__anon5
+max_aplay_usrs	serv_info.h	/^	int              max_aplay_usrs; \/\/\/<音频下行服务最大用户数$/;"	m	struct:__anon3	access:public
+max_lan_usrs	serv_info.h	/^	int		         max_lan_usrs;	   \/\/\/<最大局域网用户数$/;"	m	struct:__anon3	access:public
+max_wan_usrs	serv_info.h	/^	int		         max_wan_usrs;	   \/\/\/<最大广域网用户数$/;"	m	struct:__anon3	access:public
+maxbitrate	serv_info.h	/^	int            maxbitrate;$/;"	m	struct:__anon3	access:public
+mic_gain	serv_info.h	/^	int		         mic_gain;		    \/\/\/<mic增益$/;"	m	struct:__anon3	access:public
+modsocket_thread_id	maincmdproc.c	/^static pthread_t modsocket_thread_id=-1;$/;"	v	file:
+mutex	play_back.h	/^	pthread_mutex_t 	mutex;$/;"	m	struct:__anon11	access:public
+mutichannel_set_playback_cancel	play_back.c	/^void mutichannel_set_playback_cancel(int no)$/;"	f	signature:(int no)
+mutichannel_set_playback_en	play_back.c	/^void mutichannel_set_playback_en(int no)$/;"	f	signature:(int no)
+mutichannel_set_playback_en	play_back.h	/^void mutichannel_set_playback_en(int no);$/;"	p	signature:(int no)
+mutichannel_set_playback_to_live	play_back.c	/^void mutichannel_set_playback_to_live(int enc_no)$/;"	f	signature:(int enc_no)
+mutichannel_set_playback_to_live	play_back.h	/^void mutichannel_set_playback_to_live(int enc_no);$/;"	p	signature:(int enc_no)
+name	tcprt_usr_info.h	/^	char			                name[40];		\/\/\/<订阅服务的用户名	$/;"	m	struct:__anon8	access:public
+name	tcprt_usr_info.h	/^    char			                name[40];		\/\/\/<订阅服务的用户名	$/;"	m	struct:__anon10	access:public
+net_aplay_bitrate	watch/watch_tcprt.c	/^static BIT_RATE_T        net_aplay_bitrate[TCPRTIMG_MAX_APLAY_NO+1];$/;"	v	file:
+net_pkts_sta	maincmdproc.c	/^unsigned long 	net_pkts_sta;			\/\/网络发送的数据包情况$/;"	v
+netav_bitrate	watch/watch_tcprt.c	/^static BIT_RATE_T        netav_bitrate[TCPRT_MAX_VIRAVUSR_NO+1];    \/\/\/<描述网络音视频上传服务信息的结构,因为有一个用户用于处理忙信息所以要+1$/;"	v	file:
+netsend_streamid	net_avstream.c	/^static int netsend_streamid(int socket, int streamid)$/;"	f	file:	signature:(int socket, int streamid)
+no	tcprt_usr_info.h	/^	int			                no;			\/\/\/<用户序号$/;"	m	struct:__anon8	access:public
+no	tcprt_usr_info.h	/^    int			                no;			\/\/\/<用户序号$/;"	m	struct:__anon10	access:public
+old_i_interval	avserver.c	/^  int old_i_interval=0;$/;"	v
+old_v_frames	avserver.c	/^int old_v_frames=0;$/;"	v
+out	sec_fifo.h	/^	int	out;				\/\/准备读取的位置$/;"	m	struct:__anon12	access:public
+p_tcprtimg	rtimg_para2.c	/^static tcprtimg_svr_t     *p_tcprtimg=NULL;      \/\/\/<指向参数结构的指针$/;"	v	file:
+p_tcprtimg	watch/watch_tcprt.c	/^static tcprtimg_svr_t     *p_tcprtimg=NULL;                                             \/\/\/<指向参数结构的指针$/;"	v	file:
+pb	play_back.c	/^static playback_t pb;$/;"	v	file:
+pb_act	play_back.h	/^	int pb_act[MAX_AUDIO_ENCODER];$/;"	m	struct:__anon11	access:public
+pb_aenc	play_back.h	/^	int pb_aenc[MAX_AUDIO_ENCODER];$/;"	m	struct:__anon11	access:public
+pb_audio_flag	play_back.h	/^	int pb_audio_flag[MAX_AUDIO_ENCODER];$/;"	m	struct:__anon11	access:public
+pb_ct	play_back.h	/^	int pb_ct[MAX_VIDEO_ENCODER];$/;"	m	struct:__anon11	access:public
+pb_first_fg	play_back.h	/^	int pb_first_fg[MAX_VIDEO_ENCODER]; \/\/开始链接回放指针的标志$/;"	m	struct:__anon11	access:public
+pb_vct	play_back.h	/^	int pb_vct[MAX_VIDEO_ENCODER];$/;"	m	struct:__anon11	access:public
+pb_venc	play_back.h	/^	int pb_venc[MAX_VIDEO_ENCODER];\/\/回放指针链接缓冲池的状态-1:已链接0:未链接$/;"	m	struct:__anon11	access:public
+pid	tcprt_usr_info.h	/^	pid_t			         pid;			\/\/\/<pid 用户子进程号$/;"	m	struct:__anon8	access:public
+pid	tcprt_usr_info.h	/^    pid_t			                pid;			\/\/\/<pid 用户子进程号$/;"	m	struct:__anon10	access:public
+pkts_limit	serv_info.h	/^	int                 pkts_limit;                 \/\/\/<网卡缓冲区大小切换的阀值$/;"	m	struct:__anon3	access:public
+play_buf_used	tcprt_usr_info.h	/^    int                                    play_buf_used;  \/\/\/<已经使用的播放缓冲区字节数$/;"	m	struct:__anon9	access:public
+play_dev	tcprt_usr_info.h	/^    int                           play_dev;$/;"	m	struct:__anon10	access:public
+playback_dly	serv_info.h	/^	int			        playback_dly;		\/\/\/报警后的录像回放时间$/;"	m	struct:__anon3	access:public
+playback_flag	play_back.h	/^	int playback_flag[MAX_VIDEO_ENCODER];\/\/正在回放的通道$/;"	m	struct:__anon11	access:public
+playback_pre	serv_info.h	/^	int			        playback_pre;		\/\/\/报警前的录像回放时间$/;"	m	struct:__anon3	access:public
+playback_t	play_back.h	/^}playback_t;$/;"	t	typeref:struct:__anon11
+posix_memalign	avserver.c	/^int posix_memalign(void **memptr, size_t alignment, size_t size);$/;"	p	file:	signature:(void **memptr, size_t alignment, size_t size)
+preflag	avserver.c	/^int preflag[MAX_VIDEO_ENCODER]={0};$/;"	v
+print_aplay_usr	watch/watch_tcprt.c	/^static void print_aplay_usr(aplay_usr_t *usr,BIT_RATE_T *br)$/;"	f	file:	signature:(aplay_usr_t *usr,BIT_RATE_T *br)
+print_av_usr	watch/watch_tcprt.c	/^static void print_av_usr(av_usr_t *usr,BIT_RATE_T *br)$/;"	f	file:	signature:(av_usr_t *usr,BIT_RATE_T *br)
+print_net_aplay_info	watch/watch_tcprt.c	/^static void print_net_aplay_info(aplay_server_t *ap_svr)$/;"	f	file:	signature:(aplay_server_t *ap_svr)
+print_net_av_info	watch/watch_tcprt.c	/^static void print_net_av_info(av_server_t *av_svr, int no)$/;"	f	file:	signature:(av_server_t *av_svr, int no)
+print_server_info	watch/watch_tcprt.c	/^static void print_server_info(int no)$/;"	f	file:	signature:(int no)
+proc_audio_subscrib_cmd	net_aplay.c	/^static int proc_audio_subscrib_cmd(IO aplay_usr_t *usr,IN struct gt_usr_cmd_struct* cmd)$/;"	f	file:	signature:(IO aplay_usr_t *usr,IN struct gt_usr_cmd_struct* cmd)
+proc_snd_pkts_thread	maincmdproc.c	/^static void *proc_snd_pkts_thread(void *para)$/;"	f	file:	signature:(void *para)
+proc_video_subscrib_cmd	net_avstream.c	/^static int proc_video_subscrib_cmd(IO av_usr_t *usr,IN struct gt_usr_cmd_struct* cmd, OUT int *virdev_ret )$/;"	f	file:	signature:(IO av_usr_t *usr,IN struct gt_usr_cmd_struct* cmd, OUT int *virdev_ret )
+process_argument	main.c	/^int process_argument(int argc,char **argv)$/;"	f	signature:(int argc,char **argv)
+process_ctrl_c	watch/watch_tcprt.c	/^static void process_ctrl_c(int signo)$/;"	f	file:	signature:(int signo)
+process_gate_req_rtimg_modsocket	maincmdproc.c	/^static int process_gate_req_rtimg_modsocket(gateinfo *gate,struct gt_usr_cmd_struct *cmd)$/;"	f	file:	signature:(gateinfo *gate,struct gt_usr_cmd_struct *cmd)
+process_gate_req_rtsnd_modsocket	maincmdproc.c	/^static int process_gate_req_rtsnd_modsocket(gateinfo *gate,struct gt_usr_cmd_struct *cmd)$/;"	f	file:	signature:(gateinfo *gate,struct gt_usr_cmd_struct *cmd)
+process_gate_stop_rtimg_modesocket	maincmdproc.c	/^static int process_gate_stop_rtimg_modesocket(gateinfo *gate,struct gt_usr_cmd_struct *cmd)$/;"	f	file:	signature:(gateinfo *gate,struct gt_usr_cmd_struct *cmd)
+process_modsocket_cmd	maincmdproc.c	/^static int process_modsocket_cmd(int sourceid,mod_socket_cmd_type *modsocket)$/;"	f	file:	signature:(int sourceid,mod_socket_cmd_type *modsocket)
+process_modsocket_gate_cmd	maincmdproc.c	/^int process_modsocket_gate_cmd(gateinfo *gate, struct gt_usr_cmd_struct *cmd)$/;"	f	signature:(gateinfo *gate, struct gt_usr_cmd_struct *cmd)
+process_net_aplay_cmd	net_aplay.c	/^static int process_net_aplay_cmd(aplay_usr_t *usr,struct gt_usr_cmd_struct* cmd)$/;"	f	file:	signature:(aplay_usr_t *usr,struct gt_usr_cmd_struct* cmd)
+process_net_av_cmd	net_avstream.c	/^static int process_net_av_cmd(av_usr_t *usr,struct gt_usr_cmd_struct* cmd, OUT int *virdev_ret)$/;"	f	file:	signature:(av_usr_t *usr,struct gt_usr_cmd_struct* cmd, OUT int *virdev_ret)
+process_opt_h	main.c	/^int process_opt_h(void)$/;"	f	signature:(void)
+process_playback	maincmdproc.c	/^void process_playback(int enc_no)$/;"	f	signature:(int enc_no)
+process_playback_cancel	maincmdproc.c	/^void process_playback_cancel(int enc_no)$/;"	f	signature:(int enc_no)
+read_audio_frame_pool	avserver.c	/^static inline int read_audio_frame_pool(IN media_source_t *aenc,OUT void *buf,IN int buf_len,OUT int *eleseq,OUT int *flag)$/;"	f	file:	signature:(IN media_source_t *aenc,OUT void *buf,IN int buf_len,OUT int *eleseq,OUT int *flag)
+read_net_audio_data	net_aplay.c	/^static inline int read_net_audio_data(int fd,void *buf,int read_len)$/;"	f	file:	signature:(int fd,void *buf,int read_len)
+read_server_para_file	rtimg_para2.c	/^int read_server_para_file(void)$/;"	f	signature:(void)
+read_server_para_file	rtimg_para2.h	/^int read_server_para_file(void);$/;"	p	signature:(void)
+rec_file	deaf/deafmute.c	/^FILE	*rec_file=NULL;$/;"	v
+recv_buf_len	tcprt_usr_info.h	/^	int	recv_buf_len;	        \/\/\/<接收缓冲区大小$/;"	m	struct:__anon4	access:public
+recv_buf_remain	tcprt_usr_info.h	/^       int    recv_buf_remain;      \/\/\/<接收缓冲区内当前字节数$/;"	m	struct:__anon4	access:public
+recv_cmd_ch	maincmdproc.c	/^static int	            recv_cmd_ch=-1;				\/\/\/<接收命令的通道号(从本模块的角度看)$/;"	v	file:
+recv_info	tcprt_usr_info.h	/^    stream_recv_info_t            recv_info;          \/\/\/<接收芯片数据的信息结构$/;"	m	struct:__anon10	access:public
+refresh_screen	watch/watch_tcprt.c	/^static void refresh_screen(void)$/;"	f	file:	signature:(void)
+remain	sec_fifo.h	/^	int	remain;				\/\/未读取的字节数=准备写入的位置-准备读取的位置$/;"	m	struct:__anon12	access:public
+require_i_flag	tcprt_usr_info.h	/^	int require_i_flag;                 \/\/已请求i帧标志$/;"	m	struct:__anon7	access:public
+require_up_audio2enc	maincmdproc.c	/^void require_up_audio2enc(int aenc_no)$/;"	f	signature:(int aenc_no)
+require_videoenc_iframe	maincmdproc.c	/^void require_videoenc_iframe(int venc_no)$/;"	f	signature:(int venc_no)
+rlock	sec_fifo.h	/^	pthread_mutex_t rlock;$/;"	m	struct:__anon12	access:public
+rt_stat	maincmdproc.c	/^static  struct rtimage_state_struct rt_stat={           \/\/\/<rtimage模块工作状态$/;"	v	typeref:struct:rtimage_state_struct	file:
+rtnet_aplay_thread	net_aplay.c	/^static void *rtnet_aplay_thread(void *para)$/;"	f	file:	signature:(void *para)
+rtnet_av_close_connect	net_avstream.c	/^void rtnet_av_close_connect(int index)$/;"	f	signature:(int index)
+rtnet_av_cmd_thread	net_avstream.c	/^static void *rtnet_av_cmd_thread(void *para)$/;"	f	file:	signature:(void *para)
+rtnet_av_connect2gate	net_avstream.c	/^int rtnet_av_connect2gate(IN struct usr_req_rt_img_struct* require_parm,OUT int * usr_index)$/;"	f	signature:(IN struct usr_req_rt_img_struct* require_parm,OUT int * usr_index)
+s_mutex	serv_info.h	/^	pthread_mutex_t     s_mutex;                                                            \/\/\/<访问音视频上行服务用的互斥体??下行$/;"	m	struct:__anon2	access:public
+s_mutex	serv_info.h	/^	pthread_mutex_t     s_mutex;                                        \/\/\/<访问音视频上行服务用的互斥体$/;"	m	struct:__anon1	access:public
+sec_buff_exit	sec_fifo.c	/^void sec_buff_exit(sec_buffer_t *sec_buff)$/;"	f	signature:(sec_buffer_t *sec_buff)
+sec_buff_exit	sec_fifo.h	/^void sec_buff_exit(sec_buffer_t *sec_buff);$/;"	p	signature:(sec_buffer_t *sec_buff)
+sec_buff_get_size	sec_fifo.c	/^int sec_buff_get_size(sec_buffer_t *sec_buff)$/;"	f	signature:(sec_buffer_t *sec_buff)
+sec_buff_get_size	sec_fifo.h	/^int sec_buff_get_size(sec_buffer_t *sec_buff);$/;"	p	signature:(sec_buffer_t *sec_buff)
+sec_buff_init	sec_fifo.c	/^int sec_buff_init(sec_buffer_t *sec_buff)$/;"	f	signature:(sec_buffer_t *sec_buff)
+sec_buff_init	sec_fifo.h	/^int sec_buff_init(sec_buffer_t *sec_buff);$/;"	p	signature:(sec_buffer_t *sec_buff)
+sec_buff_read	sec_fifo.c	/^int sec_buff_read(sec_buffer_t *sec_buff,char *buff,int len)$/;"	f	signature:(sec_buffer_t *sec_buff,char *buff,int len)
+sec_buff_read	sec_fifo.h	/^int sec_buff_read(sec_buffer_t *sec_buff,char *buff,int len);$/;"	p	signature:(sec_buffer_t *sec_buff,char *buff,int len)
+sec_buff_remain	sec_fifo.c	/^int sec_buff_remain(sec_buffer_t *sec_buff)$/;"	f	signature:(sec_buffer_t *sec_buff)
+sec_buff_remain	sec_fifo.h	/^int sec_buff_remain(sec_buffer_t *sec_buff);$/;"	p	signature:(sec_buffer_t *sec_buff)
+sec_buff_resize	sec_fifo.c	/^void sec_buff_resize(sec_buffer_t *sec_buff,int resize)$/;"	f	signature:(sec_buffer_t *sec_buff,int resize)
+sec_buff_resize	sec_fifo.h	/^void sec_buff_resize(sec_buffer_t *sec_buff,int resize);$/;"	p	signature:(sec_buffer_t *sec_buff,int resize)
+sec_buff_write	sec_fifo.c	/^int sec_buff_write(sec_buffer_t *sec_buff,char *buff,int buff_len)$/;"	f	signature:(sec_buffer_t *sec_buff,char *buff,int buff_len)
+sec_buff_write	sec_fifo.h	/^int sec_buff_write(sec_buffer_t *sec_buff,char *buff,int buff_len);$/;"	p	signature:(sec_buffer_t *sec_buff,char *buff,int buff_len)
+sec_buffer_t	sec_fifo.h	/^}sec_buffer_t;$/;"	t	typeref:struct:__anon12
+sec_max_len	sec_fifo.c	/^static int sec_max_len=SEC_MAX_LEN;$/;"	v	file:
+second_proc_thread	main.c	/^static void second_proc_thread(void)$/;"	f	file:	signature:(void)
+send_ack_flag	tcprt_usr_info.h	/^    int    send_ack_flag;               \/\/\/<已发送响应标志 0表示未发送 非0表示已发送$/;"	m	struct:__anon7	access:public
+send_aplay_ack_pkt	net_aplay.c	/^int send_aplay_ack_pkt(int fd,WORD result,char* buf,int datalen)$/;"	f	signature:(int fd,WORD result,char* buf,int datalen)
+send_audio_channel2main	maincmdproc.c	/^int send_audio_channel2main(int channel)$/;"	f	signature:(int channel)
+send_buf_len	tcprt_usr_info.h	/^	int	send_buf_len;	        \/\/\/<发送缓冲区大小$/;"	m	struct:__anon4	access:public
+send_buf_remain	tcprt_usr_info.h	/^	int	 send_buf_remain;	  \/\/\/<发送缓冲区(socket)当前的字节数(使用ioctl从socket读出缓冲区内未发送出去的字节数)$/;"	m	struct:__anon4	access:public
+send_buffers	tcprt_usr_info.h	/^	int    send_buffers;             \/\/\/<放入发送缓冲区中的字节数(write时增加,输出给网络后减少,这个值应该永远小于send_buf_len)$/;"	m	struct:__anon4	access:public
+send_cmd_ch	maincmdproc.c	/^static int 	            send_cmd_ch=-1;				\/\/\/<发送命令的通道标识符$/;"	v	file:
+send_down_audio2enc	maincmdproc.c	/^int  send_down_audio2enc(int aenc_no,int mode)$/;"	f	signature:(int aenc_no,int mode)
+send_i_flag	avserver.c	/^  int send_i_flag=1;$/;"	v
+send_i_flag	tcprt_usr_info.h	/^	int	send_i_flag;		            \/\/\/<已发送I帧标志$/;"	m	struct:__anon7	access:public
+send_i_interval	avserver.c	/^  int send_i_interval=0;$/;"	v
+send_info	tcprt_usr_info.h	/^	stream_send_info_t	  send_info;		\/\/\/<发送媒体数据的信息结构$/;"	m	struct:__anon8	access:public
+send_main_cmd	maincmdproc.c	/^static int send_main_cmd(struct mod_com_type *send,int len)$/;"	f	file:	signature:(struct mod_com_type *send,int len)
+send_media_frame2usr	avserver.c	/^static inline int send_media_frame2usr$/;"	f	file:	signature:(av_usr_t *usr,media_source_t *enc,struct stream_fmt_struct *frame,int seq,int flag)
+send_media_frames	avserver.c	/^static int send_media_frames$/;"	f	file:	signature:(media_source_t *enc,struct stream_fmt_struct *frame,int seq,int flag)
+send_rtimg_stop_playback	maincmdproc.c	/^int send_rtimg_stop_playback(void)$/;"	f	signature:(void)
+send_rtimg_stop_playback	maincmdproc.h	/^int send_rtimg_stop_playback(void);$/;"	p	signature:(void)
+send_rtstream_ack_pkt	net_avstream.c	/^int send_rtstream_ack_pkt(int fd,WORD result,char* buf,int datalen)$/;"	f	signature:(int fd,WORD result,char* buf,int datalen)
+send_rtstream_ack_pkt	net_avstream.h	/^int send_rtstream_ack_pkt(int fd,WORD result,char* buf,int datalen);$/;"	p	signature:(int fd,WORD result,char* buf,int datalen)
+send_state2main	maincmdproc.c	/^int send_state2main(void)$/;"	f	signature:(void)
+sendflag	avserver.c	/^int sendflag=0;$/;"	v
+serv_stat	tcprt_usr_info.h	/^	int			                serv_stat;		\/\/\/<服务状态,0:没有收到请求服务命令 1:已订阅了视频服务 3:既订阅了视频服务也订阅了音频服务$/;"	m	struct:__anon8	access:public
+serv_stat	tcprt_usr_info.h	/^    int			                serv_stat;		\/\/\/<服务状态,0:没有收到请求服务命令 1:已经收到音频订阅命令,准备提供服务 负值:还没有连接$/;"	m	struct:__anon10	access:public
+set_audio_enc_attrib	audio_pool.c	/^static int set_audio_enc_attrib(OUT audio_format_t *afmt)$/;"	f	file:	signature:(OUT audio_format_t *afmt)
+set_hddbuf_offset	avserver.h	/^void set_hddbuf_offset(int offset);$/;"	p	signature:(int offset)
+set_net_enc_busy	maincmdproc.c	/^void set_net_enc_busy(int busy)$/;"	f	signature:(int busy)
+set_net_enc_busy	maincmdproc.h	/^void set_net_enc_busy(int busy);$/;"	p	signature:(int busy)
+set_net_scr_ch	play_back.h	/^int set_net_scr_ch(int usr_no,int ch);$/;"	p	signature:(int usr_no,int ch)
+set_playback_aframe_adjust	play_back.c	/^void set_playback_aframe_adjust(int no,int frame_ct)$/;"	f	signature:(int no,int frame_ct)
+set_playback_cancel	avserver.h	/^void set_playback_cancel(int no);$/;"	p	signature:(int no)
+set_playback_cancel	play_back.h	/^void set_playback_cancel(int no);$/;"	p	signature:(int no)
+set_playback_en	avserver.h	/^void  set_playback_en(int no);$/;"	p	signature:(int no)
+set_playback_en	play_back.h	/^void set_playback_en(int no);$/;"	p	signature:(int no)
+set_playback_frame_adjust	play_back.c	/^void set_playback_frame_adjust(int no,int frame_ct)$/;"	f	signature:(int no,int frame_ct)
+set_playback_frame_adjust	play_back.h	/^void set_playback_frame_adjust(int no,int frame_ct);$/;"	p	signature:(int no,int frame_ct)
+set_playback_stat	play_back.c	/^void set_playback_stat(int no,int stat)$/;"	f	signature:(int no,int stat)
+set_playback_stat	play_back.c	/^void set_playback_stat(int no,int stat);$/;"	p	file:	signature:(int no,int stat)
+set_playback_to_live	play_back.h	/^void set_playback_to_live(void);$/;"	p	signature:(void)
+show_net_av_info	watch/watch_tcprt.c	/^static void show_net_av_info(int no)$/;"	f	file:	signature:(int no)
+size	sec_fifo.h	/^	int	size;				\/\/缓冲区可以使用的长度，应该小于sec_max_len$/;"	m	struct:__anon12	access:public
+size	tcprt_usr_info.h	/^	int	size;		\/\/\/<此帧的大小$/;"	m	struct:__anon5	access:public
+sock_attr	tcprt_usr_info.h	/^	socket_attrib_t		  sock_attr;		\/\/\/<socket属性$/;"	m	struct:__anon8	access:public
+sock_attr	tcprt_usr_info.h	/^    socket_attrib_t		         sock_attr;		\/\/\/<socket属性$/;"	m	struct:__anon10	access:public
+socket_attrib_t	tcprt_usr_info.h	/^}socket_attrib_t;$/;"	t	typeref:struct:__anon4
+start_time	tcprt_usr_info.h	/^	struct timeval 		  start_time;		\/\/\/<连接的起始时间;$/;"	m	struct:__anon8	typeref:struct:__anon8::timeval	access:public
+start_time	tcprt_usr_info.h	/^    struct timeval 		         start_time;		\/\/\/<连接的起始时间;$/;"	m	struct:__anon10	typeref:struct:__anon10::timeval	access:public
+stop	sec_fifo.h	/^	int 	stop;				\/\/停止读取数据标志，为1停止读取，为0继续读取$/;"	m	struct:__anon12	access:public
+stop_down_audio2enc	maincmdproc.c	/^void stop_down_audio2enc(int aenc_no)$/;"	f	signature:(int aenc_no)
+stop_up_audio2enc	maincmdproc.c	/^void stop_up_audio2enc(int aenc_no)$/;"	f	signature:(int aenc_no)
+stream_idx	tcprt_usr_info.h	/^	int                   stream_idx;       \/\/新增加的sdk端idx$/;"	m	struct:__anon8	access:public
+stream_recv_info_t	tcprt_usr_info.h	/^}stream_recv_info_t;$/;"	t	typeref:struct:__anon9
+stream_send_info_t	tcprt_usr_info.h	/^}stream_send_info_t;$/;"	t	typeref:struct:__anon7
+stream_send_map_t	tcprt_usr_info.h	/^}stream_send_map_t;$/;"	t	typeref:struct:__anon6
+switch_cnt_1	avserver.c	/^ unsigned long switch_cnt_1=0;$/;"	v
+switch_cnt_2	avserver.c	/^ unsigned long switch_cnt_2=0;$/;"	v
+tail	tcprt_usr_info.h	/^	int	              tail;				                                 \/\/\/>缓冲区队尾位置,head=tail表示没有map中没有元素$/;"	m	struct:__anon6	access:public
+targetbitrate	serv_info.h	/^	int            targetbitrate;$/;"	m	struct:__anon3	access:public
+tcp_max_buff	serv_info.h	/^	int                 tcp_max_buff;               \/\/\/<缓冲区大小$/;"	m	struct:__anon3	access:public
+tcprtimg_svr_t	serv_info.h	/^}tcprtimg_svr_t;$/;"	t	typeref:struct:__anon3
+th_drop_a	serv_info.h	/^	int		         th_drop_a;		   \/\/\/<开始丢弃所有数据的阈值$/;"	m	struct:__anon3	access:public
+th_drop_a	tcprt_usr_info.h	/^	int	                              th_drop_a;		\/\/\/<开始丢弃音频数据的阈值$/;"	m	struct:__anon8	access:public
+th_drop_p	serv_info.h	/^	int		         th_drop_p;		   \/\/\/<缓冲池数据多后开始丢视频p帧的阈值$/;"	m	struct:__anon3	access:public
+th_drop_p	tcprt_usr_info.h	/^	int	                              th_drop_p;		\/\/\/<开始丢弃p帧的阈值$/;"	m	struct:__anon8	access:public
+th_drop_v	serv_info.h	/^	int		         th_drop_v;		   \/\/\/<缓冲池数据多后开始丢弃所有视频的阈值$/;"	m	struct:__anon3	access:public
+th_drop_v	tcprt_usr_info.h	/^	int	                              th_drop_v;		\/\/\/<开始丢弃所有视频的$/;"	m	struct:__anon8	access:public
+th_timeout	serv_info.h	/^	int		         th_timeout;	   \/\/\/<长时间没有数据交互时判断超时的时间$/;"	m	struct:__anon3	access:public
+th_timeout	tcprt_usr_info.h	/^	int			                th_timeout;	\/\/\/<判定超时的阈值(连接后长时间没有收到命令或长时间发不出数据),以秒为单位$/;"	m	struct:__anon8	access:public
+th_timeout	tcprt_usr_info.h	/^    int			                th_timeout;	\/\/\/<判定超时的阈值(连接后长时间没有收到命令或长时间发不出数据),以秒为单位$/;"	m	struct:__anon10	access:public
+thread_id	tcprt_usr_info.h	/^       pthread_t                       thread_id;         \/\/\/<线程id$/;"	m	struct:__anon8	access:public
+thread_id	tcprt_usr_info.h	/^    pthread_t                          thread_id;         \/\/\/<线程id$/;"	m	struct:__anon10	access:public
+timeout_cnt	tcprt_usr_info.h	/^	int			                timeout_cnt;	\/\/\/<计算超时的计数器$/;"	m	struct:__anon8	access:public
+timeout_cnt	tcprt_usr_info.h	/^    int			                timeout_cnt;	\/\/\/<计算超时的计数器$/;"	m	struct:__anon10	access:public
+timeval_subtract	net_aplay.c	/^int   timeval_subtract(struct	timeval*   result,	 struct   timeval*	 x,   struct   timeval*   y)   $/;"	f	signature:(struct timeval* result, struct timeval* x, struct timeval* y)
+total_out	tcprt_usr_info.h	/^       int     total_out;                  \/\/\/<总共发送出去的字节数 $/;"	m	struct:__anon7	access:public
+total_play	tcprt_usr_info.h	/^    int                                    total_play;          \/\/\/<总共播放的字节数$/;"	m	struct:__anon9	access:public
+total_put	tcprt_usr_info.h	/^       int     total_put;                   \/\/\/<总共放入发送缓冲区中的字节数$/;"	m	struct:__anon7	access:public
+total_recv	tcprt_usr_info.h	/^    int                                    total_recv;          \/\/\/<总共收到的字节数$/;"	m	struct:__anon9	access:public
+u_mutex	tcprt_usr_info.h	/^	pthread_mutex_t            u_mutex;		\/\/\/<访问用户数据时需要的互斥体$/;"	m	struct:__anon8	access:public
+u_mutex	tcprt_usr_info.h	/^    pthread_mutex_t               u_mutex;		\/\/\/<访问用户数据时需要的互斥体$/;"	m	struct:__anon10	access:public
+used	tcprt_usr_info.h	/^	int 				used;$/;"	m	struct:__anon8	access:public
+usr_list	serv_info.h	/^	aplay_usr_t	        usr_list[TCPRTIMG_MAX_APLAY_NO+1];	              \/\/\/<音视频上行服务用户信息列表,多一个用于处理忙$/;"	m	struct:__anon2	access:public
+usrs	serv_info.h	/^	int		            usrs;				                                          \/\/\/<当前访问音频下行服务的用户数$/;"	m	struct:__anon2	access:public
+v_frames	tcprt_usr_info.h	/^	int	              v_frames;			                          \/\/\/>缓冲区map中的视频帧数$/;"	m	struct:__anon6	access:public
+venc_last_tv	avserver.c	/^struct timeval  venc_last_tv[MAX_VIDEO_ENCODER];       \/\/\/<视频编码器0最后一帧的时间戳$/;"	v	typeref:struct:timeval
+venc_no	tcprt_usr_info.h	/^	int			                venc_no;		\/\/\/<用户请求连接的视频编码器编号$/;"	m	struct:__anon8	access:public
+venc_pb_tv	avserver.c	/^struct timeval  venc_pb_tv[MAX_AUDIO_ENCODER];$/;"	v	typeref:struct:timeval
+venc_server_thread	avserver.c	/^static void *venc_server_thread(void *para)$/;"	f	file:	signature:(void *para)
+version	rtimage2.h	/^static const char version[]="0.01";			\/\/\/<程序版本号$/;"	v
+video_enc	serv_info.h	/^	media_source_t 	  video_enc[MAX_VIDEO_ENCODER]; \/\/\/<视频编码器实例$/;"	m	struct:__anon1	access:public
+vir0_lan_users	serv_info.h	/^	int				vir0_lan_users;					\/\/\/<当前虚拟设备0局域网用户数$/;"	m	struct:__anon1	access:public
+vir0_wan_users	serv_info.h	/^	int 				vir0_wan_users;					\/\/\/<当前虚拟设备0广域网用户数$/;"	m	struct:__anon1	access:public
+vir1_lan_users	serv_info.h	/^	int				vir1_lan_users;					\/\/\/<当前虚拟设备1局域网用户数$/;"	m	struct:__anon1	access:public
+vir1_wan_users	serv_info.h	/^	int				vir1_wan_users;					\/\/\/<当前虚拟设备1广域网用户数$/;"	m	struct:__anon1	access:public
+virdev_num	serv_info.h	/^	int                   virdev_num;	  \/\/\/<设备中虚拟设备个数$/;"	m	struct:__anon3	access:public
+virdev_num	watch/watch_tcprt.c	/^static int				virdev_num=-1;								    \/\/\/<$/;"	v	file:
+wan_usrs	serv_info.h	/^	int		                wan_usrs;				               \/\/\/<当前的广域网用户数$/;"	m	struct:__anon1	access:public
+watch_version	watch/watch_tcprt.c	/^const static char watch_version[]="0.03t";     \/\/\/<版本号$/;"	v	file:
+write_adec_frame_pool	avserver.c	/^static inline int write_adec_frame_pool(media_source_t *adec, struct stream_fmt_struct *frame)$/;"	f	file:	signature:(media_source_t *adec, struct stream_fmt_struct *frame)
+write_frame_data2sdk	avserver.c	/^static inline int write_frame_data2sdk$/;"	f	file:	signature:(IN int fd,IN char * head_buf,IN struct stream_fmt_struct*frame,IN media_format_t * fmt)
+write_frame_data2trans	avserver.c	/^static inline int write_frame_data2trans$/;"	f	file:	signature:(IN int fd,IN char * head_buf,IN struct stream_fmt_struct *frame,int v_fmt)
+write_rawaudio2file_pre	avserver.c	/^ static int  write_rawaudio2file_pre(void *buf,int len,avi_t **AVI)$/;"	f	file:	signature:(void *buf,int len,avi_t **AVI)
+write_rawaudio2file_send	avserver.c	/^int  write_rawaudio2file_send(void *buf,int len)$/;"	f	signature:(void *buf,int len)
+write_rawaudio2file_send	net_aplay.c	/^extern int write_rawaudio2file_send();$/;"	p	file:
